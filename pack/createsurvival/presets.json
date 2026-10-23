@@ -1,14 +1,6 @@
 {
-  "_comment": "What each mode sets. File -> key -> value. options.txt is key:value, .toml key = value (value written as is, quote strings), .properties key=value. Applied when a player picks the mode and again whenever a pack update rewrites one of these files; other changes the player makes stay.",
+  "_comment": "What each mode sets. File -> key -> value (.toml key = value, value written as is, quote strings; .properties key=value). Applied when a player picks the mode and again whenever a pack update rewrites one of these files; other changes the player makes stay. options.txt is never touched.",
   "performance": {
-    "options.txt": {
-      "renderDistance": "8",
-      "simulationDistance": "6",
-      "graphicsMode": "0",
-      "particles": "1",
-      "entityDistanceScaling": "1.0",
-      "biomeBlendRadius": "1"
-    },
     "config/DistantHorizons.toml": {
       "lodChunkRenderDistanceRadius": "64",
       "horizontalQuality": "\"LOW\"",
@@ -20,14 +12,6 @@
     }
   },
   "quality": {
-    "options.txt": {
-      "renderDistance": "12",
-      "simulationDistance": "8",
-      "graphicsMode": "1",
-      "particles": "0",
-      "entityDistanceScaling": "2.0",
-      "biomeBlendRadius": "2"
-    },
     "config/DistantHorizons.toml": {
       "lodChunkRenderDistanceRadius": "256",
       "horizontalQuality": "\"MEDIUM\"",

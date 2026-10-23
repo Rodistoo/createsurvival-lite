@@ -818,7 +818,7 @@ hash = "035dc09f52f8dc8b79db3e42eb74cb86e586b45ca28da12c21b757bdfd6fea32"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/overworld.properties"
-hash = "b92dd894f45ea7a90b3fd40ba702add21a20588c95298b58cd8a18fc76864608"
+hash = "6570bca0631b3e4e4350737b8ea70dd780224b330eeeca141eb7b5b2ff23f325"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/the_nether.properties"
@@ -1522,7 +1522,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "e924fced26ed54ec6d35294c6df36f6ce0121cb5596eefd2b18c611efee1c928"
+hash = "996f8a70edac28d676f6698a6dae416272ebf13e97090b87a0e0aa72968b1abb"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1774,7 +1774,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "7710d9c2ad8b77c591005a049fca4f5aceefa8320570e9dc35e4d7736983862b"
+hash = "524eb74fa70ffcc126cbf7f114e345d259a43f5c04ad613177137b6cc4f4f115"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -3054,11 +3054,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "ab4abe011dd2997c6019820d9ab8b36ccdcaefd96bed1bfd492a83fa39fa371e"
-
-[[files]]
-file = "createsurvival/default-options.txt"
-hash = "b49afec93544d4ef8838183505024e242ce487b426a7885f77fe8dfd550e7090"
+hash = "b23bf07574dadc59bcaef9fe6a632c291bd858bdf422f9eca234be0758098ad8"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -3066,11 +3062,11 @@ hash = "2fda48fbb2f2774c4ca7d29a340bd9002a8fb4ec5ff8e1114f1b15dfd14c3052"
 
 [[files]]
 file = "createsurvival/presets.json"
-hash = "3e1de8ab6d6251c8de3bbc3bec7658f1e01581a544b101483056664480904248"
+hash = "c246f00a62cd922b4769e3c64a051851a48862efe3bd7cf9e36e99d80351ff34"
 
 [[files]]
 file = "createsurvival/sync.ps1"
-hash = "8ec216cc9bb978415dd7533166d7036e1bef140cca7246159a02467b80777fe0"
+hash = "a3acef8ad4a4953144971a2b2df3cc3521baad2e1ccaef0ad687afac072fde30"
 
 [[files]]
 file = "defaultconfigs/biolith/general.json"

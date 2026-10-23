@@ -1,9 +1,8 @@
 # CreateSurvival Lite: runs before every start (Prism's pre-launch command, set up by the installer).
 #  1. brings the instance up to date with the pack (packwiz-installer: only what changed is downloaded)
-#  2. first start: the pack's default options.txt
-#  3. the chosen mode (performance / quality, createsurvival/presets.json): applied when it was picked and again when
-#     an update rewrote one of its files - other changes a player makes stay
-#  4. a new NeoForge version of the pack goes into the instance (used from the next start on)
+#  2. the chosen mode (performance / quality, createsurvival/presets.json): applied when it was picked and again when
+#     an update rewrote one of its files - other changes a player makes stay. options.txt is never touched.
+#  3. a new NeoForge version of the pack goes into the instance (used from the next start on)
 # Local files (not part of the pack): createsurvival/settings.json (installer: pack url, mode), createsurvival/state.json.
 # Without internet the game starts as it is.
 
@@ -66,23 +65,14 @@ if (-not $state.installed) {
     exit 1
 }
 
-# 2. default options on the first start
-$options = Join-Path $mc 'options.txt'
-$defaultOptions = Join-Path $own 'default-options.txt'
-if (-not (Test-Path -LiteralPath $options) -and (Test-Path -LiteralPath $defaultOptions)) {
-    Copy-Item -LiteralPath $defaultOptions -Destination $options
-}
-
-# 3. the mode
+# 2. the mode
 function Set-Keys($path, $keys) {
     $lines = @()
     if (Test-Path -LiteralPath $path) { $lines = @([System.IO.File]::ReadAllLines($path)) }
     $ext = [System.IO.Path]::GetExtension($path).ToLower()
-    $name = [System.IO.Path]::GetFileName($path).ToLower()
     foreach ($k in $keys.PSObject.Properties) {
         $key = [regex]::Escape($k.Name)
-        if ($name -eq 'options.txt') { $pattern = "^$($key):"; $line = "$($k.Name):$($k.Value)" }
-        elseif ($ext -eq '.toml') { $pattern = "^(\s*)$key\s*="; $line = $null }
+        if ($ext -eq '.toml') { $pattern = "^(\s*)$key\s*="; $line = $null }
         else { $pattern = "^$key="; $line = "$($k.Name)=$($k.Value)" }
         $done = $false
         for ($i = 0; $i -lt $lines.Count; $i++) {
@@ -109,7 +99,7 @@ if ($presets -and $presets.PSObject.Properties[$settings.mode]) {
 }
 Write-Json $stateFile $state
 
-# 4. NeoForge version of the pack
+# 3. NeoForge version of the pack
 try {
     $packToml = (Invoke-WebRequest -UseBasicParsing -Uri $settings.packUrl -TimeoutSec 10).Content
     $m = [regex]::Match($packToml, 'neoforge\s*=\s*"([^"]+)"')

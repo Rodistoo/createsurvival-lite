@@ -181,7 +181,7 @@ $ram.Size = New-Object System.Drawing.Size(70, 23); $ram.Minimum = 4; $ram.Maxim
 $form.Controls.Add($ram)
 Add-Label 'GB  (6-10 GB is right for most PCs)' 96 132 300 | Out-Null
 
-Add-Label 'Video settings: performance (view distance 8, short Distant Horizons range, no shaders).' 20 170 420 36 | Out-Null
+Add-Label 'Video settings: performance (short Distant Horizons range, no shaders).' 20 170 420 36 | Out-Null
 Add-Label 'You can change them in the game afterwards.' 20 206 | Out-Null
 
 $status = Add-Label '' 20 244 420 40

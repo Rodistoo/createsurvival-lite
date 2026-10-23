@@ -9,7 +9,8 @@ A lighter version of the CreateSurvival modpack (Minecraft 1.21.1, NeoForge, Cre
 2. Download **[CreateSurvival-Lite-Installer.cmd](installer/CreateSurvival-Lite-Installer.cmd)** (Download raw file) and
    double-click it. If Windows warns about an unknown file: "More info" → "Run anyway".
 3. Choose how much memory Minecraft gets (6-10 GB suits most PCs). The video settings start out on performance
-   (view distance 8, short Distant Horizons range, no shaders); change them in the game as you like.
+   (short Distant Horizons range, no shaders); change them in the game as you like. Your options.txt (keys,
+   video settings) is never touched by updates.
 4. Open Prism Launcher, pick **CreateSurvival Lite** and press Launch. The first start downloads the whole pack
    (about 2000 files, a few minutes).
 
