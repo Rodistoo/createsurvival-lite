@@ -45,6 +45,8 @@ ServerEvents.recipes(event => {
     // gantries: CreateSurvival Mechanics' gantry drive replaces them (Gadgets & Gizmos' physics gantry too)
     'create:gantry_carriage', 'createthrusters:physics_gantry_shaft', 'createthrusters:physics_gantry_carriage',
     'createthrusters:physics_gantry_belt_wheel',
+    // Gadgets & Gizmos' physics staff: not part of the pack
+    'createthrusters:physics_staff',
     // Create contraption blocks CreateSurvival Mechanics replaces with physics ones (their recipes are the Mechanics
     // blocks' now, see below)
     'create:mechanical_piston', 'create:sticky_mechanical_piston', 'create:rope_pulley', 'create:cart_assembler',

@@ -818,7 +818,7 @@ hash = "035dc09f52f8dc8b79db3e42eb74cb86e586b45ca28da12c21b757bdfd6fea32"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/overworld.properties"
-hash = "ecfcf3e74e97d3a289df37b4347cde5db674ff006675c06933ff22aef9396af3"
+hash = "2237459c32147e62976aacab953b61dc0b6e5f1ac2c29c445786fdbcc619dcdf"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/the_nether.properties"
@@ -826,7 +826,7 @@ hash = "56b8ebc631a85690caf0fbe0744dd08b5413801b87a0e672ea0776db10ed89b0"
 
 [[files]]
 file = "config/chunksmith/worldgen-faults.txt"
-hash = "13955ddffb161a830fdb233561c2eaa4d47d1d62f4dcf6b5800b1e8cb3e7074c"
+hash = "c37e5a7a09f068199879739fc1d22dabdee33d108be2b7fda2d0c43472f4c1ba"
 
 [[files]]
 file = "config/chunky/config.json"
@@ -1150,7 +1150,7 @@ hash = "bae863653ce11ee9ab21cebf33049e854fb560a05a74be07be33c68cf2615b1e"
 
 [[files]]
 file = "config/createthrusters_physics_goggles_overlays.json"
-hash = "d283e3cb9adaa6bbc6c4578ba5f99d2c52cbd3ec890f62689a81024398e6dd51"
+hash = "780e27b7e67a9c4e4e65079a4c74f97f8b355a24e33462804b61fb22034b94dd"
 
 [[files]]
 file = "config/creativecore-client.json"
@@ -1522,7 +1522,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "096dd4561d1e6acdf1226c615c7cd546f43d6dffb3ca41d8adb4143c46256590"
+hash = "45a057991b11fd3fa92c9126a75eb0decfcc040fe11aa96047f9b1e98a8f582c"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1774,7 +1774,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "48ab56c38dcc10e3544a34236b7c6cad46cc4e497b7393bf7dc56451f42a1bd8"
+hash = "6b114585591cfecd5486281de81a926b6fdf1b61b39df24094283d091b55f9ed"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -3054,7 +3054,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "a947fbd0eb4f3d990aba2117beb84fe216e2948b8d913a7b08039a014107fe20"
+hash = "7606a29ded31f122abe7a88f0e548f2b1edf17710d24d97f407e72db6f8f7710"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -4174,7 +4174,7 @@ hash = "5b7810fc78edd35a96a9f6cdd0df227289225476872065d71b956c0c4f6c0d29"
 
 [[files]]
 file = "kubejs/client_scripts/main.js"
-hash = "73a9f21c385e83cce0e9209498d6eb06620a9cb63c4f44b3d85b46650e37a2e1"
+hash = "4ae6745e50c3b5d4d2a328870383dba91e9bd8f761ed75e0d74d939beb775d3b"
 
 [[files]]
 file = "kubejs/config/client.json"
@@ -4687,6 +4687,14 @@ hash = "1a4c63c69f048bf10ef23fb840cce6ae62801a1e81b435aee3bfed3631dfbcb6"
 [[files]]
 file = "kubejs/data/createthrusters/advancement/gadgets_and_gizmos.json"
 hash = "98359a61bcc71f6407400fda6cd3eda50617a8b250aa00254feca545ed628196"
+
+[[files]]
+file = "kubejs/data/createthrusters/advancement/physics_goggles.json"
+hash = "706ce2251947e5be5d70d07af509406973b68ec4b7d812c9d4fc1e4eddae40e6"
+
+[[files]]
+file = "kubejs/data/createthrusters/advancement/physics_staff.json"
+hash = "21b11674b18c3fb0d8292095cf7c12bca82ef4054ec3f1cd8d1e0222d1655629"
 
 [[files]]
 file = "kubejs/data/createthrusters/advancement/special_thanks_bigjim.json"
@@ -7254,7 +7262,7 @@ hash = "1e3fc4a5407cc1202b67f706299436e0759125a429a297a4239b0ccc9bd6a0f7"
 
 [[files]]
 file = "kubejs/server_scripts/createsurvival_recipes.js"
-hash = "f4d711e7253652382a662fdabcc2c9f04d7f0d612109bad4a9c9e3076e0f4b0f"
+hash = "17461c592de5957f239460cc7672f483a5a89bfec411ebe1b553ec4fdb1004b7"
 
 [[files]]
 file = "kubejs/server_scripts/createsurvival_resource_nodes.js"

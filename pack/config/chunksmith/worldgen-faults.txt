@@ -1,26 +1,17 @@
 Chunksmith - Worldgen Fault Report
-Generated: Fri, 23 Oct 2026 23:22:19 +0200
-Chunksmith generation task active: no
-Total faults this session: 27
+Generated: Sat, 24 Oct 2026 01:38:04 +0200
+Chunksmith generation task active: yes
+Total faults this session: 3
 
 These are vanilla worldgen errors Chunksmith caught and kept out of the server log.
 Each is attributed to the structure/datapack being generated - report it to that mod's author.
 ====================================================================
 
-mod/datapack: notenoughtrials
-  total faults: 20
-  error types:
-    - block-attached entity: anchor more than 16 blocks from the entity x20
-  structures involved:
-    - notenoughtrials:vertical_trial_chambers x20
-  sample broken chunks (up to 10): [16,-8] [6,-17] [-12,-15] [17,-6] [16,-6]
-
 mod/datapack: minecraft
-  total faults: 7
+  total faults: 3
   error types:
-    - block-attached entity: anchor more than 16 blocks from the entity x7
+    - block-attached entity: anchor more than 16 blocks from the entity x3
   structures involved:
-    - minecraft:abandoned_camp_forest x6
-    - minecraft:abandoned_camp_savanna x1
-  sample broken chunks (up to 10): [-15,7] [54,-21] [28,1]
+    - minecraft:abandoned_camp_forest x3
+  sample broken chunks (up to 10): [4,-23]
 

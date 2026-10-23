@@ -6,7 +6,7 @@ console.info('Hello, World! (Loaded client example script)')
 RecipeViewerEvents.removeEntriesCompletely('item', event => {
   ;['create:mechanical_piston', 'create:sticky_mechanical_piston', 'create:gantry_carriage', 'create:rope_pulley', 'create:cart_assembler',
     'linearbearing:linear_bearing', 'createthrusters:physics_gantry_shaft', 'createthrusters:physics_gantry_carriage',
-    'createthrusters:physics_gantry_belt_wheel'].forEach(id => event.remove(id))
+    'createthrusters:physics_gantry_belt_wheel', 'createthrusters:physics_staff'].forEach(id => event.remove(id))
 })
 
 // Caverns & Chasms' copper tools and armour (every weathering stage, waxed or not): no recipes, Vanilla Backport has the
