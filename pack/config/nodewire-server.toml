@@ -1,0 +1,5 @@
+#Cheat / sandbox toggles — off by default.
+[cheats]
+	#Let Nodewire pin links drive cannon-mount aim directly (setPitch/setYaw),
+	#bypassing the mount's normal kinetic/redstone control. This is a cheat.
+	pinDrivenCannonAim = false

@@ -1,0 +1,235 @@
+[spell]
+	#How many glyphs a spell holds.
+	# Default: 3
+	# Range: 1 ~ 16
+	maxGlyphs = 4
+	#Each further glyph of the same element in a spell adds this much of its strength (0.5: two wind glyphs blow 1.5 times as strong).
+	# Default: 0.5
+	# Range: 0.0 ~ 10.0
+	powerPerExtraElement = 0.5
+	#How far (blocks) a spell reaches that is neither Touch nor Underfoot (an air current, like a fan's).
+	# Default: 12.0
+	# Range: 1.0 ~ 64.0
+	reach = 12.0
+	#With Stream: ticks between casts of the Ars Nouveau part of a spell.
+	# Default: 10
+	# Range: 1 ~ 200
+	streamArsInterval = 10
+	#With Stream: ticks between projectiles (wind charges).
+	# Default: 10
+	# Range: 1 ~ 200
+	streamProjectileInterval = 10
+	#Glyphs that become another when put into a spell next to each other (either order): "first+second=result", item ids.
+	combinations = ["createsurvival_magic:glyph_wind+ars_nouveau:glyph_ignite=createsurvival_magic:glyph_smoke"]
+
+[wind]
+	#The speed (blocks per tick) a wind current pushes toward near its start (half at its end); Create's fans work alike.
+	# Default: 0.8
+	# Range: 0.0 ~ 10.0
+	currentSpeed = 1.4
+	#How far (blocks) from a wind current's middle line something may be and still be in it.
+	# Default: 1.0
+	# Range: 0.1 ~ 8.0
+	currentRadius = 1.0
+	#How long (ticks) a wind current lasts without Stream.
+	# Default: 15
+	# Range: 1 ~ 1200
+	currentTicks = 15
+	#How long (ticks) Underfoot wind lasts without Stream.
+	# Default: 30
+	# Range: 1 ~ 1200
+	liftTicks = 30
+	#Underfoot wind lifts up to about this many blocks above the ground (it fades over the last block).
+	# Default: 4.0
+	# Range: 0.0 ~ 256.0
+	liftHeight = 4.0
+	#Each further wind glyph lifts this many blocks higher.
+	# Default: 2.0
+	# Range: 0.0 ~ 256.0
+	liftHeightPerExtraWind = 2.0
+	#Self with wind: ticks of slow falling per wind glyph (with Stream: while held).
+	# Default: 200
+	# Range: 1 ~ 72000
+	slowFallingTicks = 200
+	#How fast (blocks per tick) a wind charge set off at the caster (Projectile with Self or Underfoot) throws them, per wind glyph's strength.
+	# Default: 1.1
+	# Range: 0.0 ~ 10.0
+	launchSpeed = 1.1
+	#Physics objects (Sable) in a wind current are pushed like by a propeller: this force for each spot of the current that hits one of their blocks (a broad side catches more). For comparison, an encased fan at 256 RPM on a physics object gives it a thrust of about 24.
+	# Default: 4.0
+	# Range: 0.0 ~ 10000.0
+	physicsForcePerHit = 4.0
+	#Air flow particles (like a Create encased fan's) a wind current sends out each tick.
+	# Default: 4
+	# Range: 0 ~ 32
+	particlesPerTick = 4
+	#Wind currents process items like Create's encased fans (through lava, fire, campfires, water...).
+	fanProcessing = true
+
+[shape]
+	#AOE and Wall spread a spell over spots this many blocks apart (each a wind current, or a wind charge going off).
+	# Default: 2.0
+	# Range: 0.5 ~ 16.0
+	spacing = 2.0
+	#AOE: the radius (blocks) of the area.
+	# Default: 3.0
+	# Range: 0.0 ~ 32.0
+	areaRadius = 3.0
+	#AOE: each further AOE glyph widens the radius by this much.
+	# Default: 2.0
+	# Range: 0.0 ~ 32.0
+	areaRadiusPerExtra = 2.0
+	#Wall: how wide (blocks) the wall is.
+	# Default: 5.0
+	# Range: 0.0 ~ 64.0
+	wallWidth = 5.0
+	#Wall: each further Wall glyph widens it by this much.
+	# Default: 2.0
+	# Range: 0.0 ~ 64.0
+	wallWidthPerExtra = 2.0
+	#Wall: how high (blocks) the wall stands where a thrown wind charge hits (wind walls otherwise blow up as high as liftHeight).
+	# Default: 3.0
+	# Range: 0.0 ~ 64.0
+	wallHeight = 3.0
+	#Wall with no other form glyph: how far (blocks) in front of the caster it stands.
+	# Default: 1.0
+	# Range: 0.0 ~ 16.0
+	wallDistance = 1.0
+
+[fire]
+	#How long (ticks) a fire stream lasts without Stream.
+	# Default: 20
+	# Range: 1 ~ 1200
+	streamTicks = 20
+	#How long (ticks) pillars of fire (fire blowing up out of the ground: Underfoot, AOE, Wall) last without Stream.
+	# Default: 40
+	# Range: 1 ~ 1200
+	pillarTicks = 40
+	#How high (blocks) a pillar of fire reaches.
+	# Default: 3.0
+	# Range: 0.5 ~ 64.0
+	pillarHeight = 3.0
+	#Each further fire glyph makes pillars this much higher.
+	# Default: 1.0
+	# Range: 0.0 ~ 64.0
+	pillarHeightPerExtraFire = 1.0
+	#How fire processes items, as a Create encased fan blowing through a catalyst: the fan processing type for one fire glyph, two, ... (the last for more).
+	processing = ["create:smoking", "create:blasting"]
+	#Seconds a creature caught by fire burns, per fire glyph's strength.
+	# Default: 3
+	# Range: 0 ~ 600
+	burnSeconds = 3
+	#Each tick, the chance that fire lights a block it reaches (as flint and steel would: campfires, candles, torches) or sets fire beside a flammable one.
+	# Default: 0.25
+	# Range: 0.0 ~ 1.0
+	igniteChance = 0.25
+	#Fire also catches on blocks that don't burn (where fire can stay, as flint and steel sets it), this share as often as on flammable ones.
+	# Default: 0.25
+	# Range: 0.0 ~ 1.0
+	nonFlammableShare = 0.25
+	#Projectile with fire: the projectile (entity id) for one fire glyph, two, ... (the last for more). A ghast's fireball (minecraft:fireball) explodes as set below, not as a ghast's.
+	fireballs = ["minecraft:small_fireball", "minecraft:fireball"]
+	#How hard a spell's ghast fireball explodes for creatures (damage, knockback), with the fire glyphs that first make it one; each further fire glyph adds powerPerExtraElement of it. A ghast's is 1.
+	# Default: 1.0
+	# Range: 0.0 ~ 16.0
+	explosionPower = 1.0
+	#How hard it explodes for blocks (0: it breaks none), likewise. A ghast's is 1.
+	# Default: 1.0
+	# Range: 0.0 ~ 16.0
+	blockBreakingPower = 1.0
+	#How fast (blocks per tick) a ghast fireball set off at the caster (Projectile with Self or Underfoot) throws them, as wind does, likewise.
+	# Default: 1.0
+	# Range: 0.0 ~ 10.0
+	launchSpeed = 1.0
+	#The share of a spell explosion's damage its caster takes.
+	# Default: 0.35
+	# Range: 0.0 ~ 1.0
+	casterExplosionDamage = 0.35
+
+[smoke]
+	#Smoke blown by wind (a wind spell, an encased fan, a propeller, a blast) moves with it and thins out: each tick blown takes this many ticks off how long it lasts.
+	# Default: 2
+	# Range: 0 ~ 1200
+	blownAwayTicks = 20
+	#How far (blocks) a smoke cloud reaches from its middle, for one smoke glyph (more glyphs: by their strength).
+	# Default: 3.0
+	# Range: 0.5 ~ 32.0
+	cloudRadius = 3.0
+	#How long (ticks) a smoke cloud lasts, for one smoke glyph (more glyphs: by their strength).
+	# Default: 200
+	# Range: 1 ~ 72000
+	cloudTicks = 200
+	#Creatures see through this many blocks of smoke at most: past that they lose sight of what is behind or in it (mobs lose their target, skeletons stop shooting).
+	# Default: 1.5
+	# Range: 0.0 ~ 64.0
+	seeThrough = 1.5
+	#Self with smoke: ticks of invisibility per smoke glyph (with Stream: while held).
+	# Default: 200
+	# Range: 1 ~ 72000
+	invisibilityTicks = 200
+	#How long (ticks) a smoke stream lasts without Stream.
+	# Default: 20
+	# Range: 1 ~ 1200
+	streamTicks = 20
+	#How long (ticks) pillars of smoke (up out of the ground: Underfoot, AOE, Wall) last without Stream.
+	# Default: 40
+	# Range: 1 ~ 1200
+	pillarTicks = 40
+	#How high (blocks) a pillar of smoke reaches, for one smoke glyph (more glyphs: by their strength).
+	# Default: 4.0
+	# Range: 0.5 ~ 64.0
+	pillarHeight = 4.0
+	#How far (blocks) a stream or pillar of smoke reaches from its middle line, for one smoke glyph (more glyphs: by their strength).
+	# Default: 2.0
+	# Range: 0.25 ~ 16.0
+	flowRadius = 2.0
+	#How long (ticks) the smoke of a stream or pillar hangs in the air after it ends.
+	# Default: 60
+	# Range: 0 ~ 72000
+	lingerTicks = 60
+	#Flames a fire stream or pillar sends out each tick.
+	# Default: 6
+	# Range: 0 ~ 64
+	particlesPerTick = 6
+	#The effect (id) everything in smoke gets, kept up while it is in it.
+	effect = "minecraft:blindness"
+	#How long (ticks) the effect lasts after leaving the smoke.
+	# Default: 30
+	# Range: 1 ~ 72000
+	effectTicks = 30
+	#With Create Big Cannons: smoke looks like its smoke shell's (else vanilla campfire smoke).
+	cannonSmoke = true
+	#The item fire acts as on blocks in the block tag createsurvival_magic:lit_by_fire_starter (they are lit by using it on them).
+	fireStarter = "minecraft:flint_and_steel"
+	#How far (blocks) fire set off at a spot (Projectile with Self, Underfoot or Touch, or a spell fireball's shape where it hits) reaches, for one fire glyph.
+	# Default: 1.5
+	# Range: 0.0 ~ 16.0
+	burstRadius = 1.5
+	#Self with fire: ticks of fire resistance per fire glyph (with Stream: while held).
+	# Default: 200
+	# Range: 1 ~ 72000
+	fireResistanceTicks = 200
+	#Smoke particles a stream or pillar of smoke sends out each tick, per block of its length.
+	# Default: 0.6
+	# Range: 0.0 ~ 16.0
+	particleDensity = 0.6
+	#How big (about blocks) the campfire smoke particles of streams and pillars are.
+	# Default: 2.0
+	# Range: 0.1 ~ 16.0
+	particleSize = 2.0
+	#How big (about blocks) the particles of smoke balls (smoke bombs) are.
+	# Default: 4.0
+	# Range: 0.1 ~ 16.0
+	cloudParticleSize = 4.0
+	#How long (ticks, about) a smoke particle of a stream or pillar stays.
+	# Default: 60
+	# Range: 4 ~ 1200
+	particleTicks = 60
+	#How long (ticks, about) a smoke ball's particle stays (Create Big Cannons' smoke shell smoke: 200).
+	# Default: 160
+	# Range: 4 ~ 1200
+	cloudParticleTicks = 160
+	#Blown smoke moves at this share of the air's speed (a wind spell's current: 0.8 blocks per tick), and drifts on a little after.
+	# Default: 0.25
+	# Range: 0.0 ~ 1.0
+	blownSpeed = 0.25

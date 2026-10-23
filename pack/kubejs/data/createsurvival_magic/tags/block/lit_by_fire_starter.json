@@ -1,0 +1,53 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "hardcore_torches:unlit_torch",
+      "required": false
+    },
+    {
+      "id": "hardcore_torches:unlit_wall_torch",
+      "required": false
+    },
+    {
+      "id": "hardcore_torches:smoldering_torch",
+      "required": false
+    },
+    {
+      "id": "hardcore_torches:smoldering_wall_torch",
+      "required": false
+    },
+    {
+      "id": "hardcore_torches:unlit_soul_torch",
+      "required": false
+    },
+    {
+      "id": "hardcore_torches:unlit_wall_soul_torch",
+      "required": false
+    },
+    {
+      "id": "hardcore_torches:unlit_lantern",
+      "required": false
+    },
+    {
+      "id": "hardcore_torches:unlit_wall_lantern",
+      "required": false
+    },
+    {
+      "id": "hardcore_torches:unlit_soul_lantern",
+      "required": false
+    },
+    {
+      "id": "hardcore_torches:unlit_wall_soul_lantern",
+      "required": false
+    },
+    {
+      "id": "hardcore_torches:hardcore_campfire",
+      "required": false
+    },
+    {
+      "id": "hardcore_torches:stove",
+      "required": false
+    }
+  ]
+}

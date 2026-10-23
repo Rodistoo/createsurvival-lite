@@ -1,0 +1,7 @@
+[visuals]
+	#When true, pipe pull/push sides render small colored collars.
+	show_pipe_mode_markers = true
+	#Maximum distance in blocks for pipe pull/push mode markers.
+	# Default: 24
+	# Range: 8 ~ 128
+	pipe_mode_marker_render_distance = 24

@@ -1,0 +1,19 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"claimmyland:border_stone"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"claimmyland:nation_deed_100"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"claimmyland:player_deed_32"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"claimmyland:player_deed_16"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"claimmyland:player_deed_10"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"claimmyland:gold_name_tag"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"claimmyland:player_deed_10","components":"{\"minecraft:custom_data\":{deed_id:[I;-2072352053,-1375058408,-1074560880,1989183105],parcel_id:[I;-1615162958,-108376789,-1318324242,-982725578],pos:{x:-81,y:65,z:243},size:{max:{x:9,y:9,z:9},min:{x:0,y:-10,z:0}}}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"claimmyland:zone_placement"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"claimmyland:citizen_placement"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"claimmyland:iron_name_tag"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"rocks:cobblestone_splitter"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"grapplemod:base_upgrade"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"rocks:diorite_rock"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"rocks:rock"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"rocks:granite_rock"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"rocks:gravel_rock"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

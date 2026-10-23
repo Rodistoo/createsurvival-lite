@@ -1,0 +1,274 @@
+#Biomes that never generate (in new chunks): the biome with the next closest climate grows there instead.
+[biomes]
+	#Biome ids, or "<mod>:*" for all biomes of a mod, e.g. ["minecraft:mushroom_fields", "terralith:moonlight_grove"].
+	blacklist = ["alexscaves:toxic_caves", "alexscaves:primordial_caves", "alexscaves:candy_cavity"]
+
+#Stone tiers in newly generated terrain: stone gets harder away from the surface and with depth (existing chunks
+#stay as they are).
+[stoneTiers]
+	#Turn the stone tiers on or off.
+	enabled = true
+	#"<block> = <distance>": stone (block tag createsurvival_core:surface_tiered_stone) at least that many blocks
+	#away from the top of the stone, down or sideways into a mountain, becomes that block (the farthest tier that
+	#reaches wins; at most 16). Caves don't count as surface. Ores in it stay as they are unless the tier has its
+	#own ore variants (deepslate: deepslate ores).
+	surfaceTiers = ["createsurvival_core:hardened_stone = 2"]
+	#"<block> = <height>": below that height, stone and deepslate (block tag createsurvival_core:depth_tiered_stone; cave
+	#biome stones stay) become that
+	#block. Ores in it become its ore variants where there are any (createsurvival_core:cylindrite_iron_ore, ...).
+	depthTiers = ["caverns_and_chasms:cylindrite = -40"]
+	#Over how many blocks above its height a depth tier blends in (more of it the deeper, like deepslate).
+	# Default: 8
+	# Range: 0 ~ 64
+	depthBlend = 8
+
+#How dense structures generate (spread-out ones; strongholds keep their rings). Only new chunks are affected.
+[structures]
+	#Structures on the surface (villages, temples, ruins, ...): 2 = about twice as many per area, 0.5 = half as many.
+	#Overworld ones only (also caveDensity): nether and end structures keep their spacing, setDensity still applies to them.
+	# Default: 1.0
+	# Range: 0.05 ~ 20.0
+	surfaceDensity = 1.0
+	#Structures underground (mineshafts, ancient cities, trial chambers, cave structures of mods): the same.
+	# Default: 1.0
+	# Range: 0.05 ~ 20.0
+	caveDensity = 6.0
+	#Extra density per structure set, on top of surfaceDensity/caveDensity: "<set id or mod:*> = <density>" (0.5 = half
+	#as many). Caverns & Chasms' forges are far denser than other cave structures (spacing 16 chunks against 50-85).
+	setDensity = ["caverns_and_chasms:forges = 0.3", "spawn:* = 0.4"]
+	#Structure sets that keep their own spacing, whatever surfaceDensity/caveDensity say (setDensity still applies):
+	#Alex's Caves' structures shape its biomes (craters, canyons) and write their biome into all they carve, so packed
+	#closer they spill out over other biomes. Set ids or "<mod>:*".
+	unscaledSets = ["alexscaves:*"]
+	#Nether portals in a structure piece lead to a structure in the overworld instead of the same place:
+	#"<template of the piece> = <structure id or #tag> [@ <room>]". Those structures generate with an unlit obsidian frame
+	#in a room (in a piece whose template id starts with <room>, else in any but the entrance): the first one through
+	#lights it and comes out there (the nearest one, world layout ones too), and from then on it leads back. Where there
+	#is no room for a frame you come out on top. Without one in reach the portal works as usual.
+	portalLinks = ["incendium:castle/rooms/1x1/ocean_portal = #createsurvival_core:ocean_monuments @ betteroceanmonuments:lower_middle_chamber/", "incendium:castle/rooms/2x1/portal = #minecraft:village", "incendium:sanctum/top = minecraft:mansion"]
+	#A new structure doesn't generate into one already saved in a chunk nearby (Structurify only keeps apart the ones
+	#started since the game started: next to an area generated before, structures could go into each other).
+	avoidSavedStructures = true
+
+#World generation.
+[worldGeneration]
+	#Structures built for land don't generate standing on water (2+ blocks deep under most of them). Structures made
+	#for water go in the structure tag createsurvival_core:may_float (swamp huts are in it).
+	noFloatingStructures = true
+	#Terrain without its bedrock floor: noise settings ids, e.g. "minecraft:overworld" (the overworld, whichever terrain
+	#mods shape it) or "minecraft:nether". Their surface rule "bedrock_floor" never places anything (new chunks only).
+	noBedrockFloor = ["minecraft:overworld"]
+	#The same for the bedrock roof (surface rule "bedrock_roof"), e.g. "minecraft:nether".
+	noBedrockRoof = ["minecraft:nether"]
+	#Terrain noise is only worked out up to this height; above it everything is air (the world can still be taller,
+	#e.g. for flying). In a very tall world (Tectonic max_y) most of every chunk is sky that is otherwise computed cell
+	#by cell, also for every height lookup of structures and other mods: this can make new chunks several times faster.
+	#It must be above the highest terrain, or mountains are cut flat: check with your terrain settings. 0 = off.
+	# Default: 0
+	# Range: 0 ~ 4096
+	terrainTop = 0
+	#Structures made for deep water (structure tag createsurvival_core:needs_deep_water: ocean monuments) only generate where
+	#the sea floor under their corners and middle is at least this many blocks below sea level, not in a shallow river or
+	#bay. 0 = anywhere their biomes allow.
+	# Default: 16
+	# Range: 0 ~ 256
+	deepWaterDepth = 16
+	#Blocks swapped in every structure template as it is loaded (world generation, the structure editor, /place):
+	#"from=to", block ids. The block's properties stay as far as the new block has them, its block entity data is left out
+	#(the new block starts fresh), unless data for it follows in SNBT: "from=to{Rope:64}". A pair whose new block doesn't exist
+	#(its mod missing) is left alone. Needs a restart.
+	templateBlockReplacements = ["create:mechanical_piston=createsurvival_mechanics:physics_mechanical_piston", "create:sticky_mechanical_piston=createsurvival_mechanics:sticky_physics_mechanical_piston", "create:gantry_carriage=createsurvival_mechanics:gantry_drive", "create:rope_pulley=createsurvival_mechanics:steel_rope_pulley{Rope:64}"]
+
+#Other mods.
+[compat]
+	#Alex's Caves adds the blocks of its cave biomes itself instead of handing them to TerraBlender (as it does without
+	#TerraBlender): with TerraBlender's way, its cave fillings (the candy cavity's chocolate) lost to the deepslate.
+	alexsCavesDirectSurfaceRules = true
+
+#Cave biomes (in new chunks). Which biome generates underground depends on the same temperature and humidity as on
+#the surface, so whatever stretches surface biomes (Tectonic's temperature/vegetation scale) or makes them more humid
+#(its vegetation offset) does the same to cave biomes: huge ones, and mostly lush caves.
+[caveBiomes]
+	#Underground, temperature, humidity and erosion (which places the deep dark) come from noises of their own (vanilla's,
+	#without other mods' scaling and offsets), so cave biomes get their own sizes and a fair mix. Depth and continentalness
+	#(dripstone caves, oceans above) stay as they are, and the surface doesn't change.
+	ownClimate = true
+	#With ownClimate: how wide cave biomes are, 1 = vanilla. 0.5 = half as wide.
+	# Default: 0.5
+	# Range: 0.1 ~ 10.0
+	size = 0.5
+	#With ownClimate: from which depth on it applies (the climate's depth value: vanilla's cave biomes start at 0.2).
+	# Default: 0.2
+	# Range: 0.0 ~ 2.0
+	minDepth = 0.2
+	#With ownClimate: underground spots no cave biome fits (they get the surface biome of the closest climate, e.g.
+	#an ocean or savanna deep down, also in the layer between the cave biomes and the deep dark) get a cave biome
+	#instead: in patches about fillSize blocks across, one of every (TerraBlender) region's cave biomes that are
+	#allowed at that depth, all equally likely.
+	fillUnclaimed = true
+	#With ownClimate: cave biome layers (the ones near the surface, the deep ones like the deep dark) are made for
+	#vanilla's underground, sea level down to y -64; below that the deepest layer just goes on. In a deeper world
+	#(Tectonic's min_y) they are stretched over the whole underground down to the world's real bottom.
+	stretchToWorldBottom = true
+	#With fillUnclaimed: a cave biome whose climate range doesn't fit the spot (it only came out as the nearest of the
+	#few cave biomes a region has, like Terralith's lush caves taking over the vanilla region) is replaced the same way,
+	#by a filling one. Biomes shaping their own caves ([caverns] ownCaveShapes) are kept.
+	refitCaveBiomes = true
+	#With fillUnclaimed: about how many blocks across the patches of filling cave biomes are.
+	# Default: 256
+	# Range: 16 ~ 4096
+	fillSize = 256
+	#With ownClimate: cave biomes are picked in cells about this many blocks across (with wavy borders), so none ends
+	#up as a thin sliver or tiny patch: every cave biome area is at least about a cell wide. 0 = off.
+	# Default: 48
+	# Range: 0 ~ 512
+	cellSize = 48
+	#With ownClimate: how much cave biomes go by the surface's temperature (cold cave biomes under snowy land, warm
+	#ones under deserts) rather than by a temperature noise of their own (more variety close by). 1 = only the surface's
+	#(with Tectonic's wide climate zones a whole region then gets the same few cave biomes), 0 = unrelated to the surface.
+	# Default: 0.5
+	# Range: 0.0 ~ 1.0
+	surfaceTemperature = 0.5
+	#With ownClimate: temperature ranges (-1 frozen .. 1 hot) cave biomes get instead of their own, "<id or mod:*> =
+	#<min>..<max>". A biome coming out outside its range is replaced by a filling one (refitCaveBiomes), and filling
+	#picks only biomes whose range fits. Vanilla's bands: frozen below -0.45, cold to -0.15, temperate to 0.2, warm to
+	#0.55, hot above.
+	temperatureRanges = ["minecraft:lush_caves = -0.15..1.0"]
+	#With ownClimate: biomes shaping their own caves ([caverns] ownCaveShapes, Alex's Caves) only from this climate
+	#depth on, measured at the spot (about 128 blocks per 1.0 below the local surface): their caves reach up as far as
+	#the biome does, so this keeps a ceiling over them instead of open pits under valleys.
+	# Default: 0.4
+	# Range: 0.0 ~ 2.0
+	ownShapesMinDepth = 0.4
+	#A structure also passes its biome check on the surface biome of its column: cave structure mods list the surface
+	#biomes they go under ("caves under plains"), but deep down there are only cave biomes (with Terralith even
+	#without ownClimate).
+	structuresSeeSurfaceBiomes = true
+	#With ownClimate: a cave biome a region picks shares its spot with every other cave biome (of any region) whose
+	#climate ranges fit there and with the neutralBiomes; per patch (fillSize) one of them wins, by weight. Off: the
+	#regions' own picks (with Terralith's list, lush caves takes most of the climates).
+	shareClimates = true
+	#With ownClimate: cave biomes that fit any climate and depth, for sharing and filling (plain caves between the
+	#themed ones). Ids or "<mod>:*".
+	neutralBiomes = ["terralith:cave/deep_caves"]
+	#With ownClimate: how often a cave biome wins when sharing and filling, "<id or mod:*> = <weight>" (default 1;
+	#2 = twice as often, 0 = never picked there).
+	weights = ["minecraft:lush_caves = 0.5"]
+	#With ownClimate: sharing and filling pick cave biomes per layer of the climate's depth, not per height: these
+	#are the depths where one layer ends and the next begins (vanilla's cave biomes start at 0.2, the deep dark at 1.1).
+	#Thick layers keep a patch's biome the same from floor to ceiling instead of thin strips of different biomes.
+	layers = [0.5, 0.8, 1.1, 1.4]
+
+#Caverns (in new chunks): big open caves with high ceilings inside cave biomes, on top of the normal caves (and
+#Tectonic's), so cave biomes have room for their features and structures.
+[caverns]
+	#Turn the caverns on or off.
+	enabled = true
+	#How open cave biomes are, 0 (no caverns) to 1 (mostly open). Surface biomes underground get none.
+	# Default: 0.4
+	# Range: 0.0 ~ 1.0
+	defaultOpenness = 0.4
+	#Openness of single biomes: "<biome id> = <openness>" or "<mod>:* = <openness>".
+	biomes = ["alexscaves:* = 0", "terralith:cave/deep_caves = 0.6", "darkerdepths:glowshroom_forest = 0.4"]
+	#How wide caverns are compared to normal (cheese) caves.
+	# Default: 1.6
+	# Range: 0.5 ~ 8.0
+	width = 1.6
+	#How much taller than wide (the ceiling height), compared to normal caves.
+	# Default: 1.5
+	# Range: 0.5 ~ 4.0
+	height = 1.5
+	#Caverns start this many blocks below the surface (fading in over 24 more), so they don't break open the ground.
+	# Default: 24
+	# Range: 4 ~ 256
+	minDepth = 24
+	#Biomes that shape their own caves ("<biome id>" or "<mod>:*"): no caverns in them, and caverns close in towards
+	#them over fadeDistance blocks, so there are no tall straight walls where the two meet.
+	ownCaveShapes = ["alexscaves:*"]
+	#Over how many blocks caverns close in towards biomes that shape their own caves.
+	# Default: 32
+	# Range: 0 ~ 128
+	fadeDistance = 32
+
+#Terrain and surface structures (villages, outposts, other surface structures with terrain adaptation beard_thin
+#or beard_box; plus the structure tag createsurvival_core:shaped_terrain, minus createsurvival_core:unshaped_terrain).
+#A structure takes the spot needing the least earthwork among its own and the ones a chunk away (none if even that
+#needs more than maxCut/maxFill or stands in water), and instead of vanilla's short beard (pillars, islands, box
+#cuts) the terrain gets solid ground under each building's floor and open air above it, reaching out as rough natural
+#slopes into the terrain around.
+[structureTerrain]
+	#On/off.
+	enabled = true
+	#How far (blocks) from a building the slopes reach at most.
+	# Default: 32
+	# Range: 12 ~ 64
+	reach = 32
+	#Slope of the ground cut away above a building's floor: blocks up per block out (1 = 45 degrees).
+	# Default: 1.2
+	# Range: 0.3 ~ 4.0
+	cutSlope = 1.2
+	#Slope of the ground filled in under a building's floor: blocks down per block out.
+	# Default: 0.7
+	# Range: 0.3 ~ 4.0
+	fillSlope = 0.7
+	#A spot where natural ground rises more than this above a building's floor is not used.
+	# Default: 24
+	# Range: 0 ~ 128
+	maxCut = 24
+	#A spot where natural ground lies more than this below a building's floor is not used.
+	# Default: 16
+	# Range: 0 ~ 128
+	maxFill = 16
+	#How many spots a structure tries: its own, then the four chunks next to it, then the corners (1 to 9).
+	# Default: 5
+	# Range: 1 ~ 9
+	tries = 5
+	#Underground structures that stand on ground (ones with a start height; not cave carvers, mineshafts or ones
+	#with their own shell of rock, bury/encapsulate) only generate where most of their solid pieces have ground under
+	#them (caverns included), trying the same spots as above: none hanging in a big cave like an island. Exceptions go
+	#in the structure tag createsurvival_core:floats_in_caves (the ancient city is in it). Buried ones (bury/encapsulate)
+	#go where most of them is in rock; ones in the structure tag createsurvival_core:in_caves (capture option place=cave)
+	#where their floors have ground under them and open cave above, trying heights across their start height too.
+	caveFloorCheck = true
+
+#Maps painted in WorldPainter (its chunks left for Minecraft to populate: the Populate layer, or "allow Minecraft to
+#populate the entire terrain"). Minecraft only decorates those; here they also get what generation plans first,
+#with the painted terrain kept: structures (only those generating in the steps below: underground ones, whose
+#height doesn't depend on the ground) and the cave biomes underground.
+[paintedMaps]
+	#On/off.
+	enabled = true
+	#The generation steps whose structures generate in painted chunks (raw_generation: Alex's Caves' caves). Only
+	#underground structures are kept, whatever their step: surface ones would sit at the height the generated terrain
+	#would have had, not on the painted ground (structure tags createsurvival_core:cave_structures and
+	#createsurvival_core:surface_structures decide for any listed).
+	structureSteps = ["raw_generation", "underground_structures", "underground_decoration", "strongholds"]
+	#From this many blocks under the painted ground down, the biomes are the ones generation gives (cave biomes);
+	#above, the painted ones.
+	# Default: 16
+	# Range: 0 ~ 512
+	caveBiomeDepth = 16
+	#Minecraft's carvers (old caves and ravines) cut into painted terrain too.
+	carvers = true
+	#The caves of the normal world generation (Tectonic's and vanilla's: cheese, spaghetti and noodle caves, with their
+	#water and lava) are carved into the painted terrain: where the generated terrain would have a cave below its own
+	#surface, the painted ground gets it too.
+	noiseCaves = true
+	#noiseCaves stay this many blocks under the painted ground (0: they open to the surface like in a normal world).
+	# Default: 0
+	# Range: 0 ~ 256
+	caveRoof = 0
+	#... and this many under painted water (rivers and lakes), so it doesn't drain into them.
+	# Default: 8
+	# Range: 0 ~ 256
+	caveRoofUnderWater = 8
+	#Caves keep to their depth under the ground: where the generated terrain's ground is far from the painted one (an ocean
+	#under painted land), the caves near the surface follow the painted ground, going over to their own heights within this
+	#many blocks further down (at least twice the height difference). Deep caves, lava and the cave biomes stay where they are.
+	# Default: 64
+	# Range: 8 ~ 1024
+	caveFollowDepth = 64
+	#Placed features (ids) left out in painted chunks: world generation's own shaping of the land, which the painting
+	#replaces. streamsreflowing:river carves Streams Reflowing's streams and lakes; its currents (streamsreflowing:river_flow)
+	#still run in the rivers you paint (paint them with a river biome: streamsreflowing:stream, river, frozen river).
+	skipFeatures = ["streamsreflowing:river"]

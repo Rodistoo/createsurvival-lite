@@ -1,0 +1,33 @@
+{
+  "radius": 6000,
+  "border": true,
+  "ocean_edge": 400,
+  "region_radius": 224,
+  "blend": 192,
+  "regions": [
+    {"biome": "minecraft:plains", "spawn": true, "structures": ["minecraft:village_plains", "create_ltab:kings_castle", "ore_temples:guide_house", "ore_temples:redstone_temple"]},
+    {"biome": "minecraft:desert", "structures": ["minecraft:desert_pyramid", "minecraft:village_desert"]},
+    {"biome": "minecraft:jungle", "structures": ["minecraft:jungle_pyramid"]},
+    {"biome": "minecraft:snowy_plains", "structures": ["minecraft:igloo", "minecraft:village_snowy"]},
+    {"biome": "minecraft:dark_forest", "radius": 352, "structures": ["minecraft:mansion", "create_ltab:dark_forest_house"]},
+    {"biome": "minecraft:swamp", "structures": ["minecraft:swamp_hut", "minecraft:abandoned_camp_swamp"]},
+    {"biome": "minecraft:savanna", "structures": ["minecraft:village_savanna", "minecraft:abandoned_camp_savanna"]},
+    {"biome": "minecraft:taiga", "structures": ["minecraft:village_taiga", "minecraft:pillager_outpost", "minecraft:abandoned_camp_taiga", "ore_temples:guide_house", "ore_temples:gold_temple"]},
+    {"biome": "minecraft:badlands", "structures": ["terralith:rubble_mesa"]},
+    {"biome": "minecraft:birch_forest", "structures": ["minecraft:abandoned_camp_birch_forest", "create_ltab:birch_structures", "ore_temples:guide_house", "ore_temples:iron_temple"]},
+    {"biome": "minecraft:deep_ocean", "radius": 352, "structures": ["minecraft:monument"]},
+    {"biome": "minecraft:cherry_grove", "structures": ["create_ltab:cherry_house", "minecraft:abandoned_camp_cherry_grove"]},
+    {"biome": "terralith:volcanic_peaks", "structures": ["create_ltab:not__junos_house"]},
+    {"biome": "terralith:moonlight_valley", "structures": ["terralith:mage_tower"]},
+    {"biome": "terralith:temperate_highlands", "structures": ["terralith:fortified_village"]},
+    {"biome": "minecraft:frozen_peaks", "structures": ["terralith:rubble_mountain"]},
+    {"biome": "terralith:arid_highlands", "structures": ["create_ltab:big_windmill"]},
+    {"biome": "minecraft:deep_dark", "structures": ["minecraft:ancient_city"]},
+    {"biome": "minecraft:lush_caves", "structures": ["terralith:underground/oak_cabin"]},
+    {"biome": "minecraft:dripstone_caves", "structures": ["create_ltab:the_bunker"]},
+    {"biome": "terralith:cave/deep_caves", "structures": ["terralith:underground/mining_outpost"]},
+    {"biome": "terralith:cave/underground_jungle", "structures": ["terralith:underground/giant_bee_hive", "terralith:underground/sunken_tower"]},
+    {"biome": "darkerdepths:molten_cavern"},
+    {"biome": "yungscavebiomes:lost_caves"}
+  ]
+}

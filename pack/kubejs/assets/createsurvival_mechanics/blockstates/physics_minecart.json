@@ -1,0 +1,14 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "createsurvival_mechanics:block/physics_minecart"
+      }
+    },
+    {
+      "apply": {
+        "model": "create:block/cart_assembler/minecart_anchor"
+      }
+    }
+  ]
+}

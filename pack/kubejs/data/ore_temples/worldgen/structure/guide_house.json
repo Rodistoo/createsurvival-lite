@@ -1,0 +1,23 @@
+{
+  "type": "createsurvival_core:sectioned",
+  "biomes": "#ore_temples:has_structure/guide_house",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "spawn_overrides": {},
+  "start_height": {
+    "absolute": -1
+  },
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "keep_air": true,
+  "random_rotation": true,
+  "sections": [
+    {
+      "template": "ore_temples:guide_house/0_0_0",
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

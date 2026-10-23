@@ -1,0 +1,36 @@
+#Which features of CreateSurvival Mechanics are there. Off: the feature isn't there at all (its blocks and items
+#too: placed ones disappear from worlds). Changes need a restart, and a server and its players need the same
+#switches.
+[features]
+	#Linear Slider: a physics object sliding freely along Linear Bearing casings.
+	linearSlider = true
+	#Gantry Drive: runs a physics object along a Create gantry shaft.
+	gantryDrive = true
+	#Steel Rope Pulley and Steel Rope: lowers and raises a physics object on a rope.
+	steelRopePulley = true
+	#Physics Cart Assembler: a minecart and the blocks above it as one physics object on rails.
+	physicsCart = true
+	#Physical Mechanical Piston (and the sticky one): a mechanical piston whose arm and load are physics objects.
+	physicsPiston = true
+	#Pocket Contraption: picks up a small physics object as an item, to place back or use as a held tool.
+	pocketContraption = false
+	#Deployer target setting: on a deployer's side, whether it places on its own physics object or in the world.
+	deployerTarget = true
+	#Simulated's Swivel Bearing: no winding up past a blocked object, taking apart turned (only lined up and nearly
+	#still), stress from weight.
+	swivelBearing = true
+	#Single-surface Merging Glue: glue on one face that joins a glued face it touches (see [mergingGlue] in the
+	#server config).
+	singleSurfaceGlue = true
+	#Natural blocks (untouched since world generation, tracked by CreateSurvival Core) and Core's reinforced blocks
+	#aren't moved by contraptions or glued; area glue only in the own claim.
+	naturalBlocks = false
+	#Heavier physics objects need more stress from the machines that move them (see [stress] in the server config).
+	weightStress = true
+	#Weather on physics objects goes by where they really are (rain, snow and ice; otherwise tall worlds snow on
+	#every object).
+	objectWeather = true
+	#Fixes for other mods: Create: High Seas hanging the server on physics objects just taken apart.
+	compatFixes = true
+	#Block Placer: places blocks from its slots in front of it while powered and turning, as gradually as a player.
+	blockPlacer = true

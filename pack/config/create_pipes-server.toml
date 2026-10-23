@@ -1,0 +1,23 @@
+[transport]
+	#When true, item pipe networks need steam from a Steam Intake. When false, pipes run freely.
+	require_steam = true
+	#Maximum number of items pulled by one pull-side operation.
+	# Default: 8
+	# Range: 1 ~ 64
+	items_per_extract = 8
+	#Ticks between active extraction attempts for each pipe network.
+	# Default: 10
+	# Range: 1 ~ 200
+	extract_interval_ticks = 10
+	#Internal steam generated per active Create boiler level per tick.
+	# Default: 1.0
+	# Range: 0.01 ~ 1000.0
+	steam_units_per_boiler_level_per_tick = 1.0
+	#Internal steam consumed for each item moved.
+	# Default: 2.0
+	# Range: 0.01 ~ 1000.0
+	steam_units_per_item = 2.0
+	#Maximum internal steam buffer for one pipe network.
+	# Default: 1000
+	# Range: 1 ~ 1000000
+	network_steam_capacity = 1000

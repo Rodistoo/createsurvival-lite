@@ -1,0 +1,62 @@
+#A list of 'indestructible blocks' that will always count as support and never fall themselves.
+indestructibleBlocks = ["minecraft:bedrock", "minecraft:command_block", "minecraft:barrier", "minecraft:structure_block", "minecraft:structure_void", "minecraft:reinforced_deepslate", "minecraft:end_portal_frame", "aeronautics:levitite", "kubejs:redstone_cluster"]
+#A list of dimensions allowed to have physics behavior. The Nether, and especially the End, are not recommended as both can easily experience catastrophic structural failure.
+allowedDimensions = ["minecraft:overworld", "minecraft:the_nether"]
+#Block Break Volume (caused by mod).
+# Default: 1.0
+# Range: 0.0 ~ 1.7976931348623157E308
+blockBreakVolume = 1.0
+#Support Strength Max. This value will be used by anything with a default hardness equal to or greater than 7 (iron blocks, obsidian, etc...).
+# Default: 10
+# Range: > 1
+supportLengthMax = 8
+#Support Strength Min. This value will be used by anything with a default hardness equal to 0 (honey blocks, slime blocks, etc...).
+# Default: 1
+# Range: > 1
+supportLengthMin = 1
+#Base block entity fall damage inflicted per block fallen.
+# Default: 1
+# Range: > 0
+dmgDist = 1
+#Max block entity fall damage inflicted. Max is taken from support strength (i.e. falling obsidian hurts more than dirt), but is overwritten if greater than this value.
+# Default: 10
+# Range: > 0
+dmgMax = 10
+#Max number of blocks the mod can break per tick. Lower for better performance, raise for faster collapses, set to 0 to turn the mod off.
+# Default: 500
+# Range: > 0
+maxBreakPerTick = 200
+#Max number of iterative supports to scan.
+# Default: 4
+# Range: > 0
+supportSearchIter = 4
+#Max number of iterative supports to scan for weights.
+# Default: 80
+# Range: > 0
+weightSearchIter = 80
+#A factor influencing the chance of a falling block to break on ground contact, rather than be placed or shift over, which is also influenced by hardness. Increase this value to make contact breaks more frequent (1 will always break), and decrease to make them less frequent (0 will never break).
+# Default: 0.5
+# Range: 0.0 ~ 1.0
+fallingBlockBreakFactor = 0.3
+#Percent chance that a destroyed falling block will drop its item. 100 will always drop, 0 will never drop.
+# Default: 0.5
+# Range: 0.0 ~ 1.0
+fallingBlockItemDropChance = 1.0
+#Causes collapsing blocks to be destroyed directly instead of generating a falling block entity. Dramatically improves performance. Uses fallingBlockItemDropChance to determine how often they should drop their item.
+removeBlocksInsteadOfFall = false
+#Treats liquid source blocks as valid supports. Not the most realistic thing, but prevents ship structures from exploding.
+buoyancyEnabled = true
+#A list of vanilla blocktags to assign custom support strength values (rather than the hardness-based default). Listed blocktags without a matching support value at its index (below) will use default values.
+overwriteBlockTags = ["minecraft:leaves"]
+#A list of support strength values to override native (hardness based) blocktag support strength, matched by index (order) to above list.
+overwriteBlockTagValues = [4]
+#As the blocktag list above, but with individual blocks. Specified blocks will overwrite both default and blocktag specified support values.
+overwriteBlocks = []
+#A list of support strength values to override native (hardness based) individual block support strength, matched by index to above list.
+overwriteBlockValues = []
+#Invert the list of 'indestructible blocks' such that only those blocks in the indestructible list will be considered for collapse. Keep in mind, blocks that cannot fall are also always valid supports.
+invertIndestructibleBlocks = false
+#Assuming the falling block doesn't break and has a valid spot to shift to, the percent chance that it does. 0 will turn shifting off, 1 means blocks will always shift given the chance.
+# Default: 0.8
+# Range: 0.0 ~ 1.0
+fallingBlockShiftFactor = 0.8

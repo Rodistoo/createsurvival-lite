@@ -1,0 +1,13 @@
+name = "Spawning Overhaul"
+filename = "spawningoverhaul-neoforge-0.4.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/CWBDEkYj/versions/lxB8Gd87/spawningoverhaul-neoforge-0.4.0.jar"
+hash-format = "sha512"
+hash = "27d630f6affd7b42480cb714a61fc81be1cb5cb6b363aabd95e5f42e31168f927589f71c868cbbda70f45f5d1680b892cc2739258448b91135ca11d9791bd810"
+
+[update]
+[update.modrinth]
+mod-id = "CWBDEkYj"
+version = "lxB8Gd87"

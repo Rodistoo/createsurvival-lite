@@ -1,0 +1,95 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 8,
+          "data": {
+            "Name": "createsurvival_core:bytes/minecraft/smooth_sandstone",
+            "Properties": {
+              "waterlogged": "false",
+              "b000": "true",
+              "b100": "true",
+              "b010": "false",
+              "b110": "false",
+              "b001": "true",
+              "b101": "true",
+              "b011": "false",
+              "b111": "false"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "createsurvival_core:bytes/minecraft/smooth_sandstone",
+            "Properties": {
+              "waterlogged": "false",
+              "b000": "false",
+              "b100": "true",
+              "b010": "false",
+              "b110": "false",
+              "b001": "true",
+              "b101": "true",
+              "b011": "false",
+              "b111": "false"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "createsurvival_core:bytes/minecraft/smooth_sandstone",
+            "Properties": {
+              "waterlogged": "false",
+              "b000": "true",
+              "b100": "false",
+              "b010": "false",
+              "b110": "false",
+              "b001": "true",
+              "b101": "true",
+              "b011": "false",
+              "b111": "false"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "createsurvival_core:bytes/minecraft/smooth_sandstone",
+            "Properties": {
+              "waterlogged": "false",
+              "b000": "true",
+              "b100": "true",
+              "b010": "false",
+              "b110": "false",
+              "b001": "false",
+              "b101": "true",
+              "b011": "false",
+              "b111": "false"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "createsurvival_core:bytes/minecraft/smooth_sandstone",
+            "Properties": {
+              "waterlogged": "false",
+              "b000": "true",
+              "b100": "true",
+              "b010": "false",
+              "b110": "false",
+              "b001": "true",
+              "b101": "false",
+              "b011": "false",
+              "b111": "false"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+#Minecarts (feature minecarts).
+[minecarts]
+	#Rotate with Minecarts: your view turns with a minecart you ride when it turns (as vanilla's option of
+	#1.21.2+ with Minecart Improvements).
+	rotateWithMinecart = false
+
+#The colour of the void at a dimension's edge (feature terrain).
+[voidColors]
+	#"<dimension> <from y> <to y> <#rrggbb>": from the first height on, the fog (and the sky below the horizon) turns
+	#to the colour, all of it at the second, e.g. "minecraft:overworld -45 -85 #3a0707" (dark red towards the bottom)
+	#or "minecraft:the_nether 130 168 #0a1238" (dark blue towards the top).
+	voidColors = ["minecraft:overworld -40 -85 #3a0707", "minecraft:the_nether 130 168 #0a1238"]

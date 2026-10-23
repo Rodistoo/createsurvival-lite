@@ -1,0 +1,12 @@
+{
+  "levels": {
+    "1": [
+      {
+        "item_cost": {
+          "item": "minecraft:phantom_membrane",
+          "count": 1
+        }
+      }
+    ]
+  }
+}

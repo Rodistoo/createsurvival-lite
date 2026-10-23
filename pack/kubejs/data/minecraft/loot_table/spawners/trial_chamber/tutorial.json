@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:trial_key",
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "random_sequence": "minecraft:spawners/trial_chamber/tutorial"
+}

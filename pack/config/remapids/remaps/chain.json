@@ -1,0 +1,9 @@
+{
+  "remaps": [
+    {
+      "source": "minecraft:iron_chain",
+      "target": "minecraft:chain",
+      "types": ["block", "item"]
+    }
+  ]
+}

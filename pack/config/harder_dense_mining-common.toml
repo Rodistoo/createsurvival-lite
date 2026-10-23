@@ -1,0 +1,12 @@
+#Harder Dense Mining Configuration
+[config_ver_1]
+	#Change mining speed for all blocks. 1 = no change.
+	# Default: 1.0
+	# Range: 0.0010000000474974513 ~ 100.0
+	overallMiningSpeedModifier = 0.1
+	#Maximum slowness multiplier when surrounded by 5+ rock blocks. Default: 0.15 (15% speed). Range: 0.01-1.0.
+	# Default: 0.15000000596046448
+	# Range: 0.0010000000474974513 ~ 1.0
+	maxSlownessMultiplier = 0.15000000596046448
+	#Whitelist of blocks that trigger slowdown. Uses registry names like 'minecraft:stone'. Default: stone, deepslate.
+	blockWhitelist = ["minecraft:stone", "minecraft:deepslate"]

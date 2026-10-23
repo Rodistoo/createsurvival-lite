@@ -1,0 +1,14 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "createsurvival_core:item/build_hammer_display"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "createsurvival_core:item/build_hammer_item"
+      }
+    }
+  }
+}

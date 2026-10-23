@@ -1,0 +1,11 @@
+{
+  "config_version": "2.0.42",
+  "config_datetime": "2026-10-11_19-29-59",
+  "general": {
+    "prevent_structure_overlap": true
+  },
+  "structure_namespaces": [],
+  "structures": [],
+  "structure_sets": [],
+  "structure_template_pools": []
+}

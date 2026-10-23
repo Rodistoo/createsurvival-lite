@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "ore_temples:lapis_temple",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 32,
+    "separation": 8,
+    "salt": 680677484,
+    "frequency": 0
+  }
+}

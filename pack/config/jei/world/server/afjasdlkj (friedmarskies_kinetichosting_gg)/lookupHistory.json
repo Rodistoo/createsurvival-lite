@@ -1,0 +1,21 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"create:framed_glass"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:glass_pane"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:framed_glass_pane"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"grapplemod:grappling_hook","components":"{\"grapplemod:customizable\":{crc32:3947724641L,properties:{\"grapplemod:rocket\":1b}},\"minecraft:damage\":10}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"sophisticatedbackpacks:smithing_upgrade"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:enchanted_book","components":"{\"minecraft:stored_enchantments\":{levels:{\"minecraft:mending\":1}}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"grapplemod:base_upgrade"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"grapplemod:rocket"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"grapplemod:grappling_hook"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:cobbled_deepslate_slab"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"grapplemod:forcefield"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:enchanted_book","components":"{\"minecraft:stored_enchantments\":{levels:{\"minecraft:feather_falling\":3}}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:dark_oak_stairs"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"grapplemod:grappling_hook","components":"{\"grapplemod:customizable\":{crc32:2712978257L,properties:{\"grapplemod:ender_staff\":1b}},\"minecraft:damage\":10}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"appliedcreate:brass_pattern_provider_upgrade"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"grapplemod:ender_staff"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:smithing_table"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:lead"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

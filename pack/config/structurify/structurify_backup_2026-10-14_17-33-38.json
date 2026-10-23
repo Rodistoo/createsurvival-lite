@@ -1,0 +1,16 @@
+{
+  "config_version": "2.0.43",
+  "config_datetime": "2026-10-13_16-11-56",
+  "general": {
+    "prevent_structure_overlap": true
+  },
+  "structure_namespaces": [],
+  "structures": [
+    {
+      "name": "alexscaves:underground_cabin",
+      "is_disabled": true
+    }
+  ],
+  "structure_sets": [],
+  "structure_template_pools": []
+}

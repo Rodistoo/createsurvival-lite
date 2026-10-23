@@ -1,0 +1,915 @@
+// CreateSurvival: Easy NPC guides that lead a player somewhere. /reload is enough for changes here.
+//
+// A guide is any Easy NPC (to defend himself: the objectives HURT_BY_TARGET + MELEE_ATTACK; to swim: FLOAT).
+// A dialog button with a COMMAND action starts the escort, to one of:
+//   /escort start @npc-uuid @initiator-uuid <route> [give up seconds]   a recorded route (see below)
+//   /escort start @npc-uuid @initiator-uuid structure <id or #tag>      the nearest such structure (within STRUCTURE_RADIUS)
+//   /escort start @npc-uuid @initiator-uuid to <x> <y> <z>              a place
+// For the last two he finds the way himself (Core's GuideRoutes, block by block: partial blocks as they are, steps and
+// jumps, swimming, ladders, vines and ropes; the chunks between are loaded for it). E.g. a village structure captured
+// with its guide (entities=true) whose button says "structure #mypack:guide_dungeons" leads to the dungeon nearest to
+// that village, wherever it generated. Tagged guide_rope (/tag <npc> add guide_rope) he also hangs ropes up walls and
+// down drops where there is no other way (Supplementaries' rope where it holds, ladders otherwise); they stay.
+// Core's GuideFollower walks him along it, every tick and exactly along the found blocks (crouching or crawling
+// through low gaps); talked to (right-click) he stands still for a few seconds. He goes on while the player
+// keeps up (within FOLLOW blocks, or anywhere on the way ahead of him); further behind he stops and waits. Fights come
+// first; afterwards he goes on from where he is along the way. If the player stays away for 5 to 8 minutes he gives up
+// and walks back home along the way, no teleporting; at the end he waits a little and walks home too. Stuck on the way
+// (fell into a hole, the way walled up) he looks for another way from where he is; with none he is stuck (state), asks
+// for help, goes on as soon as he gets out and looks again now and then.
+//
+// The NPC state "escort" (text) tells his dialogs where he is, for dialog conditions (NPC_STATE, Name "escort",
+// CustomData the value): planning | leading | arrived | returning (gave up on the player) | going_home (after
+// arriving) | stuck (no way on from where he is); none at home.
+//
+// Routes are recorded in game (op): stand at each waypoint in turn and run /escort route add <name>; the last one is
+// the destination. /escort route list [name], /escort route remove <name>. /escort stop <npc uuid> sends a guide home.
+// /escort testguide <destination> spawns a guide with ready dialogs where you stand, destination as for start
+// (e.g. /escort testguide structure #minecraft:village).
+// Guides in structures: a marker entity tagged guide:<destination> (destination as for start, e.g.
+// "guide:structure #ore_temples:temples"; Core's structure data marker "entity {id:\"minecraft:marker\",Tags:[...]}"
+// places one) becomes such a guide when it first loads (at home there), and he plans his way at once: asked, he sets off.
+// (Rhino: no const/let inside blocks anywhere here, they break when the function runs again; only at a function's top.)
+
+const FOLLOW = 14        // the player within this many blocks: he goes on
+const WAIT = 20          // further than this (and not on the way ahead): he stops and waits
+const ON_WAY = 6         // the player this close to a block of the way ahead of him counts as keeping up
+const GIVE_UP = [300, 480] // seconds without the player near before he goes home (random in between, per escort)
+const ARRIVED_WAIT = 30  // seconds at the destination before he walks home
+const REACH = 3          // (recorded routes) a waypoint counts as reached this close
+const ROPE_TAG = 'guide_rope' // entity tag: he may hang ropes (up walls, down drops) where there is no other way
+const STRUCTURE_RADIUS = 32 // chunks searched for "structure" destinations
+const SPEED = 0.8        // his walking speed
+const STUCK_RETRY = 15   // seconds between two tries to get on while there is no way (his old one again, and a new one)
+const TALK = 6           // seconds he stands still when the player talks to him (right-click)
+const AVOID = 8          // places he got stuck at that new ways keep away from (the last ones)
+const BLOCKED_SAY = 30   // seconds at least between two "can't get through there"
+const PARTWAY = 8        // blocks nearer to it at least, for taking someone part of the way when there is no way all of it
+const STUCK_NEW_WAY = 3  // stuck this often at one spot: a whole new way, not one round it
+const STUCK_GIVE_UP = 5  // and this often: he asks for help (stuck) instead of trying again
+const REJOIN = [32, 96]  // stuck: a way round to his way again this many blocks on (then further); none: a new way to the end
+const PLAN_TIMEOUT = 120 // seconds a plan may take before it's taken for lost (he may plan again)
+const FAILED_FOR = 1200  // seconds a way found missing is believed (asked meanwhile he says so at once, no planning again)
+const CHECK = 10         // ticks between two looks at the guides
+const SAVE_EVERY = 200   // ticks between two saves of the clock (changes are saved when they happen)
+const AHEAD_BLOCKS = 96  // blocks of the way ahead looked along for the player
+const DATA = 'createsurvival_escorts'
+const WAYS_VERSION = 2   // ways kept by an older planner (e.g. ending half way down a rope) are planned again
+
+const $UUID = Java.loadClass('java.util.UUID')
+const $BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
+const $GuideRoutes = Java.loadClass('createsurvival.core.guide.GuideRoutes')
+const $GuideFollower = Java.loadClass('createsurvival.core.guide.GuideFollower')
+const $TagParser = Java.loadClass('net.minecraft.nbt.TagParser')
+const $EntityType = Java.loadClass('net.minecraft.world.entity.EntityType')
+const $UUIDUtil = Java.loadClass('net.minecraft.core.UUIDUtil')
+const GUIDE_TAG = 'guide:' // marker entities tagged guide:<destination> become guides (see the top)
+
+// What all copies of this script share (made in startup_scripts/createsurvival_escorts_state.js: server scripts can't set
+// KubeJS global): on a new world the server scripts are loaded twice, and the commands (escort start, from the dialogs)
+// stay with the first copy while the ticks run in the second; each with its own escorts it would never see the other's
+// (an escort started, no one looking after it: no waiting, no rerouting). Without it (startup script missing): its own.
+const SHARED = global.createsurvivalEscorts || { saved: null, planning: {}, debugging: {}, guideMarkers: [] }
+if (!global.createsurvivalEscorts) console.warn('Escorts: startup_scripts/createsurvival_escorts_state.js missing, the escorts of a new world may go unlooked-after')
+
+// the saved escorts and routes (server persistent data, as JSON; SHARED.saved)
+function load(server) {
+  let text
+  if (SHARED.saved == null) {
+    text = String(server.persistentData.getString(DATA))
+    SHARED.saved = text == '' ? {} : JSON.parse(text)
+    if (!SHARED.saved.escorts) SHARED.saved.escorts = {}
+    if (!SHARED.saved.routes) SHARED.saved.routes = {}
+    if (!SHARED.saved.clock) SHARED.saved.clock = 0
+  }
+  return SHARED.saved
+}
+function save(server) {
+  server.persistentData.putString(DATA, JSON.stringify(load(server)))
+}
+
+// the escorts' clock in ticks: runs while the server does (saved with them)
+function now(server) {
+  return load(server).clock || 0
+}
+
+function uuidOf(text) {
+  try {
+    return $UUID.fromString(text)
+  } catch (e) {
+    return null
+  }
+}
+
+function entity(server, uuid) {
+  const id = uuidOf(uuid)
+  return id == null ? null : server.getEntityByUUID(id)
+}
+
+// a player by UUID (online, else any player entity in a level) or by name
+function playerOf(server, text) {
+  let uuid, online
+  if (!text) return null
+  uuid = uuidOf(text)
+  if (uuid == null) return server.getPlayerList().getPlayerByName(text)
+  online = server.getPlayerList().getPlayer(uuid)
+  return online != null ? online : entity(server, text)
+}
+
+function isGuide(npc) {
+  return npc != null && typeof npc.getEasyNPCNavigationData == 'function' && npc.getEasyNPCNavigationData() != null
+}
+
+function setHome(npc, p) {
+  npc.getEasyNPCNavigationData().setHomePosition(new $BlockPos(p[0], p[1], p[2]))
+}
+
+function setState(server, uuid, phase) {
+  server.runCommandSilent(phase ? `easy_npc state set ${uuid} escort text ${phase}` : `easy_npc state remove ${uuid} escort`)
+}
+
+function say(server, playerUuid, npc, text) {
+  const player = playerOf(server, playerUuid)
+  if (player) player.tell(Text.of([Text.gold('<' + npc.name.string + '> '), Text.of(text)]))
+}
+
+function dimension(entity) {
+  return String(entity.level.dimension) // (KubeJS: the level's id)
+}
+
+function at(npc) {
+  return [npc.blockX, npc.blockY, npc.blockZ]
+}
+
+function distance(entity, p) {
+  const dx = entity.x - (p[0] + 0.5), dy = entity.y - p[1], dz = entity.z - (p[2] + 0.5)
+  return Math.sqrt(dx * dx + dy * dy + dz * dz)
+}
+
+function abilitiesOf(npc) {
+  return npc.tags.contains(ROPE_TAG) ? 'rope' : ''
+}
+
+// the block of points (from index on, the next count of them) nearest to the entity, if within limit; else -1
+function nearestIndex(entity, points, index, limit, count) {
+  let i, d, best = -1, bestDistance = limit
+  const last = count ? Math.min(points.length, Math.max(0, index) + count) : points.length
+  for (i = Math.max(0, index); i < last; i++) {
+    d = distance(entity, points[i])
+    if (d < bestDistance) {
+      bestDistance = d
+      best = i
+    }
+  }
+  return best
+}
+
+// he stands still while waiting for the player or talking with him
+function updatePause(npc, escort, t) {
+  const paused = !!escort.waiting || (escort.talkUntil || 0) > t
+  if (paused != !!escort.paused) {
+    escort.paused = paused
+    $GuideFollower.pause(npc, paused)
+  }
+}
+
+function phase(server, uuid, escort, next) {
+  escort.phase = next
+  escort.since = now(server)
+  setState(server, uuid, next)
+  save(server) // (a new phase: kept at once)
+}
+
+// the way he is on now: there, or back
+function way(escort) {
+  return escort.back ? { points: escort.back, moves: escort.backMoves } : { points: escort.route, moves: escort.moves }
+}
+
+// sets him off along his way from where he is along it
+function follow(npc, escort) {
+  const w = way(escort)
+  escort.paused = false
+  // (no moves: an empty list, Rhino can't hand null in for a list)
+  $GuideFollower.follow(npc, w.points, w.moves || [], escort.back ? escort.backIndex : escort.index, SPEED)
+}
+
+// a guide starts back: along the blocks he already passed, then home; each reached the way it was left (a rope he
+// hung on the way there is just climbed)
+function goHome(server, uuid, escort, npc, why) {
+  let k, m, own, route
+  route = escort.route || []
+  escort.back = route.slice(0, escort.index).reverse()
+  escort.backMoves = []
+  for (k = escort.index - 1; k >= 0; k--) {
+    // reaching block k going back: a climb if he climbed straight up or down from it to k + 1 (the same column); off
+    // the column beside it (the ledge at a rope's top) how he is at k (walking, crouching...); else, a block of a
+    // climb, a climb
+    m = escort.moves && escort.moves[k + 1] ? String(escort.moves[k + 1]) : 'walk'
+    own = escort.moves && escort.moves[k] ? String(escort.moves[k]) : 'walk'
+    if ((m == 'climb' || m == 'rope') && route[k + 1] && (route[k + 1][0] != route[k][0] || route[k + 1][2] != route[k][2])) {
+      m = own == 'climb' || own == 'rope' ? 'walk' : own
+    } else if (m != 'climb' && m != 'rope') {
+      m = own
+    }
+    escort.backMoves.push(m == 'rope' ? 'climb' : m)
+  }
+  escort.back.push(escort.home)
+  escort.backMoves.push('walk')
+  escort.backIndex = 0
+  escort.waiting = false
+  phase(server, uuid, escort, why)
+  follow(npc, escort)
+  // (the way there backwards may not go back: drops he can't climb up again; a way home planned from here, along the
+  // ropes he hung where they help: until it's there, and if there's none, the way back)
+  if (!planning[uuid]) {
+    planning[uuid] = { since: now(server) }
+    $GuideRoutes.planTo(npc, escort.home[0], escort.home[1], escort.home[2], abilitiesOf(npc), [], result => homeWay(server, uuid, why, result))
+  }
+}
+
+function homeWay(server, uuid, why, result) {
+  const data = load(server)
+  const escort = data.escorts[uuid]
+  const npc = entity(server, uuid)
+  delete planning[uuid]
+  if (!escort || !isGuide(npc) || escort.phase != why || !escort.back) return
+  if (!result.found()) {
+    console.info(`Guide ${uuid}: no way home planned (${result.failure()}), back the way he came`)
+    return
+  }
+  escort.back = []
+  escort.backMoves = []
+  result.waypoints().forEach(p => escort.back.push([p.x, p.y, p.z]))
+  result.moves().forEach(m => escort.backMoves.push(String(m)))
+  escort.back.push(escort.home)
+  escort.backMoves.push('walk')
+  escort.backIndex = 0
+  follow(npc, escort)
+  save(server)
+}
+
+// guides planning a route right now (not saved: after a restart they plan again)
+const planning = SHARED.planning
+
+// guides shown (escort debug): their way ahead as particles, what they do in the log (not saved)
+const debugging = SHARED.debugging
+const MOVE_COLORS = { walk: '0.3,1.0,0.3', crouch: '1.0,0.9,0.2', crawl: '1.0,0.5,0.1', climb: '0.3,0.5,1.0', rope: '0.8,0.3,1.0', swim: '0.2,0.9,0.9' }
+
+// (debug) the way ahead of him: a particle over each block, coloured by how he gets there; red: the block he heads for
+function showWay(server, escort, npc) {
+  let k, p, m, color
+  const w = way(escort)
+  const index = escort.back ? escort.backIndex : escort.index
+  if (!w.points) return
+  for (k = Math.max(0, index - 4); k < Math.min(w.points.length, index + 40); k++) {
+    p = w.points[k]
+    m = w.moves && w.moves[k] ? String(w.moves[k]) : 'walk'
+    color = k == index ? '1.0,0.1,0.1' : MOVE_COLORS[m] || '1.0,1.0,1.0'
+    server.runCommandSilent(`execute in ${dimension(npc)} run particle minecraft:dust{color:[${color}],scale:1.2} ${p[0] + 0.5} ${p[1] + 0.3} ${p[2] + 0.5} 0 0 0 0 1 force`)
+  }
+}
+
+// the route found (or not) for a "structure"/"to" destination
+function routeFound(server, uuid, result) {
+  const data = load(server)
+  const escort = data.escorts[uuid]
+  const npc = entity(server, uuid)
+  delete planning[uuid]
+  if (!escort || escort.phase != 'planning' || !isGuide(npc)) return
+  if (result.found() && escort.planFrom) keepWay(data, uuid, destinationKey(escort.destination), escort.planFrom, result, false)
+  if (!result.found() && partway(result, escort.planFrom || at(npc))) {
+    escort.partial = true
+    escort.route = []
+    escort.moves = []
+    result.waypoints().forEach(p => escort.route.push([p.x, p.y, p.z]))
+    result.moves().forEach(m => escort.moves.push(String(m)))
+    escort.index = 0
+    escort.lastNear = now(server)
+    phase(server, uuid, escort, 'leading')
+    follow(npc, escort)
+    say(server, escort.player, npc, "I don't know a way all the way there, but I can take you part of it. Stay close.")
+    save(server)
+    return
+  }
+  if (!result.found()) {
+    console.info(`Guide ${uuid}: no route (${result.failure()})`)
+    say(server, escort.player, npc, result.goal() == null
+      ? "I don't know of any place like that around here." : "I know where it is, but I don't know a way there.")
+    setState(server, uuid, null)
+    delete data.escorts[uuid]
+  } else {
+    escort.route = []
+    escort.moves = []
+    result.waypoints().forEach(p => escort.route.push([p.x, p.y, p.z]))
+    result.moves().forEach(m => escort.moves.push(String(m)))
+    escort.index = 0
+    escort.lastNear = now(server)
+    phase(server, uuid, escort, 'leading')
+    follow(npc, escort)
+    say(server, escort.player, npc, 'This way. Stay close.')
+  }
+  save(server)
+}
+
+function plan(server, uuid, escort, npc) {
+  const done = result => routeFound(server, uuid, result)
+  const d = escort.destination
+  planning[uuid] = { since: now(server) }
+  escort.planFrom = at(npc)
+  if (d.structure) $GuideRoutes.planToStructure(npc, d.structure, STRUCTURE_RADIUS, abilitiesOf(npc), done)
+  else $GuideRoutes.planTo(npc, d.to[0], d.to[1], d.to[2], abilitiesOf(npc), done)
+}
+
+// "structure <id or #tag>" | "to <x> <y> <z>" (as after escort start) as a destination; null if neither
+function parseDestination(text) {
+  let words
+  text = String(text).trim()
+  if (text.indexOf('structure ') == 0) return { structure: text.substring('structure '.length).trim() }
+  words = text.split(/\s+/)
+  if (words[0] == 'to' && words.length == 4) return { to: [Math.floor(Number(words[1])), Math.floor(Number(words[2])), Math.floor(Number(words[3]))] }
+  return null
+}
+
+// markers that just loaded (guide:<destination>), made guides on the next look
+const guideMarkers = SHARED.guideMarkers
+
+NativeEvents.onEvent(Java.loadClass('net.neoforged.neoforge.event.entity.EntityJoinLevelEvent'), event => {
+  if (event.level.isClientSide()) return
+  if (event.entity.getTags().stream().anyMatch(tag => String(tag).indexOf(GUIDE_TAG) == 0)) guideMarkers.push(event.entity)
+})
+
+// a marker made a guide: summoned there with the test guide's dialogs (his own uuid, to know him by), home there, his
+// way planned at once
+function guideFromMarker(server, marker) {
+  let destinationText, destination, uuid, ints, tag, npc
+  if (marker.isRemoved()) return
+  marker.getTags().forEach(t => { if (String(t).indexOf(GUIDE_TAG) == 0) destinationText = String(t).substring(GUIDE_TAG.length) })
+  destination = parseDestination(destinationText)
+  if (destination == null) {
+    console.warn('Guide marker with an unknown destination: ' + destinationText)
+    marker.discard()
+    return
+  }
+  uuid = $UUID.randomUUID()
+  ints = $UUIDUtil.uuidToIntArray(uuid)
+  tag = $TagParser.parseTag('{id:"easy_npc:humanoid",UUID:[I;' + ints[0] + ',' + ints[1] + ',' + ints[2] + ',' + ints[3] + '],'
+    + testGuideNbt(destinationText.trim()).substring(1))
+  npc = $EntityType.loadEntityRecursive(tag, marker.level, e => { e.setPos(marker.x, marker.y, marker.z); return e })
+  marker.discard()
+  if (npc == null) return
+  marker.level.addFreshEntity(npc)
+  npc.addTag(ROPE_TAG) // (he plans with ropes from the start: walking where he can, ropes where he must)
+  setHome(npc, at(npc))
+  console.info(`Guide ${uuid}: from a marker at ${at(npc).join(' ')}, planning his way to ${destinationText}`)
+  if (!planning[String(uuid)]) prepare(server, String(uuid), npc, destination)
+}
+
+function square(v) {
+  return v * v
+}
+
+// a result without a way: whether the way to where he gets nearest is worth taking someone along (it gets nearer)
+function partway(result, from) {
+  let goal, near, before, after
+  if (result.found() || result.closest() == null || result.goal() == null || result.waypoints().size() < 2) return false
+  goal = result.goal().getCenter()
+  near = result.closest()
+  before = Math.sqrt(square(from[0] - goal.x) + square(from[1] - goal.y) + square(from[2] - goal.z))
+  after = Math.sqrt(square(near.x - goal.x) + square(near.y - goal.y) + square(near.z - goal.z))
+  return after < before - PARTWAY
+}
+
+// ways worked out before (escort plan, or an escort earlier): per guide the last one, for its destination and from
+// where it starts; asked for there again he sets off at once
+function destinationKey(d) {
+  return JSON.stringify(d.structure ? { structure: d.structure } : { to: d.to })
+}
+
+function keepWay(data, uuid, key, from, result, partial) {
+  const way = { key: key, from: from, route: [], moves: [], partial: !!partial, at: now0(data), v: WAYS_VERSION }
+  result.waypoints().forEach(p => way.route.push([p.x, p.y, p.z]))
+  result.moves().forEach(m => way.moves.push(String(m)))
+  if (!data.plans) data.plans = {}
+  data.plans[uuid] = way
+}
+
+// the stored way for this destination, if he stands where it starts
+// (a missing way, found missing a while ago, is no longer believed: he plans again)
+function readyWay(data, uuid, npc, destination) {
+  const way = data.plans ? data.plans[uuid] : null
+  if (!way || way.v != WAYS_VERSION || way.key != destinationKey(destination) || distance(npc, way.from) > REACH) return null
+  return way.missing && now0(data) - (way.at || 0) > 20 * FAILED_FOR ? null : way
+}
+
+function now0(data) {
+  return data.clock || 0
+}
+
+function keepMissing(data, uuid, key, from) {
+  if (!data.plans) data.plans = {}
+  data.plans[uuid] = { key: key, from: from, missing: true, at: now0(data), v: WAYS_VERSION }
+}
+
+// escort plan: a way worked out (and kept) without setting off
+// (attempt: 0 as it is; 1 after a cave passage was opened; 2 after a cave was opened from the surface; 3 after a shaft was dug)
+// (with ropes from the start: they cost more than walking, so he walks wherever he can; one search, not two)
+function prepare(server, uuid, npc, destination, attempt) {
+  const key = destinationKey(destination)
+  const from = at(npc)
+  const done = result => prepared(server, uuid, destination, from, attempt || 0, result)
+  planning[uuid] = { prepare: key, since: now(server) }
+  if (destination.structure) $GuideRoutes.planToStructure(npc, destination.structure, STRUCTURE_RADIUS, 'rope', done)
+  else $GuideRoutes.planTo(npc, destination.to[0], destination.to[1], destination.to[2], 'rope', done)
+}
+
+// Planned with ropes allowed (the ground stays as it is, he hangs ropes where he must; then he may later too). No way even
+// so: a cave passage opened from where he gets to nearest it (Core's carveWay: winding, through natural ground only, at
+// most MAX_CARVE), and planned again; none even so (or too far for a passage): a cave opened from the surface down into its
+// cavern (Core's digCave: winding, natural ground only, beside it not at it) and planned again; still none: a shaft dug down beside it (Core's
+// digShaft: natural ground only, a landing every 32 blocks, not through water) and planned again; still none: the way part of the way kept, if it gets nearer (he takes the player
+// that far and says he can't go on), else that there is none (asked, he says so at once).
+function prepared(server, uuid, destination, from, attempt, result) {
+  let npc, carved, near
+  const key = destinationKey(destination)
+  const data = load(server)
+  const escort = data.escorts[uuid]
+  delete planning[uuid]
+  npc = entity(server, uuid)
+  if (npc != null && result.moves().contains('rope') && !npc.tags.contains(ROPE_TAG)) npc.addTag(ROPE_TAG)
+  if (!result.found() && npc != null && isGuide(npc)) {
+    if (attempt < 1 && result.goal() != null && result.closest() != null) {
+      near = result.closest()
+      carved = $GuideRoutes.carveWay(npc.level, near, result.goal())
+      if (carved > 0) {
+        console.info(`Guide ${uuid}: no way with ropes either, opened a cave passage of ${carved} blocks from ${near.x} ${near.y} ${near.z}`)
+        prepare(server, uuid, npc, destination, 1)
+        return
+      }
+      console.info(`Guide ${uuid}: no way with ropes either, too far from ${near.x} ${near.y} ${near.z} to open one`)
+    }
+    // (no cave near, or the passage didn't help: a cave down from the surface into its cavern, like the place's own)
+    if (attempt < 2 && result.goal() != null) {
+      near = result.closest() != null ? result.closest() : npc.blockPosition()
+      carved = $GuideRoutes.digCave(npc.level, near, result.goal())
+      if (carved > 0) {
+        console.info(`Guide ${uuid}: no way in, opened a cave down into its cavern (${carved} blocks)`)
+        prepare(server, uuid, npc, destination, 2)
+        return
+      }
+      console.info(`Guide ${uuid}: no way in, and no open cave beside it or place for a cave's mouth`)
+    }
+    // (still none: a shaft down beside it, the last way in)
+    if (attempt < 3 && result.goal() != null) {
+      near = result.closest() != null ? result.closest() : npc.blockPosition()
+      carved = $GuideRoutes.digShaft(npc.level, near, result.goal())
+      if (carved > 0) {
+        console.info(`Guide ${uuid}: no way in at all, dug a shaft down beside it (${carved} blocks)`)
+        prepare(server, uuid, npc, destination, 3)
+        return
+      }
+      console.info(`Guide ${uuid}: no way in, and no place beside it for a shaft (water or no natural ground)`)
+    }
+  }
+  if (result.found()) {
+    keepWay(data, uuid, key, from, result, false)
+    console.info(`Guide ${uuid}: way planned (${result.waypoints().size()} blocks)`)
+  } else if (partway(result, from)) {
+    keepWay(data, uuid, key, from, result, true)
+    near = result.closest()
+    console.info(`Guide ${uuid}: no way all of it (${result.failure()}), part of the way kept, to ${near.x} ${near.y} ${near.z}`)
+  } else {
+    keepMissing(data, uuid, key, from)
+    console.info(`Guide ${uuid}: no way to plan (${result.failure()})`)
+  }
+  save(server)
+  // asked for in the meantime: that escort goes with it
+  if (escort && escort.phase == 'planning' && destinationKey(escort.destination) == key) {
+    escort.planFrom = null
+    routeFound(server, uuid, result)
+  }
+}
+
+// stuck (fell somewhere, the way blocked): a new way from where he is to where he was going (the destination, or home
+// on the way back)
+// (avoidHere: where he is kept away from, he couldn't get on there; text: what he says about it)
+function reroute(server, uuid, escort, npc, avoidHere, text) {
+  if (planning[uuid]) return
+  planning[uuid] = { since: now(server) }
+  console.info(`Guide ${uuid}: ${avoidHere ? 'stuck' : 'off his way'} at ${at(npc).join(' ')} (block ${escort.back ? escort.backIndex : escort.index} of ${way(escort).points ? way(escort).points.length : 0}), looking for a way round`)
+  if (!escort.avoid) escort.avoid = []
+  if (avoidHere) {
+    // (where he got stuck: other ways first, if there are)
+    escort.avoid.push(at(npc))
+    if (escort.avoid.length > AVOID) escort.avoid.shift()
+  }
+  // stuck at the same spot again and again (the way round there doesn't work for him): a whole new way; at last he asks
+  // for help instead of trying the same over and over
+  if (escort.stuckSpot && distance(npc, escort.stuckSpot) <= 2) escort.stuckTimes = (escort.stuckTimes || 0) + 1
+  else escort.stuckTimes = 1
+  escort.stuckSpot = at(npc)
+  if (escort.stuckTimes >= STUCK_GIVE_UP && escort.phase != 'stuck') {
+    delete planning[uuid]
+    console.info(`Guide ${uuid}: stuck at ${at(npc).join(' ')} ${escort.stuckTimes} times, asking for help`)
+    escort.stuckFrom = escort.phase
+    escort.stuckAt = at(npc)
+    escort.stuckTimes = 0
+    phase(server, uuid, escort, 'stuck')
+    say(server, escort.player, npc, "I can't get out of here! Can you help me?")
+    return
+  }
+  // (what he says about it: only if there's no way round near, before he looks further; found at once, nothing)
+  escort.blockedText = text || null
+  rerouteFrom(server, uuid, escort, npc, escort.stuckTimes >= STUCK_NEW_WAY ? REJOIN.length : 0)
+}
+
+// the block of his way to go round to at this stage (REJOIN blocks on, one he can stand on), or -1 (none: the whole way)
+function rejoinIndex(escort, stage) {
+  let k
+  const w = way(escort)
+  const index = escort.back ? escort.backIndex : escort.index
+  if (stage >= REJOIN.length || !w.points) return -1
+  for (k = Math.min(w.points.length - 1, index + REJOIN[stage]); k > index + 2; k--) {
+    if (!w.moves || !w.moves[k] || ['walk', 'crouch', 'crawl', 'swim'].indexOf(String(w.moves[k])) >= 0) return k
+  }
+  return -1
+}
+
+// a way round the part where he got stuck, to his way again (a short search); only when there is none, a new way to the end
+function rerouteFrom(server, uuid, escort, npc, stage) {
+  let j, p, goal
+  const back = !!escort.back
+  const w = way(escort)
+  j = rejoinIndex(escort, stage)
+  while (j < 0 && stage < REJOIN.length) {
+    stage++
+    j = rejoinIndex(escort, stage)
+  }
+  if (j >= 0) {
+    p = w.points[j]
+    $GuideRoutes.planToBlock(npc, p[0], p[1], p[2], abilitiesOf(npc), escort.avoid || [], result => rerouted(server, uuid, back, result, j, stage))
+  } else {
+    goal = w.points[w.points.length - 1]
+    $GuideRoutes.planTo(npc, goal[0], goal[1], goal[2], abilitiesOf(npc), escort.avoid || [], result => rerouted(server, uuid, back, result, -1, stage))
+  }
+}
+
+// (j: the block of his way the way round ends at, the way on from there kept; -1: a whole new way)
+function rerouted(server, uuid, back, result, j, stage) {
+  let points, moves, w, index, tailPoints, tailMoves
+  const data = load(server)
+  const escort = data.escorts[uuid]
+  const npc = entity(server, uuid)
+  if (!escort || !isGuide(npc) || back != !!escort.back) {
+    delete planning[uuid]
+    return
+  }
+  if (!result.found() && j >= 0) {
+    if (escort.blockedText && (!escort.saidBlocked || now(server) - escort.saidBlocked > 20 * BLOCKED_SAY)) {
+      escort.saidBlocked = now(server)
+      say(server, escort.player, npc, escort.blockedText)
+    }
+    escort.blockedText = null
+    rerouteFrom(server, uuid, escort, npc, stage + 1) // (no way round there: further on, at last the whole way)
+    return
+  }
+  escort.blockedText = null
+  delete planning[uuid]
+  if (result.found()) {
+    points = []
+    moves = []
+    result.waypoints().forEach(p => points.push([p.x, p.y, p.z]))
+    result.moves().forEach(m => moves.push(String(m)))
+    w = way(escort)
+    index = back ? escort.backIndex : escort.index
+    tailPoints = j >= 0 ? w.points.slice(j + 1) : []
+    tailMoves = j >= 0 ? (w.moves || w.points.map(p => 'walk')).slice(j + 1) : []
+    // the blocks passed stay (the way back follows them), then the way round (or the new way), then the rest of his way
+    if (back) {
+      escort.backMoves = (escort.backMoves || escort.back.map(p => 'walk')).slice(0, index).concat(moves).concat(tailMoves)
+      escort.back = escort.back.slice(0, index).concat(points).concat(tailPoints)
+    } else {
+      escort.moves = (escort.moves || escort.route.map(p => 'walk')).slice(0, index).concat(moves).concat(tailMoves)
+      escort.route = escort.route.slice(0, index).concat(points).concat(tailPoints)
+    }
+    console.info(`Guide ${uuid}: ${j >= 0 ? 'a way round, ' + points.length + ' blocks, back on his way ' + (j - index) + ' on' : 'a new way, ' + points.length + ' blocks'}`)
+    if (escort.phase == 'stuck') {
+      phase(server, uuid, escort, escort.stuckFrom)
+      say(server, escort.player, npc, 'There, I found a way. Come on!')
+    }
+    follow(npc, escort)
+  } else if (escort.phase != 'stuck') {
+    console.info(`Guide ${uuid}: stuck (${result.failure()})`)
+    escort.stuckFrom = escort.phase
+    escort.stuckAt = at(npc)
+    phase(server, uuid, escort, 'stuck')
+    say(server, escort.player, npc, "I can't get out of here! Can you help me?")
+  }
+  save(server)
+}
+
+// destination: { route: name } | { structure: id or #tag } | { to: [x, y, z] }
+function startEscort(server, npcUuid, playerText, destination, giveUpSeconds) {
+  let starter, playerUuid, route, navigation, old, home, span, escort, ready
+  const data = load(server)
+  const npc = entity(server, npcUuid)
+  starter = playerOf(server, playerText)
+  if (starter == null) return 0
+  playerUuid = String(starter.profile.id) // (KubeJS hides getUUID)
+  route = destination.route ? data.routes[destination.route] : null
+  if (!isGuide(npc) || destination.route && (!route || route.length == 0) || planning[npcUuid] && !planning[npcUuid].prepare) return 0
+  navigation = npc.getEasyNPCNavigationData()
+  // (a guide whose way was planned ahead, e.g. from a marker: that was with ropes, so he may hang them whenever)
+  if (data.plans && data.plans[npcUuid] && !npc.tags.contains(ROPE_TAG)) npc.addTag(ROPE_TAG)
+  old = data.escorts[npcUuid]
+  // home: where it was before any escort (an escort already running keeps its home)
+  home = old ? old.home : navigation.hasHomePosition()
+    ? [navigation.homePosition.x, navigation.homePosition.y, navigation.homePosition.z] : at(npc)
+  span = giveUpSeconds > 0 ? [giveUpSeconds, giveUpSeconds] : GIVE_UP
+  escort = {
+    player: playerUuid, destination: destination, home: home, waiting: false, index: 0,
+    giveUp: 20 * (span[0] + Math.floor(Math.random() * (span[1] - span[0] + 1))), lastNear: now(server)
+  }
+  data.escorts[npcUuid] = escort
+  if (route) {
+    escort.route = route
+    // (asked again on the way back: from where he is along the way)
+    escort.index = Math.max(0, nearestIndex(npc, route, 0, 1e9))
+    phase(server, npcUuid, escort, 'leading')
+    follow(npc, escort)
+    say(server, playerUuid, npc, 'This way. Stay close.')
+  } else if (readyWay(data, npcUuid, npc, destination) && readyWay(data, npcUuid, npc, destination).missing) {
+    // (found missing not long ago: no planning again)
+    delete data.escorts[npcUuid]
+    say(server, playerUuid, npc, "I know where it is, but I don't know any way there. Sorry.")
+  } else if (readyWay(data, npcUuid, npc, destination)) {
+    // (worked out before: off at once)
+    ready = readyWay(data, npcUuid, npc, destination)
+    escort.route = ready.route.slice()
+    escort.moves = ready.moves.slice()
+    escort.partial = !!ready.partial
+    escort.index = 0
+    phase(server, npcUuid, escort, 'leading')
+    follow(npc, escort)
+    say(server, playerUuid, npc, ready.partial ? "I don't know a way all the way there, but I can take you part of it. Stay close."
+      : 'This way. Stay close.')
+  } else {
+    phase(server, npcUuid, escort, 'planning')
+    $GuideFollower.stop(npc)
+    say(server, playerUuid, npc, 'Let me think how best to get there...')
+    // (an "escort plan" for it still at work: it hands its way over)
+    if (!planning[npcUuid]) plan(server, npcUuid, escort, npc)
+  }
+  save(server)
+  return 1
+}
+
+// every CHECK ticks: each loaded guide on an escort (unloaded ones wait; their clock keeps running)
+function tickEscorts(server) {
+  const data = load(server)
+  if (Object.keys(data.escorts).length == 0) return
+  data.clock += CHECK
+  Object.keys(data.escorts).forEach(uuid => {
+    try {
+      tickEscort(server, data, uuid)
+    } catch (e) {
+      // (a broken entry, e.g. from an older script: dropped, the others go on)
+      console.error('Guide ' + uuid + ': escort dropped after an error: ' + e)
+      delete data.escorts[uuid]
+    }
+  })
+  if (data.clock % SAVE_EVERY == 0) save(server) // (the clock; changes are saved as they happen)
+}
+
+function tickEscort(server, data, uuid) {
+  let player, far, ahead, state, w, index
+  const escort = data.escorts[uuid]
+  const npc = entity(server, uuid)
+  const t = now(server)
+  if (npc == null || !npc.isAlive()) {
+    if (npc != null) delete data.escorts[uuid] // dead
+    return
+  }
+  if (!isGuide(npc)) { delete data.escorts[uuid]; return }
+  player = playerOf(server, escort.player)
+  far = player == null || dimension(player) != dimension(npc) ? Infinity : distance(npc, [player.x - 0.5, player.y, player.z - 0.5])
+  // keeping up: near him, or on the way ahead of him (then it's him who's behind)
+  ahead = far < Infinity && escort.route && !escort.back
+    && nearestIndex(player, escort.route, Math.max(0, escort.index - AHEAD_BLOCKS), ON_WAY, 2 * AHEAD_BLOCKS) > escort.index
+  if (far <= FOLLOW || ahead) escort.lastNear = t
+  state = String($GuideFollower.state(npc))
+  if (planning[uuid] && planning[uuid].since != null && t - planning[uuid].since > 20 * PLAN_TIMEOUT) {
+    console.warn(`Guide ${uuid}: a plan took longer than ${PLAN_TIMEOUT} s, taken for lost`)
+    delete planning[uuid]
+  }
+  if (escort.phase == 'planning') {
+    if (!planning[uuid]) plan(server, uuid, escort, npc) // (after a restart)
+  } else if (escort.phase == 'stuck') {
+    if (!escort.stuckAt) escort.stuckAt = at(npc) // (stuck before this was saved)
+    if (distance(npc, escort.stuckAt) > REACH) {
+      // out (dug out, a way built, pushed): on along his way
+      phase(server, uuid, escort, escort.stuckFrom)
+      follow(npc, escort)
+      say(server, escort.player, npc, 'There, I got out. Come on!')
+    } else if (!planning[uuid] && t - escort.since > 20 * STUCK_RETRY) {
+      // now and then: on along his way again (it may be open by now) and a look for another
+      escort.since = t
+      follow(npc, escort)
+      reroute(server, uuid, escort, npc, true)
+    }
+  } else if (escort.phase == 'leading' || escort.back && (escort.phase == 'returning' || escort.phase == 'going_home')) {
+    if (state == 'none') follow(npc, escort) // (after a restart)
+    index = $GuideFollower.index(npc)
+    if (index >= 0) {
+      if (escort.back) escort.backIndex = index
+      else escort.index = index
+    }
+    w = way(escort)
+    if (escort.phase == 'leading' && t - escort.lastNear > escort.giveUp) {
+      goHome(server, uuid, escort, npc, 'returning')
+    } else if (escort.phase == 'leading' && !escort.waiting && far > WAIT && !ahead && state != 'climbing') {
+      escort.waiting = true
+      say(server, escort.player, npc, "Over here! I'll wait.")
+    } else if (escort.waiting && (far <= FOLLOW || ahead)) {
+      escort.waiting = false
+    } else if (state == 'done') {
+      if (escort.back) {
+        $GuideFollower.stop(npc)
+        setHome(npc, escort.home)
+        setState(server, uuid, null)
+        delete data.escorts[uuid]
+      } else {
+        escort.index = w.points.length
+        phase(server, uuid, escort, escort.partial ? 'partway' : 'arrived')
+        say(server, escort.player, npc, escort.partial
+          ? "This is as far as I know a way. I can't go any further, but you're welcome to try." : 'Here we are.')
+      }
+    } else if (state == 'stuck') {
+      // (tried a few times: blocked, or more than he can do)
+      reroute(server, uuid, escort, npc, true, "Hm, I can't get through there. Let me find another way.")
+    } else if (state == 'lost') {
+      reroute(server, uuid, escort, npc, false) // (off his way, e.g. fallen: a new one from here)
+    }
+    if (data.escorts[uuid]) updatePause(npc, escort, t)
+    if (debugging[uuid] && data.escorts[uuid]) showWay(server, escort, npc)
+  } else if (escort.phase == 'arrived' || escort.phase == 'partway') {
+    if (t - escort.since > 20 * ARRIVED_WAIT) goHome(server, uuid, escort, npc, 'going_home')
+  }
+}
+
+// talking to a guide (right-click): he stops for a moment (and each further click)
+NativeEvents.onEvent(Java.loadClass('net.neoforged.neoforge.event.entity.player.PlayerInteractEvent$EntityInteract'), event => {
+  let server, escorts, escort
+  if (event.level.isClientSide()) return
+  server = event.level.server
+  escorts = load(server).escorts
+  // (KubeJS hides entities' UUIDs: the escort whose guide this is)
+  escort = escorts[Object.keys(escorts).find(uuid => entity(server, uuid) == event.target)]
+  if (!escort) return
+  escort.talkUntil = now(server) + 20 * TALK
+  updatePause(event.target, escort, now(server))
+})
+
+ServerEvents.tick(event => {
+  if (event.server.tickCount % CHECK != 0) return
+  while (guideMarkers.length > 0) {
+    try {
+      guideFromMarker(event.server, guideMarkers.shift())
+    } catch (e) {
+      console.error('Guide marker: ' + e)
+    }
+  }
+  tickEscorts(event.server)
+})
+
+// a new world: its own data (and nothing planning, shown or waiting from the last one)
+ServerEvents.loaded(event => {
+  SHARED.saved = null
+  Object.keys(planning).forEach(uuid => delete planning[uuid])
+  Object.keys(debugging).forEach(uuid => delete debugging[uuid])
+  guideMarkers.length = 0
+})
+
+// the test guide: an Easy NPC with dialogs for each escort state, leading to <destination> (as for /escort start)
+function testGuideNbt(destination) {
+  const start = `/escort start @npc-uuid @initiator-uuid ${destination}`
+  const when = value => `Conditions:[{CustomData:"${value}",Name:"escort",Operation:"EQUALS",Type:"NPC_STATE"}]`
+  const button = (label, name, actions) => `{Actions:[${actions}],Label:"${label}",Name:"${name}"}`
+  const command = cmd => `{Cmd:"${cmd}",Type:"COMMAND"}`
+  const close = '{Type:"CLOSE_DIALOG"}'
+  const dialog = (label, name, priority, condition, text, buttons) =>
+    `{${buttons ? `Buttons:[${buttons}],` : ''}${condition ? condition + ',' : ''}Label:"${label}",Name:"${name}",Priority:${priority},Texts:[{Text:"${text}"}]}`
+  const dialogs = [
+    dialog('default', 'Greeting', 5, null, 'Lost, @initiator? I know the way. Want me to take you there?',
+      button('go', 'Show me the way', command(start) + ',' + close) + ',' + button('no', 'Not now', close)),
+    dialog('planning', 'Planning', 20, when('planning'), 'Give me a moment, @initiator, I am thinking about the best way.', button('ok', 'Sure', close)),
+    dialog('leading', 'Leading', 20, when('leading'), "This way, @initiator. Stay close, I won't wait forever.",
+      button('on', 'Lead on', close) + ',' + button('stop', 'Never mind, go home', command('/escort stop @npc-uuid') + ',' + close)),
+    dialog('arrived', 'Arrived', 20, when('arrived'), 'Here we are. Good luck in there, @initiator.', button('thanks', 'Thanks', close)),
+    dialog('partway', 'Partway', 20, when('partway'), "This is as far as I know a way, @initiator. Beyond here it's up to you, I can't go on. Good luck!",
+      button('thanks', 'Thanks', close)),
+    dialog('returning', 'Gave Up', 20, when('returning'),
+      "Oh, now you show up? I waited for you, @initiator, but you never came. I'm going home.",
+      button('again', 'Sorry. Lead me again?', command(start) + ',' + close) + ',' + button('bye', 'Go home then', close)),
+    dialog('stuck', 'Stuck', 20, when('stuck'), "I took a bad step and can't get out of here. Can you help me, @initiator?", button('ok', 'Hold on', close)),
+    dialog('going_home', 'Going Home', 20, when('going_home'), "Job's done, I'm heading home. Take care, @initiator.",
+      button('again', 'Can you take me there again?', command(start) + ',' + close) + ',' + button('bye', 'Bye', close))
+  ]
+  return `{CustomName:'{"text":"Guide","color":"#C9A15A"}',PersistenceRequired:1b,EasyNPCVersion:3,VariantType:"STEVE",` +
+    `HandItems:[{id:"minecraft:iron_sword",count:1},{}],` +
+    `ActionData:{ActionEventSet:{ON_INTERACTION:[{Type:"OPEN_DEFAULT_DIALOG"}]}},` +
+    `DialogData:{Type:"STANDARD",DialogDataSet:[${dialogs.join(',')}]},` +
+    `ObjectiveData:{HasObjectives:1b,ObjectiveDataSet:[{Type:"FLOAT"},{Type:"HURT_BY_TARGET"},{SpeedModifier:0.8d,Type:"MELEE_ATTACK"},` +
+    `{Type:"ATTACK_MOB_WITHOUT_CREEPER"},{SpeedModifier:0.8d,StopDistance:2.0f,Type:"MOVE_BACK_TO_HOME"},{Type:"LOOK_AT_PLAYER"},{Type:"LOOK_AT_RESET"}]}}`
+}
+
+ServerEvents.commandRegistry(event => {
+  const { commands: Commands, arguments: Arguments } = event
+  const op = source => source.hasPermission(2)
+  const word = name => Commands.argument(name, Arguments.WORD.create(event))
+  const get = (ctx, name) => String(Arguments.WORD.getResult(ctx, name))
+  const reply = (ctx, text) => ctx.source.sendSystemMessage(Text.of(text))
+  const begin = (ctx, destination, giveUp) => startEscort(ctx.source.server, get(ctx, 'npc'), get(ctx, 'player'), destination, giveUp)
+  const planAhead = (ctx, destination) => {
+    const server = ctx.source.server, uuid = get(ctx, 'npc'), npc = entity(server, uuid)
+    if (!isGuide(npc) || planning[uuid]) return 0
+    prepare(server, uuid, npc, destination)
+    reply(ctx, 'Planning the way...')
+    return 1
+  }
+  event.register(Commands.literal('escort')
+    // (anyone: guides run it from their dialogs)
+    .then(Commands.literal('start').then(word('npc').then(word('player')
+      .then(Commands.literal('structure').then(Commands.argument('id', Arguments.GREEDY_STRING.create(event))
+        .executes(ctx => begin(ctx, { structure: String(Arguments.GREEDY_STRING.getResult(ctx, 'id')).trim() }, 0))))
+      .then(Commands.literal('to').then(Commands.argument('pos', Arguments.BLOCK_POS.create(event)).executes(ctx => {
+        const pos = Arguments.BLOCK_POS.getResult(ctx, 'pos')
+        return begin(ctx, { to: [pos.x, pos.y, pos.z] }, 0)
+      })))
+      .then(word('route')
+        .executes(ctx => begin(ctx, { route: get(ctx, 'route') }, 0))
+        .then(Commands.argument('giveUpSeconds', Arguments.INTEGER.create(event)).requires(op)
+          .executes(ctx => begin(ctx, { route: get(ctx, 'route') }, Number(Arguments.INTEGER.getResult(ctx, 'giveUpSeconds')))))))))
+    // (ops, functions: a way worked out ahead, e.g. when a structure is placed; escort start there uses it)
+    .then(Commands.literal('plan').requires(op).then(word('npc')
+      .then(Commands.literal('structure').then(Commands.argument('id', Arguments.GREEDY_STRING.create(event))
+        .executes(ctx => planAhead(ctx, { structure: String(Arguments.GREEDY_STRING.getResult(ctx, 'id')).trim() }))))
+      .then(Commands.literal('to').then(Commands.argument('pos', Arguments.BLOCK_POS.create(event)).executes(ctx => {
+        const pos = Arguments.BLOCK_POS.getResult(ctx, 'pos')
+        return planAhead(ctx, { to: [pos.x, pos.y, pos.z] })
+      })))))
+    // (ops: on and off) the way ahead shown, the following written to the log
+    .then(Commands.literal('debug').requires(op).then(word('npc').executes(ctx => {
+      const server = ctx.source.server, uuid = get(ctx, 'npc'), npc = entity(server, uuid), escort = load(server).escorts[uuid]
+      if (!isGuide(npc)) return 0
+      debugging[uuid] = !debugging[uuid]
+      $GuideFollower.debug(npc, !!debugging[uuid])
+      reply(ctx, debugging[uuid]
+        ? `Guide debug on (${escort ? escort.phase + ', block ' + (escort.back ? escort.backIndex : escort.index) : 'no escort'}): red = the block he heads for, green walk, yellow crouch, orange crawl, blue climb, purple rope, aqua swim; his steps go to the log ("Guide debug")`
+        : 'Guide debug off')
+      return 1
+    })))
+    .then(Commands.literal('stop').then(word('npc').executes(ctx => {
+      const server = ctx.source.server, uuid = get(ctx, 'npc'), escort = load(server).escorts[uuid], npc = entity(server, uuid)
+      if (!escort || !isGuide(npc) || escort.back) return 0
+      delete planning[uuid]
+      if (!escort.route) escort.route = []
+      goHome(server, uuid, escort, npc, 'going_home')
+      save(server)
+      return 1
+    })))
+    .then(Commands.literal('route').requires(op)
+      .then(Commands.literal('add').then(word('name').executes(ctx => {
+        const server = ctx.source.server, name = get(ctx, 'name'), routes = load(server).routes
+        const pos = ctx.source.position
+        if (!routes[name]) routes[name] = []
+        routes[name].push([Math.floor(pos.x()), Math.floor(pos.y()), Math.floor(pos.z())])
+        save(server)
+        reply(ctx, `Route ${name}: waypoint ${routes[name].length} at ${routes[name][routes[name].length - 1].join(' ')}`)
+        return routes[name].length
+      })))
+      .then(Commands.literal('remove').then(word('name').executes(ctx => {
+        const server = ctx.source.server, name = get(ctx, 'name')
+        delete load(server).routes[name]
+        save(server)
+        reply(ctx, `Route ${name} removed`)
+        return 1
+      })))
+      .then(Commands.literal('list')
+        .executes(ctx => {
+          const routes = load(ctx.source.server).routes
+          reply(ctx, 'Routes: ' + (Object.keys(routes).map(n => `${n} (${routes[n].length})`).join(', ') || 'none'))
+          return 1
+        })
+        .then(word('name').executes(ctx => {
+          const route = load(ctx.source.server).routes[get(ctx, 'name')] || []
+          reply(ctx, route.map((p, i) => `${i + 1}: ${p.join(' ')}`).join('\n') || 'No such route')
+          return route.length
+        }))))
+    .then(Commands.literal('testguide').requires(op).then(Commands.argument('destination', Arguments.GREEDY_STRING.create(event)).executes(ctx => {
+      const pos = ctx.source.position, destination = String(Arguments.GREEDY_STRING.getResult(ctx, 'destination')).trim()
+      ctx.source.server.runCommandSilent(`execute in ${ctx.source.level.dimension} run summon easy_npc:humanoid ` +
+        `${pos.x()} ${pos.y()} ${pos.z()} ${testGuideNbt(destination)}`)
+      reply(ctx, `Guide to ${destination} spawned`)
+      return 1
+    }))))
+})

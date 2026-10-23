@@ -1,0 +1,11 @@
+{
+	"parent":"block/grass_block_top_un_snowy",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"lay_top": "block/snow",
+		"lay_side": "block/grass_block_snow_side_overlay",
+		"side": "block/dirt",
+		"top": "block/grass_block_top",
+		"particle": "block/dirt"
+	}
+}

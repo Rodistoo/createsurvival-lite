@@ -1,0 +1,13 @@
+name = "Better Skylight"
+filename = "better_skylight-1.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "fc9524127546dd8c77a15e0c598d4a5369e8392c"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8834515
+project-id = 1686785

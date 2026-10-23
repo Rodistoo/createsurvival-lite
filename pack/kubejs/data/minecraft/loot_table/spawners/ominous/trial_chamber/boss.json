@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:heavy_core",
+          "functions": [
+            {
+              "function": "minecraft:set_custom_data",
+              "tag": {
+                "bossloot": true
+              }
+            }
+          ],
+          "weight": 1
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "name": "suppxnet:confetti",
+          "expand": true,
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "random_sequence": "minecraft:spawners/ominous/trial_chamber/boss"
+}

@@ -1,0 +1,13 @@
+name = "Lively Grass Block"
+filename = "LivelyGrassBlock1.0.zip"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/dCt327b0/versions/OO7ROBnO/LivelyGrassBlock1.0.zip"
+hash-format = "sha512"
+hash = "55e4f5574e4ea76e67e9f6d7540fe61fd73481ecd5b9bdd64ae192072ee7541e0f4b276dbfe8d509805d347c06cafc44591658ae08a7da5374453385f7fdfde5"
+
+[update]
+[update.modrinth]
+mod-id = "dCt327b0"
+version = "OO7ROBnO"

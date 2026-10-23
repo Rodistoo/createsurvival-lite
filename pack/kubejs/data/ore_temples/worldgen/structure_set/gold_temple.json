@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "ore_temples:gold_temple",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 32,
+    "separation": 8,
+    "salt": 680677483,
+    "frequency": 0
+  }
+}

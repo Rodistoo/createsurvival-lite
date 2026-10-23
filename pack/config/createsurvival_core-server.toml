@@ -1,0 +1,624 @@
+#Mining: how fast blocks break.
+[mining]
+
+	#Slower mining for players. Machines such as Create drills are not affected.
+	[mining.denseMining]
+		#Per-block values: "<block id or #tag> = <speed>, <denseSpeed>"
+		#  speed      - multiplier when the block is fully exposed (on top of globalSpeed). 1 = no change.
+		#  denseSpeed - additional multiplier when the block is surrounded by other listed blocks. 1 = no dense slowdown.
+		#The first matching entry wins, so put single blocks before tags.
+		blocks = ["minecraft:deepslate = 0.3, 0.001", "minecraft:rooted_dirt = 0.1, 0.15", "#minecraft:logs = 0.7, 0.08", "#createsurvival_core:dense_mining/deep_stone = 0.3, 0.005", "#createsurvival_core:dense_mining/hard_stone = 0.3, 0.05", "#createsurvival_core:dense_mining/stone = 0.6, 0.15", "#createsurvival_core:dense_mining/soft_stone = 0.4, 0.25", "#createsurvival_core:dense_mining/rubble = 0.5, 0.3", "#createsurvival_core:dense_mining/masonry_deep = 0.3, 0.01", "#createsurvival_core:dense_mining/masonry_metal = 0.3, 0.03", "#createsurvival_core:dense_mining/masonry_hard = 0.3, 0.08", "#createsurvival_core:dense_mining/masonry = 0.4, 0.2", "#createsurvival_core:dense_mining/masonry_soft = 0.5, 0.35", "#createsurvival_core:dense_mining/soil = 0.6, 0.4", "#createsurvival_core:dense_mining/loose = 0.8, 0.6", "#createsurvival_core:dense_mining/nether_end = 0.5, 0.3", "#createsurvival_core:dense_mining/ice = 0.5, 0.3", "#createsurvival_core:dense_mining/wood = 0.8, 0.4", "#quark:stone_type/shale = 0.0001, 0.001", "quark:shale_bricks_vertical_slab = 0.001, 0.001"]
+		enabled = true
+		#Mining speed multiplier for every block. 1 = no change.
+		# Default: 1.0
+		# Range: 0.001 ~ 100.0
+		globalSpeed = 1.0
+		#How many of the 6 neighbours of a block must be listed blocks for the full dense slowdown.
+		#Fewer neighbours slow down proportionally.
+		# Default: 5
+		# Range: 1 ~ 6
+		fullDensityNeighbours = 5
+		#Blocks that would take longer than this many seconds to mine (with the held tool, enchantments, effects
+		#and the slowdowns above) can't be mined at all, e.g. surrounded deepslate with a stone pickaxe.
+		#Applies to every block, listed or not. 0 = no limit.
+		# Default: 10.0
+		# Range: 0.0 ~ 3600.0
+		maxSeconds = 10.0
+		#Tools that mine at a different speed than their own: "<item id or #tag> = <speed>", ids may use * ("minecraft:copper_*").
+		#The speed on blocks the tool is made for, before enchantments (stone tools 4, copper 5, iron 6, diamond 8,
+		#netherite 9, gold 12). Applies to players and to machines that use tools (deployers), everywhere.
+		toolSpeeds = ["minecraft:copper_* = 4.0"]
+		#Block-breaking machines mining faster or slower: "<machine block id> = <multiplier>", ids may use *. Create's
+		#create:mechanical_drill and create:mechanical_saw (as blocks, on contraptions and physics objects) and Offroad's
+		#offroad:borehead_bearing (its rock cutting wheels). 1 = unchanged, 0.5 = half as fast.
+		machineSpeeds = ["create:mechanical_drill = 1.0", "offroad:borehead_bearing = 1.0"]
+		#How much the rules above (globalSpeed, the per-block speeds and dense neighbours) slow block-breaking machines down
+		#too: 1 = exactly as players, 0.5 = half as much (in the exponent: a factor of 0.25 becomes 0.5), 0 = not at all.
+		# Default: 1.0
+		# Range: 0.0 ~ 1.0
+		machineDenseFactor = 1.0
+		#The same for mining mobs (Enhanced AI's miner zombies, Mob Control's block breakers): 1 = as slowed as players, 0 = not at all.
+		# Default: 1.0
+		# Range: 0.0 ~ 1.0
+		minerMobDenseFactor = 1.0
+		#A full block that would take longer than this many seconds to break (with the held tool and the slowdowns above)
+		#only loses the corner aimed at: it turns into bytes and that one byte breaks, like dirt by hand. The byte drops
+		#only if the tool could harvest the block. Only blocks that have bytes. 0 = off.
+		# Default: 5.0
+		# Range: 0.0 ~ 3600.0
+		bytesAboveSeconds = 5.0
+
+	#Blocks that are never used up (block tag createsurvival_core:infinite_blocks, e.g. made with KubeJS): mined, they
+	#drop what their loot table gives and stay.
+	[mining.infiniteBlocks]
+		#Machines (Create's drills, saws, deployers) mine them too, endlessly. false: machines can't break them at all.
+		machines = true
+
+#Building: placing blocks, reinforcing them, claims.
+[building]
+
+	#Players have to hold right-click for a while to place hard blocks. Creative mode and machines
+	#(e.g. Create deployers) are not affected.
+	[building.timedPlacing]
+		#Per-block placing times in seconds, replacing the hardness-based time: "<block id or #tag> = <seconds>"
+		#e.g. "#minecraft:planks = 0.5" or "minecraft:scaffolding = 0". The first matching entry wins.
+		blocks = ["create:clipboard = 0", "supplementaries:sack = 0"]
+		enabled = true
+		#Blocks with a hardness up to this are placed instantly (dirt and sand: 0.5, stone: 1.5, planks: 2, obsidian: 50).
+		# Default: 0.5
+		# Range: 0.0 ~ 1000.0
+		instantHardness = 0.5
+		#Seconds of placing time per point of hardness for all other blocks.
+		# Default: 0.67
+		# Range: 0.0 ~ 100.0
+		secondsPerHardness = 0.67
+		#Upper limit for the placing time in seconds.
+		# Default: 3.0
+		# Range: 0.0 ~ 60.0
+		maxSeconds = 3.0
+		#How much faster a byte (an eighth block) is placed than a full block of its material (1 = as long, 2 = half
+		#the time).
+		# Default: 2.0
+		# Range: 1.0 ~ 64.0
+		byteSpeed = 2.0
+		#Block hardness overrides: "<block id or #tag> = <hardness>" (stone 1.5, deepslate 3). Changes how long the
+		#block takes to mine and to place. The first matching entry wins.
+		hardness = ["caverns_and_chasms:cylindrite = 4.5"]
+		#Undo hard blocks that were placed without holding right-click long enough, e.g. by Quark's reach-around
+		#placing, which uses the item directly. Not needed if no such mod is installed.
+		undoShortcutPlacements = true
+		#A girder (item tag createsurvival_core:reinforcing_girders, Create's metal girder) in the off hand reinforces
+		#the placed block and is used up. Placing takes this many times as long as the block normally takes (also in
+		#the own claim, where placing is otherwise instant).
+		# Default: 2.0
+		# Range: 0.0 ~ 100.0
+		girderTimeMultiplier = 2.0
+		#With beams in the off hand, a block placed against a block with a beam inside (or a beam anchor, see
+		#[physics.beams] anchors) takes this many times its normal time (0: instant); it gets a beam inside
+		#and uses up one beam from the off hand.
+		# Default: 0.0
+		# Range: 0.0 ~ 10.0
+		beamTimeMultiplier = 0.0
+
+	#Build hammer: survival players place blocks only with a build hammer worn (Curios hands slot), except the ones
+	#below.
+	[building.buildHammer]
+		#Survival players place blocks only with a build hammer worn. Bytes of a block with a hardness up to this are
+		#placed without one (dirt, sand, grass: 0.5-0.6, stone: 1.5); 0 = every byte needs the hammer. Other items placed
+		#without the hammer: the item tag createsurvival_core:no_build_hammer.
+		# Default: 0.6
+		# Range: 0.0 ~ 100.0
+		hammerFreeHardness = 0.6
+		#Blocks placed without a build hammer whatever their hardness (and their bytes): block ids or #block tags,
+		#e.g. "minecraft:lantern", "#minecraft:candles".
+		hammerFree = ["minecraft:lantern", "minecraft:soul_lantern", "hardcore_torches:unlit_lantern", "hardcore_torches:lit_lantern", "hardcore_torches:unlit_soul_lantern", "hardcore_torches:lit_soul_lantern"]
+
+	#Reinforced blocks, marked with the reinforcing tool (select an area like with Create's super glue). Like untouched
+	#natural blocks they only fall when nothing holds them up at all, and pistons and Create contraptions can't move them.
+	#Replacing a reinforced block with another one (breaking it, placing over it) removes the reinforcement.
+	[building.reinforcing]
+		#Support strength of reinforced blocks: anything this far reaching is held.
+		# Default: 10000
+		# Range: 1 ~ 1000000
+		supportStrength = 10000
+		#Reinforced blocks take longer to mine.
+		harderToMine = true
+		#How many times longer a reinforced block takes to mine than the same block unreinforced.
+		# Default: 3.0
+		# Range: 1.0 ~ 1000.0
+		miningTimeMultiplier = 3.0
+		#The largest area (in blocks, air included) the tool reinforces in one go.
+		# Default: 4096
+		# Range: 1 ~ 1000000
+		maxAreaBlocks = 4096
+
+	#Claim blocks mark a building area in which their owner places and breaks blocks as in vanilla.
+	[building.claims]
+		#Edge length of the cube a newly placed claim block covers. The owner can change it in the claim block's menu.
+		# Default: 10
+		# Range: 1 ~ 1024
+		size = 10
+		#Smallest edge length the owner can set.
+		# Default: 5
+		# Range: 1 ~ 1024
+		minSize = 5
+		#Largest edge length without upgrades.
+		# Default: 20
+		# Range: 1 ~ 1024
+		baseMaxSize = 20
+		#Item that raises the largest edge length when put into the claim block's upgrade slot.
+		upgradeItem = "minecraft:nether_star"
+		#How much each upgrade item raises the largest edge length.
+		# Default: 100
+		# Range: 1 ~ 1024
+		sizePerUpgrade = 100
+		#Largest edge length even with upgrades.
+		# Default: 600
+		# Range: 1 ~ 1024
+		maxSize = 600
+		#While a player other than the owner is inside the claim or this many blocks around it, the claim is
+		#paused: normal placing and mining rules apply to the owner as well, and building wands don't work.
+		# Default: 10
+		# Range: 0 ~ 256
+		intruderDistance = 10
+
+#Physics and water: what holds, what falls, how water behaves.
+[physics]
+
+	#Simple Block Physics support strength per block, in one list instead of its two lists matched by position.
+	[physics.blockPhysics]
+		#Blocks (ids or #tags, e.g. "#minecraft:logs") that Simple Block Physics never makes fall or break, like its own
+		#indestructibleBlocks list, which only takes block ids. Both lists count. With its invertIndestructibleBlocks on (its
+		#list names the blocks that DO fall), the blocks here are taken out of it, so they stay indestructible either way.
+		indestructibleBlocks = ["minecraft:spawner"]
+		#Simple Block Physics' searches don't load chunks: places in unloaded chunks count as solid ground. Prevents
+		#lag spikes when flying fast into new terrain (the searches otherwise wait for chunks to load or generate),
+		#but blocks right at the edge of loaded terrain can then stay up. Off: Simple Block Physics works unchanged.
+		skipUnloadedChunks = true
+		#"<block id or #tag> = <support strength>", e.g. "minecraft:moss_block = 3" or "#minecraft:leaves = 4".
+		#Support strength is how far a block can hold others out sideways before they collapse. Without an entry it
+		#comes from the block's hardness (between supportLengthMin and supportLengthMax in Simple Block Physics' own
+		#config, or its overwriteBlocks/overwriteBlockTags lists). The first matching entry wins: single blocks and narrow
+		#tags before broad ones (stone brick stairs: #minecraft:stairs, after the masonry tags). The mining categories
+		#(block tags createsurvival_core:dense_mining/..., other mods' blocks added in kubejs createsurvival_terrain_tags.js)
+		#sort every natural and building block by what it is made of.
+		supportStrength = ["create:metal_girder = 300", "create:fluid_pipe = 40", "create:industrial_iron_block = 8", "minecraft:obsidian = 7", "minecraft:crying_obsidian = 7", "minecraft:blackstone = 5", "minecraft:basalt = 4", "minecraft:polished_basalt = 4", "minecraft:mud_bricks = 3", "minecraft:packed_mud = 2", "minecraft:moss_block = 1", "minecraft:bookshelf = 3", "minecraft:iron_bars = 4", "minecraft:chain = 2", "minecraft:sea_lantern = 2", "minecraft:glowstone = 1", "minecraft:hay_block = 1", "minecraft:dried_kelp_block = 1", "minecraft:slime_block = 1", "minecraft:honey_block = 1", "#createsurvival_core:dense_mining/masonry_metal = 7", "#createsurvival_core:dense_mining/masonry_deep = 6", "#createsurvival_core:dense_mining/masonry_hard = 6", "#createsurvival_core:dense_mining/masonry = 5", "#createsurvival_core:dense_mining/masonry_soft = 3", "#c:concretes = 5", "#c:concrete_powders = 1", "#create:casing = 6", "#c:storage_blocks/netherite = 8", "#c:storage_blocks/steel = 8", "#c:storage_blocks/iron = 8", "#c:storage_blocks/bronze = 6", "#c:storage_blocks/brass = 6", "#c:storage_blocks/copper = 6", "#c:storage_blocks/zinc = 5", "#c:storage_blocks/andesite_alloy = 5", "#c:storage_blocks/gold = 4", "#c:storage_blocks/cardboard = 1", "#c:storage_blocks = 5", "#createsurvival_core:dense_mining/deep_stone = 5", "#createsurvival_core:dense_mining/hard_stone = 5", "#createsurvival_core:dense_mining/stone = 4", "#createsurvival_core:dense_mining/soft_stone = 3", "#createsurvival_core:dense_mining/nether_end = 3", "#createsurvival_core:dense_mining/rubble = 2", "#createsurvival_core:dense_mining/ice = 2", "#minecraft:logs = 6", "#createsurvival_core:dense_mining/wood = 5", "#minecraft:wooden_stairs = 4", "#minecraft:wooden_slabs = 4", "#minecraft:wooden_fences = 4", "#minecraft:fence_gates = 3", "#minecraft:walls = 4", "#minecraft:stairs = 4", "#minecraft:slabs = 3", "#minecraft:fences = 4", "#minecraft:leaves = 2", "#minecraft:wool = 1", "#c:glass_blocks = 1", "#c:glass_panes = 1", "#createsurvival_core:dense_mining/soil = 1", "#createsurvival_core:dense_mining/loose = 1"]
+		#"<block id or #tag> = <load capacity>": how much weight a block carries before it gives way, about how many
+		#blocks a single column of it holds up (each block above adds 1, more from further away). Without an entry it is
+		#3 + 3 * support strength, as in Simple Block Physics (strength 1: 6). 0 works too: such a block can't carry
+		#anything resting on it alone. The first matching entry wins, as for supportStrength.
+		loadCapacity = ["create:industrial_iron_block = 90", "minecraft:obsidian = 70", "minecraft:crying_obsidian = 70", "minecraft:blackstone = 35", "minecraft:basalt = 30", "minecraft:polished_basalt = 30", "minecraft:mud_bricks = 15", "minecraft:packed_mud = 8", "minecraft:moss_block = 3", "minecraft:bookshelf = 9", "minecraft:iron_bars = 12", "minecraft:chain = 6", "minecraft:sea_lantern = 6", "minecraft:glowstone = 3", "minecraft:hay_block = 4", "minecraft:dried_kelp_block = 4", "minecraft:slime_block = 2", "minecraft:honey_block = 2", "#createsurvival_core:dense_mining/masonry_metal = 60", "#createsurvival_core:dense_mining/masonry_deep = 50", "#createsurvival_core:dense_mining/masonry_hard = 45", "#createsurvival_core:dense_mining/masonry = 35", "#createsurvival_core:dense_mining/masonry_soft = 18", "#c:concretes = 40", "#c:concrete_powders = 3", "#create:casing = 40", "#c:storage_blocks/netherite = 120", "#c:storage_blocks/steel = 100", "#c:storage_blocks/iron = 90", "#c:storage_blocks/bronze = 60", "#c:storage_blocks/brass = 50", "#c:storage_blocks/copper = 50", "#c:storage_blocks/zinc = 40", "#c:storage_blocks/andesite_alloy = 40", "#c:storage_blocks/gold = 30", "#c:storage_blocks/cardboard = 3", "#c:storage_blocks = 40", "#createsurvival_core:dense_mining/deep_stone = 40", "#createsurvival_core:dense_mining/hard_stone = 35", "#createsurvival_core:dense_mining/stone = 25", "#createsurvival_core:dense_mining/soft_stone = 15", "#createsurvival_core:dense_mining/nether_end = 15", "#createsurvival_core:dense_mining/rubble = 12", "#createsurvival_core:dense_mining/ice = 10", "#minecraft:logs = 24", "#createsurvival_core:dense_mining/wood = 15", "#minecraft:wooden_stairs = 10", "#minecraft:wooden_slabs = 8", "#minecraft:wooden_fences = 8", "#minecraft:fence_gates = 6", "#minecraft:walls = 25", "#minecraft:stairs = 15", "#minecraft:slabs = 10", "#minecraft:fences = 10", "#minecraft:leaves = 3", "#minecraft:wool = 3", "#c:glass_blocks = 4", "#c:glass_panes = 2", "#createsurvival_core:dense_mining/soil = 4", "#createsurvival_core:dense_mining/loose = 3"]
+		#How much each block next to a carrying block (on its four sides) adds to what it can carry, as walls and floors
+		#brace each other. 3 in Simple Block Physics.
+		# Default: 3
+		# Range: 0 ~ 1000
+		sideSupport = 3
+		#The most blocks one search for what holds a block looks at. A block connected to more counts as held: that
+		#large a connected structure is anchored somewhere. Keeps very strong blocks (untouched natural ones, reinforced
+		#ones) from searching a whole forest canopy or mountain each, which caused lag spikes when one broke.
+		# Default: 2048
+		# Range: 64 ~ 1000000
+		maxSearchBlocks = 2048
+		#"<block id or #tag> = <chance>": how likely a falling block of this kind shatters when it lands (0 never, 1 always),
+		#e.g. "minecraft:dirt = 0.8" or "#minecraft:base_stone_overworld = 0.2". Blocks without an entry use Simple Block
+		#Physics' own chance (from fallingBlockBreakFactor and their support strength). Single blocks win over tags.
+		landingBreakChance = ["minecraft:pointed_dripstone = 1"]
+
+	#Beams: a frame inside blocks (placed with beams in the off hand) that makes them stronger when it stands on a
+	#foundation of anchor blocks (cast iron, iron, ...). Blocks with a beam inside get their support strength and load
+	#capacity multiplied: by singleAnchorMultiplier with one anchor block of quality 1 under the frame, up to
+	#fullFoundationMultiplier with a full square of foundationSize x foundationSize anchor blocks around it (in its
+	#layer, connected); fewer give a multiplier in between, weaker anchors that part of the bonus. A frame no anchor
+	#block touches (its connection broken) gets nothing.
+	[physics.beams]
+		#The multiplier with one anchor block of quality 1 (a block of cast iron) under the frame.
+		# Default: 2.0
+		# Range: 1.0 ~ 100.0
+		singleAnchorMultiplier = 2.0
+		#The multiplier with a full foundation: foundationSize x foundationSize anchor blocks of quality 1.
+		# Default: 4.0
+		# Range: 1.0 ~ 100.0
+		fullFoundationMultiplier = 4.0
+		#Side of the square of anchor blocks that counts as a full foundation (9: 9x9 blocks).
+		# Default: 9
+		# Range: 1 ~ 33
+		foundationSize = 9
+		#"<block id or #tag> = <quality>": the blocks beams grow from and frames stand on, and how good a foundation each
+		#is (1: a block of cast iron; 0.5 gives half of its bonus). A foundation of mixed blocks counts their average. The
+		#first matching entry wins.
+		anchors = ["createbigcannons:cast_iron_block = 1.7", "#createsurvival_core:beam_anchors = 1.0", "minecraft:iron_block = 0.75", "create:industrial_iron_block = 0.5", "quark:iron_plate = 0.5", "quark:rusty_iron_plate = 0.4"]
+
+	#Generated blocks nobody has touched yet (giant mushrooms, trees, structures) get a very high Simple Block Physics
+	#support strength: they only fall when nothing holds them up any more (a tree trunk cut through, a ruin floating
+	#in the air), never because of how far they reach out. Blocks get normal physics once they are replaced, e.g.
+	#placed by a player or a command.
+	#Changes made before this was installed can't be told apart and count as generated.
+	[physics.naturalBlocks]
+		enabled = true
+		#Support strength of untouched generated blocks: how many blocks away the search for something holding them
+		#goes. Anything this far reaching is held; only a connected group with nothing under it falls.
+		# Default: 10000
+		# Range: 1 ~ 1000000
+		supportStrength = 10000
+		#BLACKLIST: every untouched generated block stays, except those in collapsingBlocks.
+		#WHITELIST: only untouched generated blocks in stableBlocks stay, everything else collapses.
+		#Allowed Values: BLACKLIST, WHITELIST
+		mode = "BLACKLIST"
+		#WHITELIST mode: generated blocks that stay while untouched. Block ids or #tags.
+		stableBlocks = ["#minecraft:leaves", "#minecraft:logs", "minecraft:red_mushroom_block", "minecraft:brown_mushroom_block", "minecraft:mushroom_stem"]
+		#BLACKLIST mode: terrain that still collapses even when it is untouched, so cave-ins keep happening. Block ids or #tags.
+		collapsingBlocks = ["#c:ores", "minecraft:grass_block"]
+
+	#What happens when a falling block (e.g. from Simple Block Physics) lands on something that is not a full block.
+	[physics.fallingBlocks]
+		#Falling blocks are placed instead of vanishing: small blocks without collision (plants, torches, ...) are
+		#broken and replaced, anything else that is not a full block (slabs, mud, paths, ...) gets the block placed on top.
+		#If there is no room at all, the block drops as an item.
+		enabled = true
+		#Also apply this to vanilla gravity blocks (sand, gravel, anvils, ...).
+		#Off by default so that e.g. breaking a sand column with a torch keeps working.
+		affectVanillaFallingBlocks = false
+		#Extra blocks that are broken (dropping their items) and replaced by the landing block, even though they have
+		#a collision box. Block ids or block tags with a leading #.
+		crushedBlocks = ["minecraft:snow"]
+		#Blocks that every falling block (also vanilla ones: sand, gravel, anvils) lands on top of, instead of breaking
+		#into an item: blocks a bit lower than a full block. Block ids or block tags with a leading #.
+		landOnBlocks = ["minecraft:dirt_path", "minecraft:farmland", "minecraft:mud", "minecraft:soul_sand", "minecraft:honey_block"]
+		#Write every landing decision to the log (for troubleshooting).
+		debugLogging = false
+		#Drops that come with world generation are removed: sand and gravel over caves fall as soon as a chunk first
+		#ticks, and what grew on them (moss carpets, mushrooms, glow berries) pops off. Items that appear in a chunk
+		#generated in this session (not one loaded from the save) that players have been near for less than this many
+		#ticks (its inhabited time, counted while a player is within 128 blocks; 20 ticks = 1 second), with no player
+		#within 24 blocks, are removed at once; a natural block that starts falling then drops nothing when it lands.
+		#What players bring down or break, and anything in chunks loaded from the save, drops as usual. 0 = off.
+		# Default: 200
+		# Range: 0 ~ 72000
+		generationDropTicks = 200
+
+	#Finite water: new water sources only form from real rivers, oceans and lakes, not from any two sources.
+	#"Permanent" water is water world generation placed (not placed or refilled since) that belongs to a body of
+	#at least minBodySize source blocks. Only permanent sources count as neighbours when vanilla would turn
+	#water into a new source, so a hole taken out of the ocean refills, but a pool of bucket water never does.
+	#Feeding: flowing water next to a source becomes a (non-permanent) source after feedDelayTicks if that source
+	#connects (through water, sideways and up, never down) to permanent water within
+	#feedDistance blocks. Channels dug from a river or the sea fill slowly and refill while they stay connected.
+	#Water that came down a drop only fills closed basins, from the bottom up, never open ground (no place on
+	#the layer where water would fall further, at most 2048 blocks per layer). Replaces the Finite Water mod.
+	[physics.finiteWater]
+		enabled = true
+		#Source blocks a generated body of water needs to be permanent (smaller ponds and springs aren't).
+		# Default: 64
+		# Range: 1 ~ 4096
+		minBodySize = 64
+		#Placed water (buckets, feeding) becomes permanent too once its connected body has this many source blocks,
+		#like Create's hose pulley treats huge bodies as infinite. Generated water doesn't count toward it, so a
+		#channel joined to the sea stays a channel. 0 = never.
+		# Default: 1000
+		# Range: 0 ~ 100000
+		artificialBodySize = 1000
+		#How far (in blocks of source water) a channel or pool can be fed from permanent water; 0 = no feeding.
+		# Default: 32
+		# Range: 0 ~ 256
+		feedDistance = 32
+		#Flowing water turns into a source only where it is contained: the empty space and flowing water around it on
+		#its level, this many blocks around, is bounded by blocks and source water and rests on ground. Basins, channels
+		#from a river and sloping channels fill from the bottom up; open ground and waterfall edges never do.
+		# Default: 12
+		# Range: 2 ~ 32
+		containmentRadius = 12
+		#How wide the space may go on beyond containmentRadius and still count as contained (a channel carrying on,
+		#checked again further along). Wider than this counts as open.
+		# Default: 5
+		# Range: 1 ~ 64
+		maxOpening = 5
+		#Ticks before flowing water next to a fed source becomes a source itself (20 ticks = 1 second).
+		# Default: 100
+		# Range: 1 ~ 72000
+		feedDelayTicks = 50
+		#Source blocks that world generation didn't place (buckets, pumps) move like a liquid: straight down when
+		#nothing holds them, else sideways towards the nearest drop within 4 blocks, until they rest on a flat floor or
+		#on source water. Generated water never moves, and neither does water connected to permanent water (fed
+		#channels, refilled spots, big artificial bodies).
+		placedWaterFalls = true
+		#Placed water keeps its volume: a source block world generation didn't place, that isn't permanent or fed
+		#(a bucket, a pump's outflow), makes no endless flowing water around it. It spreads out instead, one level
+		#(an eighth of a bucket) at a time, until neighbouring water differs by at most one level: a bucket covers
+		#up to 8 blocks as the thinnest layer. It still falls and runs towards drops (placedWaterFalls), thin layers
+		#too. An empty bucket takes 8 levels back from connected thin placed water. Placed water that touches other
+		#water (a river, a fed channel, a permanent pool, a spring) joins it and behaves like it from then on.
+		placedWaterSpreads = true
+		#Logs every source block these rules make ([water-debug] in the log), and every one vanilla would make that
+		#they turn down.
+		debug = false
+		#Fresh water (permanent water, what channels can be fed from) within this many blocks of a player gives off small
+		#sparkles rising from its surface (particle createsurvival_core:fresh_water, textures in the KubeJS assets). 0 = off.
+		# Default: 16
+		# Range: 0 ~ 48
+		freshWaterRadius = 16
+		#How likely a fresh water surface block gives off a sparkle each tick (0.01 = about one every 5 seconds).
+		# Default: 0.01
+		# Range: 0.0 ~ 1.0
+		freshWaterParticleChance = 0.01
+
+#Mobs: night spawning, creepers, mining mobs.
+[mobs]
+
+	#Nightly mob batches: hostile mobs spawn once per night in each area (a square of areaChunks x areaChunks
+	#chunks), up to a group size that depends on biome and, in caves, on depth. When the group is full, nothing
+	#more spawns there that night; killed mobs don't come back. Around noon hostile mobs on the surface sink into the
+	#ground, so the afternoon is free of mobs; cave mobs go just before the next night, which brings a new batch.
+	#Which mob spawns where still comes from the game and other mods (biome spawn lists, Mob Control rules).
+	#Times are in ticks of the day: 0 = sunrise, 6000 = noon, 12000 = sunset, 13000 = night, 18000 = midnight.
+	#/createsurvival_core nightspawning shows the numbers for the area you stand in.
+	[mobs.nightSpawning]
+		enabled = true
+		#Dimensions where this applies (the Nether and End have no day and night).
+		dimensions = ["minecraft:overworld"]
+		#Edge length of an area in chunks. Changing it in an existing world reshuffles which areas have a special mob.
+		# Default: 3
+		# Range: 1 ~ 32
+		areaChunks = 3
+		#Time of day from which the night's batch can spawn.
+		# Default: 13000
+		# Range: 0 ~ 23999
+		spawnStart = 13000
+		#Time of day until which the batch can spawn; areas first reached after this stay empty until the next night.
+		# Default: 23000
+		# Range: 0 ~ 23999
+		spawnEnd = 23000
+		#Time of day when hostile mobs on the surface (except the exceptions and special mobs) sink into the ground.
+		#It should lie outside spawnStart..spawnEnd; from then until spawnStart, no hostile mobs spawn naturally.
+		# Default: 6000
+		# Range: 0 ~ 23999
+		despawnTime = 6000
+		#The same for hostile mobs in caves (caveDepth or deeper below the surface): by default 5 seconds before
+		#spawnStart, so caves are never empty and the old batch is replaced right away. Mobs coming back from disk
+		#stay in caves during the afternoon. It should lie after despawnTime and at or before spawnStart; set it to
+		#despawnTime to treat caves like the surface.
+		# Default: 12900
+		# Range: 0 ~ 23999
+		caveDespawnTime = 12900
+		#Caves have no day and night: their batch can spawn at any time, not only from spawnStart to spawnEnd. It starts
+		#over at caveDespawnTime (the old batch sinks, the counts reset); an area whose cave group is full or cleared
+		#stays empty until then. Off: caves spawn only in the night window like the surface.
+		caveSpawnAllDay = true
+		#Group size of an area on the surface: a random number between surfaceMin and surfaceMax each night,
+		#times the biome multiplier. (Vanilla keeps roughly 2 hostile mobs per 3x3 chunks around a player at all times.)
+		# Default: 1
+		# Range: 0 ~ 1000
+		surfaceMin = 1
+		# Default: 3
+		# Range: 0 ~ 1000
+		surfaceMax = 3
+		#Group size of an area's caves (counted separately from the surface): between caveMin and caveMax,
+		#times the biome multiplier (cave biomes count) and the depth multiplier.
+		# Default: 1
+		# Range: 0 ~ 1000
+		caveMin = 1
+		# Default: 2
+		# Range: 0 ~ 1000
+		caveMax = 3
+		#A spawn this many blocks or more below the surface (the highest solid block, ignoring leaves) counts as a cave spawn.
+		# Default: 8
+		# Range: 1 ~ 512
+		caveDepth = 15
+		#The cave group grows by this fraction per 16 blocks below caveDepth: 0.5 = 1.5x at 16 blocks deeper, 2x at 32 ...
+		# Default: 0.5
+		# Range: 0.0 ~ 100.0
+		caveDepthBonus = 0.5
+		#Largest depth multiplier.
+		# Default: 3.0
+		# Range: 1.0 ~ 100.0
+		caveMaxMultiplier = 3.0
+		#"<biome or #biome tag> = <multiplier>" for the group size; the first matching entry counts, other biomes use 1.
+		#0 means no hostile mobs there.
+		biomeMultipliers = ["minecraft:mushroom_fields = 0", "minecraft:deep_dark = 0", "minecraft:lush_caves = 0.5", "minecraft:dripstone_caves = 1.25", "#minecraft:is_ocean = 0.5", "#c:is_desert = 0.75", "#c:is_snowy = 0.75", "#c:is_plains = 0.75", "#minecraft:is_forest = 1.25", "#minecraft:is_taiga = 1.25", "#minecraft:is_jungle = 1.25", "#c:is_swamp = 1.25"]
+		#Mobs of every kind spawn naturally only on blocks that world generation put there, never on placed blocks.
+		#(Builds from before CreateSurvival Core 1.6.0, which started tracking placed blocks, still count as natural.)
+		naturalBlocksOnly = true
+		#Performance: a natural spawn attempt (a group of up to 4 tries a few blocks apart) stops right away where these
+		#rules let nothing spawn at its starting spot (hostile mobs in the daytime on the surface or once the area's
+		#group is complete, any mob on placed blocks), instead of every try asking which mobs could spawn. The only
+		#difference: the group's tries don't get judged one by one (one of them might have been a cave spot, or on
+		#natural ground). Off when an exception mob can spawn naturally anywhere.
+		skipForbiddenSpawnAttempts = true
+		#Performance (all natural spawning, also without these rules): for each spawn try, vanilla first asks which mobs
+		#may spawn there (biome, structures, every mod's spawn hook), and only then checks the mob's own cheap rules
+		#(ground, light, height): with this, the mob's own rules come first. Same results; only the random numbers
+		#are drawn in a different order.
+		cheapSpawnChecksFirst = true
+		#In cave biomes, the mobs a biome has of its own (the ones plains doesn't have) spawn this many times as often:
+		#otherwise they hardly ever come up against the generic overworld mobs every biome gets. 1 = as the biome says.
+		# Default: 4.0
+		# Range: 1.0 ~ 100.0
+		caveBiomeOwnMobs = 8.0
+		#Cave biomes ("<biome id>" or "<mod>:*") left as they are (Alex's Caves has its own setting for that).
+		caveBiomeOwnMobsExclude = ["alexscaves:*"]
+		#Mobs (or #entity tags) left completely alone: no group limit, no noon despawn, no natural block rule.
+		exceptions = ["minecraft:phantom", "minecraft:ender_dragon", "minecraft:wither", "minecraft:elder_guardian", "minecraft:warden", "minecraft:shulker", "minecraft:piglin_brute", "minecraft:breeze"]
+		#Mobs sink into the ground at despawn (mobs that aren't standing on the ground vanish in a puff instead).
+		despawnAnimation = true
+		#How long sinking takes.
+		# Default: 40
+		# Range: 1 ~ 1200
+		despawnAnimationTicks = 40
+		#Mobs start sinking at random moments within this many ticks after despawnTime, not all at once.
+		# Default: 200
+		# Range: 0 ~ 12000
+		despawnSpreadTicks = 200
+		#Chance that an area has a special mob, e.g. 0.01 = 1 in 100 areas (about 30% per 30 areas). It spawns with the
+		#area's first mob of a night, never despawns, and once defeated never comes back. Which areas have one is
+		#fixed by the world seed.
+		# Default: 0.01
+		# Range: 0.0 ~ 1.0
+		specialChance = 0.01
+		#The special mob is picked from these. "<mob id>" or "<mob id>{SNBT}" for equipment, names, effects etc.
+		specialMobs = ["minecraft:vindicator", "minecraft:evoker", "minecraft:zombie{HandItems:[{id:\"minecraft:iron_sword\",count:1},{}],ArmorItems:[{},{},{id:\"minecraft:iron_chestplate\",count:1},{}]}"]
+		#Special mobs get this much of their normal health ...
+		# Default: 3.0
+		# Range: 0.1 ~ 1000.0
+		specialHealthMultiplier = 3.0
+		#... and of their normal attack damage.
+		# Default: 1.5
+		# Range: 0.1 ~ 1000.0
+		specialDamageMultiplier = 1.5
+
+	#Creeper explosions: vanilla creepers and every mod's creeper built on them (Creeper Overhaul's, ...).
+	[mobs.creepers]
+		#Explosion size (radius) per creeper type: "<entity id> = <radius>", ids may use * ("creeperoverhaul:*").
+		#The first matching entry wins; charged creepers double it. Types not listed keep their own size (vanilla
+		#creeper: 3). Then explosionMultiplier applies to all.
+		explosionRadii = []
+		#Every creeper explosion's size is multiplied by this (1 = unchanged, 0.5 = half the radius).
+		# Default: 1.0
+		# Range: 0.0 ~ 10.0
+		explosionMultiplier = 1.0
+
+	#Mining mobs (Enhanced AI's miner zombies, Mob Control's block breakers) against a player standing on a tower: they
+	#dig out its foot so that it falls (block physics drops what nothing holds), instead of tunnelling into its side.
+	[mobs.minerMobs]
+		undermineTowers = false
+		#The most blocks (connected to the one the player stands on, at or above the mob's feet) that still count as a tower;
+		#more is terrain or a building.
+		# Default: 96
+		# Range: 4 ~ 4096
+		towerMaxBlocks = 96
+		#The most blocks a tower may stand on at the mob's feet level: the ones it digs out.
+		# Default: 4
+		# Range: 1 ~ 64
+		towerMaxBase = 4
+
+	#Creature Feature's detritus splits off a clone for every 1.8 damage it takes (while above about a third of its
+	#health), and every damage tick (fire, poison, a sweep) counts: one fight could fill the area with them.
+	[mobs.detritus]
+		#Most clones one hit makes (-1: as many as Creature Feature makes).
+		# Default: 1
+		# Range: -1 ~ 64
+		clonesPerHit = 1
+		#No more clones while this many detritus are within 32 blocks (-1: no limit).
+		# Default: 6
+		# Range: -1 ~ 256
+		maxNearby = 6
+
+#Player: reach, movement, shield parries, night vision.
+[player]
+
+	#How far players reach.
+	[player.reach]
+		#How far (in blocks, from the eyes) players can break, place and use blocks. Vanilla: 4.5 (creative mode
+		#adds 0.5).
+		# Default: 3.5
+		# Range: 0.5 ~ 64.0
+		blockReach = 3.5
+		#How far (in blocks) players reach to hit with bare hands and anything not listed in attackRanges. Vanilla: 3
+		#(creative mode keeps vanilla ranges: 5).
+		# Default: 2.5
+		# Range: 0.5 ~ 64.0
+		handAttackRange = 2.5
+		#Weapons that reach further or less far: "<item id or #tag> = <range>", ids may use * ("minecraft:*_sword").
+		#The first matching entry wins; counts for the item in the main hand. Creative mode keeps vanilla ranges.
+		attackRanges = ["#minecraft:swords = 3.5", "#minecraft:axes = 2"]
+
+	#How fast players walk and sprint.
+	[player.movement]
+		#Players' movement speed, as a share of vanilla's (1 = vanilla). Counts for walking and sprinting.
+		# Default: 1.0
+		# Range: 0.1 ~ 4.0
+		walkSpeed = 1.0
+		#How much faster sprinting is than walking, without food (0.3 = vanilla's +30 %).
+		# Default: 0.1
+		# Range: -0.5 ~ 4.0
+		sprintSpeedBonus = 0.1
+		#Spice of Life: Valheim: what each food in a food slot adds to the sprint bonus (unless listed in foodSpeeds).
+		#With the defaults three foods make sprinting as fast as in vanilla.
+		# Default: 0.0667
+		# Range: -1.0 ~ 4.0
+		foodSpeedBonus = 0.0667
+		#Foods that add more or less to the sprint bonus: "<item id or #tag> = <bonus>", ids may use *
+		#("minecraft:cooked_*"). The first matching entry wins.
+		foodSpeeds = ["minecraft:golden_carrot = 0.1"]
+
+	#Shield Expansion's parries decided by what really happened, in real time instead of ticks: a hit is parried when the
+	#player pressed block at most the shield's parry time (its parryTicks as twentieths of a second) before it landed. The
+	#client sends the moment of the key press; the server holds a hit on a player with a shield until such a press could
+	#have arrived, then decides.
+	[player.shieldParry]
+		clientSide = true
+		#How long a hit waits for a press, in milliseconds, on top of half the player's ping (a press between ticks, the
+		#packet's way).
+		# Default: 60
+		# Range: 0 ~ 1000
+		waitMillis = 0
+		#The most half-ping (milliseconds) waited for and taken off a press's arrival.
+		# Default: 300
+		# Range: 0 ~ 2000
+		maxPingMillis = 0
+
+	#Night vision by its level: full (everything lit, as vanilla) from fullLevel on (1 = vanilla: every level full).
+	#Below it, with True Darkness, its darkness stays and is only lifted: each level by darknessLift / fullLevel of the
+	#way to normal brightness. Without True Darkness, vanilla's night vision brightens by level / fullLevel.
+	[player.nightVision]
+		# Default: 3
+		# Range: 1 ~ 256
+		fullLevel = 3
+		#With True Darkness: how far towards normal brightness the levels below fullLevel lift its darkness at most
+		#(0: not at all, 1: level fullLevel - 1 nearly normal). Added to its increase_*_brightness setting.
+		# Default: 0.6
+		# Range: 0.0 ~ 1.0
+		darknessLift = 0.6
+
+#Other: fire, enchanting, mod compatibility, far-away entities.
+[other]
+
+	#Fire: what burns, what burning arrows set on fire, what puts it out.
+	[other.fire]
+		#Block tags whose blocks all burn: a block in one that fire can't burn (a mod forgot to register it, as some
+		#mods' leaves) burns like the others in the tag (their most common flammability). Only tags of blocks that
+		#should all burn: planks, slabs, fences and the like include nether wood, which doesn't.
+		burnLikeTheirKind = ["minecraft:leaves", "minecraft:logs_that_burn", "minecraft:wool", "minecraft:wool_carpets"]
+		#Burning arrows (Flame, or shot through fire or lava) set the block they hit on fire if it catches fire this
+		#easily: its fire spread chance at least this (wool, leaves, hay, grass: 30-60; planks, logs: 5). The fire burns as any
+		#fire does and goes out with what it burns. 0 = arrows set nothing on fire.
+		# Default: 30
+		# Range: 0 ~ 300
+		arrowIgniteSpread = 30
+		#Snowballs put out fire as splash water bottles do: the fire where they hit and next to it, a lit campfire or
+		#candle they hit, a burning mob or player, burning arrows nearby (splash water bottles do that too, as rain).
+		snowballsPutOutFire = true
+
+	#Enchanting without experience (Immersive Enchanting, No Experience).
+	[other.enchanting]
+		#Anvils (vanilla and Easy Anvils) only use up materials and never cost or require experience levels.
+		anvilsWithoutExperience = true
+		#Use this mod's ancient book loot distribution (data/*/loot_modifiers, type createsurvival_core:ancient_books)
+		#instead of Immersive Enchanting's own.
+		replaceAncientBookLoot = true
+
+	#Copycats+ bytes (eighth blocks) as small blocks of their own.
+	[other.copycats]
+		#Mining a block of several bytes breaks only the byte you look at, at the speed of its material (stone wants
+		#a pickaxe, ...), dropping what Copycats+ drops for that byte (the byte and its material). Off: Copycats+ as
+		#made (the whole block breaks at once).
+		separateBytes = true
+		#How much faster a byte (Copycats+ bytes and CreateSurvival bytes) is mined than a full block of its material
+		#(1 = as fast as the full block, 8 = an eighth of the time, as a byte is an eighth of the block).
+		# Default: 8.0
+		# Range: 0.1 ~ 64.0
+		byteMiningSpeed = 8.0
+
+	#Entities seen from far away: those with the command tag below (/tag <entity> add distantRender) or of a type in the
+	#entity type tag createsurvival_core:distant_render. Wherever they are loaded on the server (forceloaded chunks, near
+	#other players), players see them up to the range, also beyond their own render distance. Players aren't included.
+	[other.distantEntities]
+		enabled = true
+		#The command tag (scoreboard tag) that makes a single entity seen from far away.
+		tag = "distantRender"
+		#How far away they are seen [blocks].
+		# Default: 512
+		# Range: 16 ~ 4096
+		range = 2000
+		#Their sky light where the client has no chunk and Distant Horizons has no light data (0-15).
+		# Default: 15
+		# Range: 0 ~ 15
+		skyLight = 15

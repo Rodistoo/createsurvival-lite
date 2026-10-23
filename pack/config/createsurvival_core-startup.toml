@@ -1,0 +1,64 @@
+#Bytes: eighth blocks of other blocks, each a block of its own ("Stone Byte"). Placing bytes into the same
+#space builds up a block; all eight make the full block again. Mining breaks one byte at a time.
+[bytes]
+	#Bytes at all. Needs a restart.
+	enabled = true
+	#Which blocks get bytes: block ids, * matches anything ("minecraft:*_planks", "terralith:*"), a leading !
+	#leaves blocks out again ("!minecraft:*glass*"). Only plain full blocks without a block entity qualify; others
+	#are skipped. Every material is one more block with 512 states, so a few hundred at most. Needs a restart, and
+	#players need the same list as the server.
+	materials = ["minecraft:stone", "createsurvival_core:hardened_stone", "caverns_and_chasms:cylindrite", "minecraft:cobblestone", "minecraft:mossy_cobblestone", "minecraft:smooth_stone", "minecraft:granite", "minecraft:diorite", "minecraft:andesite", "minecraft:polished_*", "minecraft:deepslate", "minecraft:cobbled_deepslate", "minecraft:tuff", "minecraft:calcite", "minecraft:dirt", "minecraft:coarse_dirt", "minecraft:rooted_dirt", "minecraft:grass_block", "minecraft:podzol", "minecraft:mycelium", "minecraft:mud", "minecraft:packed_mud", "minecraft:clay", "minecraft:sand", "minecraft:red_sand", "minecraft:gravel", "minecraft:sandstone", "minecraft:red_sandstone", "minecraft:smooth_sandstone", "minecraft:terracotta", "minecraft:*_terracotta", "!minecraft:*_glazed_terracotta", "minecraft:*_planks", "minecraft:*_log", "minecraft:stone_bricks", "minecraft:deepslate_bricks", "minecraft:bricks", "minecraft:netherrack", "minecraft:blackstone", "minecraft:end_stone", "minecraft:snow_block", "minecraft:packed_ice", "minecraft:dripstone_block", "minecraft:smooth_basalt", "minecraft:basalt", "minecraft:moss_block", "minecraft:soul_soil", "minecraft:obsidian", "minecraft:blue_ice", "minecraft:magma_block", "minecraft:cinnabar", "minecraft:sulfur", "caverns_and_chasms:schist", "caverns_and_chasms:rhyolite", "caverns_and_chasms:sugilite", "caverns_and_chasms:cassiterite", "caverns_and_chasms:rocky_dirt", "quark:jasper", "quark:limestone", "quark:shale", "quark:myalite", "quark:permafrost", "create:asurine", "create:crimsite", "create:limestone", "create:ochrum", "create:scorchia", "create:scoria", "create:veridium", "alexscaves:limestone", "alexscaves:radrock", "alexscaves:galena", "alexscaves:guanostone", "alexscaves:coprolith", "alexscaves:abyssmarine", "alexscaves:flood_basalt", "yungscavebiomes:ancient_sand", "yungscavebiomes:ancient_sandstone"]
+	#Distant Horizons: the color of copycat blocks (Create, Copycats+) far away when their material can't be read
+	#(#RRGGBB). Where it can (the chunk is loaded), they get their material's color.
+	copycatLodColor = "#8A8A8A"
+	#Smooth terrain with bytes where new chunks generate (like Terrain Slabs): at the foot of one block high
+	#steps and under the edges of overhangs, bytes of the ground fill in against the step, from a single byte
+	#on outer corners to whole slabs. Blocks in the tag createsurvival_core:byte_terrain take part.
+	terrain = true
+
+#Blocks in inventories: blocks with a collision box (not flowers, torches, ...) stack to blockStackSize in every
+#inventory, and survival players keep them only in a block bag worn in a Curios back slot (each stack in the hotbar
+#or offhand takes one of its slots). Needs a restart.
+[inventory]
+	enabled = true
+	#How many full-size blocks fit in one slot.
+	# Default: 8
+	# Range: 1 ~ 99
+	blockStackSize = 8
+	#How many smaller blocks (slabs, fences, walls, panes, trapdoors, ...: see partialBlockMaxVolume) fit in one slot.
+	# Default: 16
+	# Range: 1 ~ 99
+	partialBlockStackSize = 16
+	#A block counts as smaller when its shape fills at most this part of a full block (a slab 0.5, a fence post 0.14,
+	#stairs 0.75).
+	# Default: 0.5
+	# Range: 0.0 ~ 1.0
+	partialBlockMaxVolume = 0.5
+	#How many bytes (an eighth of a block each) fit in one slot.
+	# Default: 32
+	# Range: 1 ~ 99
+	byteStackSize = 32
+	#Stack sizes for single blocks, over the ones above: "minecraft:oak_slab=12". Only for blocks with a collision
+	#box (the others keep their own stack size).
+	stackSizes = []
+	#Slots of the block bag's five tiers (block_bag, block_bag_2 ... block_bag_5): how many stacks of blocks each
+	#carries. A bag whose tier gets fewer slots loses what its last slots held.
+	blockBagSlots = [3, 5, 7, 9, 12]
+	#Slots of the contraption bag's five tiers (contraption_bag ... contraption_bag_5): how many pocket contraptions
+	#(items in the item tag createsurvival_core:contraption_bag_items) a survival player carries.
+	contraptionBagSlots = [2, 3, 4, 5, 6]
+	#How many times higher blocks stack in a block barrel and in a Create item vault than in the player's inventory
+	#(up to 64). Other storage (the block tag createsurvival_core:no_block_storage: chests, barrels, shulker boxes,
+	#toolboxes, cabinets, ...) takes no blocks at all.
+	# Default: 2
+	# Range: 1 ~ 8
+	storageStackMultiplier = 2
+
+#Vertical slabs (feature verticalSlabs): a vertical slab for each slab listed here that has none yet (from Quark,
+#Every Compat, Stone Zone, ...): createsurvival_core:vertical_slab/<mod>/<slab>. Crafted like Quark's (3 slabs in a column
+#make 3, one makes its slab again: kubejs/server_scripts/createsurvival_recipes.js); two halves make a double. Their model
+#is the slab's own double slab, cut in half. Slabs of blocks with bytes break byte by byte like them.
+[verticalSlabs]
+	#Which slabs: block ids, * matches anything, a leading ! leaves slabs out again (as materials above). Needs a
+	#restart, and players need the same list as the server.
+	slabs = ["caverns_and_chasms:*"]

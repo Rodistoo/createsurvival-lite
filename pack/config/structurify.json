@@ -1,0 +1,20 @@
+{
+  "config_version": "2.0.43",
+  "config_datetime": "2026-10-14_17-33-38",
+  "general": {
+    "prevent_structure_overlap": true
+  },
+  "structure_namespaces": [],
+  "structures": [
+    {
+      "name": "minecraft:stronghold",
+      "is_disabled": true
+    },
+    {
+      "name": "alexscaves:underground_cabin",
+      "is_disabled": true
+    }
+  ],
+  "structure_sets": [],
+  "structure_template_pools": []
+}

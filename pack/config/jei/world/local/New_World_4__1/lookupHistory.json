@@ -1,0 +1,13 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"create_dragons_plus:fragile_fluid_tank"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create_dragons_plus:levitite_fragile_fluid_tank"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"createpropulsion:tempered_wing"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"createpropulsion:wing"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"createpropulsion:copycat_wing"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"sable_schematic_api:blueprint_tool"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"sable_schematic_api:survival_blueprint"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"ae2:crystal_resonance_generator"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"ae2:fe_p2p_tunnel"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:cart_assembler"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

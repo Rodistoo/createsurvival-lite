@@ -1,0 +1,82 @@
+{
+  "variants": {
+    "facing=up,kind=up": {
+      "model": "createsurvival_mechanics:block/glue_patch_up"
+    },
+    "facing=up,kind=down": {
+      "model": "createsurvival_mechanics:block/glue_patch_down"
+    },
+    "facing=up,kind=side": {
+      "model": "createsurvival_mechanics:block/glue_patch_side"
+    },
+    "facing=down,kind=up": {
+      "model": "createsurvival_mechanics:block/glue_patch_up",
+      "x": 180
+    },
+    "facing=down,kind=down": {
+      "model": "createsurvival_mechanics:block/glue_patch_down",
+      "x": 180
+    },
+    "facing=down,kind=side": {
+      "model": "createsurvival_mechanics:block/glue_patch_side",
+      "x": 180
+    },
+    "facing=north,kind=up": {
+      "model": "createsurvival_mechanics:block/glue_patch_up",
+      "x": 90
+    },
+    "facing=north,kind=down": {
+      "model": "createsurvival_mechanics:block/glue_patch_down",
+      "x": 90
+    },
+    "facing=north,kind=side": {
+      "model": "createsurvival_mechanics:block/glue_patch_side",
+      "x": 90
+    },
+    "facing=south,kind=up": {
+      "model": "createsurvival_mechanics:block/glue_patch_up",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,kind=down": {
+      "model": "createsurvival_mechanics:block/glue_patch_down",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,kind=side": {
+      "model": "createsurvival_mechanics:block/glue_patch_side",
+      "x": 90,
+      "y": 180
+    },
+    "facing=east,kind=up": {
+      "model": "createsurvival_mechanics:block/glue_patch_up",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,kind=down": {
+      "model": "createsurvival_mechanics:block/glue_patch_down",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,kind=side": {
+      "model": "createsurvival_mechanics:block/glue_patch_side",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,kind=up": {
+      "model": "createsurvival_mechanics:block/glue_patch_up",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,kind=down": {
+      "model": "createsurvival_mechanics:block/glue_patch_down",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,kind=side": {
+      "model": "createsurvival_mechanics:block/glue_patch_side",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

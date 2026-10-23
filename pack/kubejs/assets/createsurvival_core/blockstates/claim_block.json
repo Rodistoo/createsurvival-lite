@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "createsurvival_core:block/claim_block" }
+  }
+}

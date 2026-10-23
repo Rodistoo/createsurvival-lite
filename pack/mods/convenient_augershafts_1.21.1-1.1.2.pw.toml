@@ -1,0 +1,13 @@
+name = "Convenient Auger Shafts"
+filename = "convenient_augershafts_1.21.1-1.1.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/pvYjawq0/versions/M7O6Etec/convenient_augershafts_1.21.1-1.1.2.jar"
+hash-format = "sha512"
+hash = "d73fa9cac3e739d72689ebf16a606f819a07da757fe04371ea7fe0d49f95647de92ec25e2d7b0cdaa7877a56109cfa83ea04eb2d163b2d6d2694ad6d556862f6"
+
+[update]
+[update.modrinth]
+mod-id = "pvYjawq0"
+version = "M7O6Etec"

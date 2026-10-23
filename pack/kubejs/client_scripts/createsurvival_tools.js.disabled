@@ -1,0 +1,5 @@
+// CreateSurvival: hide wooden tools from EMI and JEI (they can't be crafted, see server_scripts).
+
+RecipeViewerEvents.removeEntriesCompletely('item', event => {
+  ;['wooden_pickaxe', 'wooden_axe', 'wooden_shovel', 'wooden_hoe', 'wooden_sword'].forEach(name => event.remove('minecraft:' + name))
+})

@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "face=floor,facing=north,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 0,
+      "y": 0
+    },
+    "face=floor,facing=east,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 0,
+      "y": 90
+    },
+    "face=floor,facing=south,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 0,
+      "y": 180
+    },
+    "face=floor,facing=west,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 0,
+      "y": 270
+    },
+    "face=wall,facing=north,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 90,
+      "y": 0
+    },
+    "face=wall,facing=east,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 90,
+      "y": 90
+    },
+    "face=wall,facing=south,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 90,
+      "y": 180
+    },
+    "face=wall,facing=west,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 90,
+      "y": 270
+    },
+    "face=ceiling,facing=north,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 180,
+      "y": 0
+    },
+    "face=ceiling,facing=east,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 180,
+      "y": 90
+    },
+    "face=ceiling,facing=south,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 180,
+      "y": 180
+    },
+    "face=ceiling,facing=west,side=front": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 180,
+      "y": 270
+    },
+    "face=floor,facing=north,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 0,
+      "y": 0
+    },
+    "face=floor,facing=east,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 0,
+      "y": 90
+    },
+    "face=floor,facing=south,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 0,
+      "y": 180
+    },
+    "face=floor,facing=west,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 0,
+      "y": 270
+    },
+    "face=wall,facing=north,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider_rotated",
+      "x": 90,
+      "y": 0
+    },
+    "face=wall,facing=east,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider_rotated",
+      "x": 90,
+      "y": 90
+    },
+    "face=wall,facing=south,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider_rotated",
+      "x": 90,
+      "y": 180
+    },
+    "face=wall,facing=west,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider_rotated",
+      "x": 90,
+      "y": 270
+    },
+    "face=ceiling,facing=north,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 180,
+      "y": 0
+    },
+    "face=ceiling,facing=east,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 180,
+      "y": 90
+    },
+    "face=ceiling,facing=south,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 180,
+      "y": 180
+    },
+    "face=ceiling,facing=west,side=back": {
+      "model": "createsurvival_mechanics:block/linear_slider",
+      "x": 180,
+      "y": 270
+    }
+  }
+}

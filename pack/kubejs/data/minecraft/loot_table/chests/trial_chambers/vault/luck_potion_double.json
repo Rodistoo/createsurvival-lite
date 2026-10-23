@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:vault",
+  "pools": [
+    {
+      "rolls": 2,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:chests/trial_chambers/vault/luck_potion",
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "random_sequence": "minecraft:chests/trial_chambers/vault/luck_potion_double"
+}

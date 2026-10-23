@@ -1,0 +1,15 @@
+#Better Skylight settings
+[general]
+	#Master switch. Disable to use vanilla skylight.
+	enabled = true
+
+#Lighting analysis tuning
+[analysis]
+	#Angular radius used for ambient sky visibility.
+	# Default: 7.0
+	# Range: 0.5 ~ 45.0
+	ambient_cone_angle_degrees = 7.0
+	#Maximum distance used when searching for sky openings.
+	# Default: 512
+	# Range: 16 ~ 2048
+	analysis_distance = 512

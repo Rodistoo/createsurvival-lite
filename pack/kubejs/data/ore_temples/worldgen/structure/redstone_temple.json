@@ -1,0 +1,32 @@
+{
+  "type": "createsurvival_core:sectioned",
+  "biomes": "#ore_temples:has_structure/redstone_temple",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {},
+  "start_height": {
+    "type": "minecraft:uniform",
+    "min_inclusive": {
+      "absolute": -58
+    },
+    "max_inclusive": {
+      "absolute": 20
+    }
+  },
+  "keep_air": true,
+  "random_rotation": true,
+  "sections": [
+    {
+      "template": "ore_temples:redstone_temple/0_0_0",
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "base": {
+    "block": "minecraft:polished_blackstone",
+    "depth": 1
+  }
+}

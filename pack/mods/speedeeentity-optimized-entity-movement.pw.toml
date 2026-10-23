@@ -1,0 +1,13 @@
+name = "SpeeDeeEntity - Optimized entity movement"
+filename = "speedeeentity-neoforge-1.21.1-1.0.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ac4ebb706ceba3899067fc024d2a27da6c52abcf"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8916024
+project-id = 1610854

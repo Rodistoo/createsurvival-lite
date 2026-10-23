@@ -1,0 +1,38 @@
+{
+	// Enable debugging
+	debugmode: false,
+	// Enable immersive spawning system
+	enableImmersiveSpawning: true,
+	// Dimension IDs where immersive spawning is active (vanilla or modded, e.g., 'minecraft:overworld', 'twilightforest:twilight_forest')
+	enabledDimensions: [
+		"minecraft:overworld"
+	],
+	// Base spawn rate multiplier (default spawn rate everywhere)
+	baseMultiplier: 1.0,
+	// Minimum spawn rate multiplier in caves (at shallowest detected depth)
+	minCaveMultiplier: 0.5,
+	// Maximum spawn rate multiplier in deep caves (at deepest depths)
+	maxCaveMultiplier: 2.5,
+	// Minimum spawn rate multiplier in forests (at lowest density)
+	minForestMultiplier: 0.2,
+	// Maximum spawn rate multiplier in dense forests (at highest density)
+	maxForestMultiplier: 1.0,
+	// Base multiplier for dangerous structures
+	dangerousStructureMultiplier: 3.0,
+	// Enable structure-based spawn modifications
+	enableStructureModifications: true,
+	// Number of logs required in radius to count as dense forest
+	denseForestLogThreshold: 50,
+	// Radius (in blocks) to count logs for dense forest detection
+	denseForestScanRadius: 10,
+	// If enabled, spiders can only spawn in caves
+	spiderOnlyInCave: true,
+	// If enabled, creepers cannot spawn near structures (prevents griefing)
+	disableCreeperNearStructure: false,
+	// Additional structure IDs to treat as dangerous (e.g., 'modid:structure_name')
+	additionalDangerousStructures: [],
+	// Additional structure IDs to treat as safe (e.g., 'modid:structure_name')
+	additionalSafeStructures: [],
+	// Mob-specific spawn multipliers (e.g., 'modid:mob_name' -> 2.0)
+	mobSpecificMultipliers: {}
+}

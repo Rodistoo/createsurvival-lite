@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "axis_along_first=false,facing=down": {
+      "model": "createsurvival_mechanics:block/gantry_drive/horizontal",
+      "x": 270,
+      "y": 90
+    },
+    "axis_along_first=false,facing=east": {
+      "model": "createsurvival_mechanics:block/gantry_drive/horizontal",
+      "y": 270
+    },
+    "axis_along_first=false,facing=north": {
+      "model": "createsurvival_mechanics:block/gantry_drive/vertical",
+      "y": 180
+    },
+    "axis_along_first=false,facing=south": {
+      "model": "createsurvival_mechanics:block/gantry_drive/vertical"
+    },
+    "axis_along_first=false,facing=up": {
+      "model": "createsurvival_mechanics:block/gantry_drive/horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis_along_first=false,facing=west": {
+      "model": "createsurvival_mechanics:block/gantry_drive/horizontal",
+      "y": 90
+    },
+    "axis_along_first=true,facing=down": {
+      "model": "createsurvival_mechanics:block/gantry_drive/horizontal",
+      "x": 270
+    },
+    "axis_along_first=true,facing=east": {
+      "model": "createsurvival_mechanics:block/gantry_drive/vertical",
+      "y": 270
+    },
+    "axis_along_first=true,facing=north": {
+      "model": "createsurvival_mechanics:block/gantry_drive/horizontal",
+      "y": 180
+    },
+    "axis_along_first=true,facing=south": {
+      "model": "createsurvival_mechanics:block/gantry_drive/horizontal"
+    },
+    "axis_along_first=true,facing=up": {
+      "model": "createsurvival_mechanics:block/gantry_drive/horizontal",
+      "x": 90
+    },
+    "axis_along_first=true,facing=west": {
+      "model": "createsurvival_mechanics:block/gantry_drive/vertical",
+      "y": 90
+    }
+  }
+}

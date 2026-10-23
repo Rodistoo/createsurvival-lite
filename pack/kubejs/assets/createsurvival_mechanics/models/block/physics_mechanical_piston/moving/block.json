@@ -1,0 +1,8 @@
+{
+  "parent": "create:block/mechanical_piston/moving/block",
+  "textures": {
+    "0": "createsurvival_mechanics:block/physics_piston_casing_piston",
+    "4": "createsurvival_mechanics:block/physics_piston_casing",
+    "particle": "createsurvival_mechanics:block/physics_piston_casing_piston"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "values": [
+    {
+      "id": "ore_temples:coal_temple",
+      "required": false
+    },
+    {
+      "id": "ore_temples:copper_temple",
+      "required": false
+    },
+    {
+      "id": "ore_temples:diamond_temple",
+      "required": false
+    },
+    {
+      "id": "ore_temples:emerald_temple",
+      "required": false
+    },
+    {
+      "id": "ore_temples:gold_temple",
+      "required": false
+    },
+    {
+      "id": "ore_temples:iron_temple",
+      "required": false
+    },
+    {
+      "id": "ore_temples:lapis_temple",
+      "required": false
+    },
+    {
+      "id": "ore_temples:redstone_temple",
+      "required": false
+    },
+    {
+      "id": "ore_temples:zinc_temple",
+      "required": false
+    }
+  ]
+}

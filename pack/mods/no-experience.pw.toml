@@ -1,0 +1,13 @@
+name = "No Experience"
+filename = "no_experience-neoforge-1.21.1-1.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "d6edb3e265155ffb81a1fe9f76eb1b16b259a8ea"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8908496
+project-id = 1700497

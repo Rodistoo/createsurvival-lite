@@ -1,0 +1,12 @@
+{
+  "levels": {
+    "1": [
+      {
+        "item_cost": {
+          "item": "minecraft:recovery_compass",
+          "count": 1
+        }
+      }
+    ]
+  }
+}

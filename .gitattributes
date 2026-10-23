@@ -1,0 +1,2 @@
+# files go out byte for byte: packwiz checks every file against the hash in index.toml
+* -text

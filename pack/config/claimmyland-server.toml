@@ -1,0 +1,156 @@
+###############################
+# General properties for Protect It  mod.
+###############################
+[general]
+	# The number of parcels each player can own per world.
+	# Default: 5
+	# Range: 1 ~ 100
+	parcelsPerPlayer = 5
+	# The permission level required to be Ops within Claim My Land.
+	#This is not the op-permission-level that is set in the server.propeties.
+	# This allows players who are not server-level ops, to have Claim My Land Ops permissions. ie protections don't protect against Ops.
+	# Ex. server-level ops = 4, but Claim My Land ops = 3 - a player with permission 3 would be considered an Ops within Claim My Land.
+	# Default: 4
+	# Range: 0 ~ 4
+	opsPermissionLevel = 4
+	# A buffer between parcels. Another parcel cannot be built within this area.
+	# This is a radius beyond (or in addition to) the parcel border.
+	# Ex. parcel size = 10x10x10, with a buffer radius = 3. The total size = 13x13x13
+	# that another parcel cannot build within.
+	# Note that the buffer is between parcel borders, not other buffers, meaning if 2 parcels
+	# both have a buffer = 3, there is a buffer of 3 between the parcels, not 6.
+	# Default: 3
+	# Range: 1 ~ 10
+	parcelBufferRadius = 3
+	# Like 'parcelBufferRadius', but for Nation parcels.
+	# Default: 10
+	# Range: 1 ~ 50
+	nationParcelBufferRadius = 10
+	# Allows external HTTP calls to Mojang's web API (ex. https://api.mojang.com/users/profiles/minecraft/)
+	# This is used to find offline player's UUID by name, or visa versa.
+	allowMojangNameCalls = true
+	#If true, clients receive a title overlay when crossing into a
+	#Nation, Citizen, or Player parcel. Server master switch —
+	#disabling this prevents all clients from seeing titles regardless
+	#of their individual client settings.
+	#Default: true.
+	enableParcelEntryTitle = true
+	#If true, the Foundation Stone is placed at the XZ centre of the parcel.
+	#If false, the stone is placed at the min corner (legacy behaviour).
+	#Default: true.
+	foundationStoneCentered = true
+	#List of player UUIDs with CML ops-level permission.
+	#These players can use /cml-ops commands without being server operators.
+	#Format: UUID strings e.g. ["550e8400-e29b-41d4-a716-446655440000"]
+	#Default: empty list.
+	opsList = []
+	#If true, deeds can appear in loot tables (chests, mob drops, fishing, etc.).
+	#Disable to prevent deeds from appearing in loot if you prefer admin-only distribution.
+	#Default: true.
+	enableDeedLoot = true
+	# The life span of a border stone in ticks.
+	# Default: 6000
+	# Range: > 1200
+	borderStoneLifeSpan = 6000
+	# The life span of a foundation stone in ticks.
+	# Default: 6000
+	# Range: > 1200
+	foundationStoneLifeSpan = 6000
+	# Height in blocks of the visual border and buffer wall for Nation parcels.
+	# Default: 20
+	# Range: 1 ~ 256
+	nationBorderHeight = 20
+
+###############################
+# Protection properties for Claim My Land mod.
+# Note: these config settings are for enabling the protections of the parcel, not for enabling the actions.
+# ex. Block break protection = true, enables the PROTECTION AGAINST breaking blocks in the property,
+# it does NOT enable the player TO BREAK a block.
+###############################
+[protection]
+	# Enables block break protection. If enabled, blocks in property are protected from being broken by others.
+	enableBlockBreakProtection = true
+	# Enables block placement protection. If enabled, blocks are not allowed to be placed in the property by others.
+	enableBlockPlacementProtection = true
+	# Enables multi-block placement protection. If enabled, multi-blocks are not allowed to be placed in the property by others.
+	enableMultiBlockPlacementProtection = true
+	# Enables block tool interaction protection. If enabled, blocks in the property will not change state when right-clicked with tool. Ex. axe will not strip a log.
+	enableBlockToolInteractProtection = true
+	# Enables right click block protection. If enabled, blocks in the property will not perform any action if right-clicked. Ex. chests will not open for others.
+	enableRightClickBlockProtection = true
+	# Enables right click item protection. If enabled, item use in the property will not perform any action if right-clicked.
+	enableRightClickItemProtection = true
+	# Enables block break protection from living entities. If enabled, blocks in the property  are protected from being broken for living entities (mobs).
+	enableLivingDestroyBlockProtection = true
+	# Enables piston movement protection. If enabled, pistons outside the property will not fire if their movement would move protected blocks.
+	enablePistonMovementProtection = true
+	# Enables explosion protection. If enabled, explosions will not destory protected blocks.
+	enableExplosionProtection = true
+	# Prevents fire from spreading within claimed parcels.
+	# Can be overridden per-estate.
+	# Default: true.
+	preventFireSpread = true
+	#If true, prevents players and entities from trampling farmland inside protected parcels.
+	#Default: true.
+	enableFarmlandTrampleEvent = true
+	#If true, prevents players from teleporting into protected parcels via chorus fruit.
+	#Default: true.
+	enableChorusFruitTeleport = true
+	#If true, prevents players from teleporting into protected parcels via enderpearl.
+	#Nation-level parcels are never protected from teleport — Nations are
+	#public-transit by default. Embedded parcels (Zone, Citizen, Player) still
+	#honor this setting and block non-owners / non-whitelisted players.
+	#Default: false.
+	enableEnderpearlTeleport = false
+
+###############################
+# Backup properties for Claim My Land mod.
+###############################
+[backup]
+	# Enable the rolling JSON backup system.
+	# Backups are written to world/data/claimmyland/backups/
+	enabled = true
+	# How often (in minutes) a backup is written.
+	# Minimum: 1. Default: 5.
+	# Default: 5
+	# Range: 1 ~ 1440
+	intervalMinutes = 5
+	# Maximum number of backup files to keep.
+	# Oldest files are deleted automatically.
+	# Minimum: 1. Default: 20.
+	# Default: 20
+	# Range: 1 ~ 500
+	maxFiles = 20
+
+###############################
+# Structure protection properties for Claim My Land mod.
+###############################
+[structureProtection]
+	# When true, players cannot claim land that overlaps certain structures.
+	# See denyStructures and warnStructures to customise which ones.
+	enabled = true
+	# Structures that cannot be claimed over. Claim is hard-rejected.
+	# Use Minecraft resource location format.
+	# Prefix with # for a structure tag.
+	# Default: Stronghold, Nether Fortress, Bastion Remnant, End City.
+	# Example: ["#minecraft:eye_of_ender_located", "minecraft:fortress"]
+	denyStructures = ["#minecraft:eye_of_ender_located", "minecraft:fortress", "minecraft:bastion_remnant", "minecraft:end_city"]
+	# Structures that trigger a warning but still allow the claim.
+	# Default: Village, Woodland Mansion, Ocean Monument.
+	# Example: ["#minecraft:village", "minecraft:mansion"]
+	warnStructures = ["#minecraft:village", "#minecraft:on_woodland_explorer_maps", "#minecraft:on_ocean_explorer_maps"]
+
+###############################
+# Dimension properties for Claim My Land mod.
+###############################
+[dimensions]
+	# Dimensions where land claiming is completely disabled.
+	# Use Minecraft resource location format.
+	# Default is empty — all dimensions are claimable.
+	# Example: ["minecraft:the_nether", "minecraft:the_end"]
+	excludedDimensions = []
+
+[celebration]
+	#If true, fireworks are launched at the parcel centre on claim commit.
+	#Default: true.
+	fireworksEnabled = true

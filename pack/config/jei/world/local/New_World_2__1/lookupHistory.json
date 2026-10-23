@@ -1,0 +1,5 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"simulated:gyroscopic_mechanism"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"createpropulsion:redstone_transmission"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

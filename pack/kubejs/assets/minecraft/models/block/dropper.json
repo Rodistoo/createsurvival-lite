@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "minecraft:block/dropper_front",
+    "side": "createsurvival_core:block/dispenser_side",
+    "top": "createsurvival_core:block/dispenser_top"
+  }
+}

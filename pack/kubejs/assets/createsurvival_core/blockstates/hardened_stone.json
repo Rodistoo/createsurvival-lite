@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "createsurvival_core:block/hardened_stone"
+    }
+  }
+}

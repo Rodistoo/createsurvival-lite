@@ -1,0 +1,81 @@
+[general]
+	#Master switch for Climbing Claws traversal. The item remains usable as a weapon when this is false.
+	enableClimbing = true
+	#Allows Climbing Claws traversal when the claws are used from the main hand.
+	allowMainHandUse = true
+	#Allows Climbing Claws traversal when the claws are used from the off hand.
+	allowOffHandUse = true
+	#Allows climbing vertical full-block surfaces.
+	enableWallClimbing = true
+	#Allows clinging to and moving along block undersides.
+	enableCeilingClimbing = true
+	#Allows players to hang in place while the claws are raised and no movement key is pressed.
+	enableHanging = true
+	#Allows sneaking while attached to a surface to descend in a controlled way.
+	enableControlledDescent = true
+	#Allows the Canopy Grip enchantment to latch onto partial collision surfaces such as leaves.
+	enableCanopyGripEffect = true
+
+[movement]
+	#Base upward speed while climbing a vertical wall.
+	# Default: 0.065
+	# Range: 0.0 ~ 1.0
+	sideClimbSpeed = 0.065
+	#Base upward/hold speed while moving against a ceiling.
+	# Default: 0.03
+	# Range: 0.0 ~ 1.0
+	ceilingClimbSpeed = 0.03
+	#Base upward/hold speed while clinging to a ceiling without movement input.
+	# Default: 0.01
+	# Range: 0.0 ~ 1.0
+	ceilingHoldSpeed = 0.01
+	#Additional climb speed added for each Efficiency enchantment level.
+	# Default: 0.0125
+	# Range: 0.0 ~ 0.25
+	efficiencySpeedBonus = 0.0125
+	#Maximum horizontal velocity retained while attached to a surface.
+	# Default: 0.15
+	# Range: 0.0 ~ 2.0
+	horizontalVelocityLimit = 0.15
+	#Maximum downward velocity retained while attached before claw movement is applied.
+	# Default: 0.15
+	# Range: 0.0 ~ 2.0
+	fallSpeedLimitWhileAttached = 0.15
+
+[wallSpring]
+	#Allows the Wall Spring enchantment to launch players while attached to a valid surface.
+	enableWallSpring = true
+	#Allows Wall Spring to activate while the player is sneaking.
+	allowWhileSneaking = false
+	#Upward velocity added by Wall Spring I.
+	# Default: 0.75
+	# Range: 0.0 ~ 5.0
+	levelOneBoost = 0.75
+	#Upward velocity added by Wall Spring II.
+	# Default: 1.05
+	# Range: 0.0 ~ 5.0
+	levelTwoBoost = 1.05
+	#Cooldown in ticks after a Wall Spring activation. 20 ticks is one second.
+	# Default: 200
+	# Range: 0 ~ 12000
+	cooldownTicks = 200
+
+[durability]
+	#Allows traversal and Wall Spring to damage Climbing Claws.
+	enableDamage = true
+	#Durability damage applied during normal climbing or clinging intervals.
+	# Default: 1
+	# Range: 0 ~ 100
+	climbingDamageAmount = 1
+	#Ticks between durability damage while actively climbing.
+	# Default: 10
+	# Range: 1 ~ 1200
+	activeClimbDamageIntervalTicks = 10
+	#Ticks between durability damage while attached but not actively climbing.
+	# Default: 20
+	# Range: 1 ~ 1200
+	clingDamageIntervalTicks = 20
+	#Durability damage applied immediately when Wall Spring activates.
+	# Default: 1
+	# Range: 0 ~ 100
+	wallSpringDamageAmount = 1

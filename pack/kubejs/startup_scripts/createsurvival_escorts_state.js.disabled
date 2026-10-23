@@ -1,0 +1,5 @@
+// CreateSurvival escorts (server_scripts/createsurvival_escorts.js): what all copies of that script share. On a new
+// world KubeJS loads the server scripts twice, and the commands (escort start, from the dialogs) stay with the first copy
+// while the ticks run in the second; with their own escorts each they'd never see the other's. Server scripts can't set
+// global themselves, so it's made here, once; they keep their state in it.
+global.createsurvivalEscorts = { saved: null, planning: {}, debugging: {}, guideMarkers: [] }

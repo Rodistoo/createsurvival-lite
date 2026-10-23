@@ -1,0 +1,8 @@
+{
+  "multipart": [
+    { "when": { "axis": "x" }, "apply": { "model": "createsurvival_mechanics:block/steel_rope_pulley/block", "y": 90 } },
+    { "when": { "axis": "z" }, "apply": { "model": "createsurvival_mechanics:block/steel_rope_pulley/block" } },
+    { "when": { "axis": "x" }, "apply": { "model": "createsurvival_mechanics:block/steel_rope_pulley/coil", "y": 90 } },
+    { "when": { "axis": "z" }, "apply": { "model": "createsurvival_mechanics:block/steel_rope_pulley/coil" } }
+  ]
+}

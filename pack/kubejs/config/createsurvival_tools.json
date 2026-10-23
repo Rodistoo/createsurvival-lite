@@ -1,0 +1,16 @@
+{
+	"_comment": "CreateSurvival tool settings. Changes need a full game restart.",
+	"durability_multipliers": {
+		"_comment": "Multiplies the durability of tools, weapons and armour of each material. Modded items are sorted in by how durable they are compared to these. 1 = unchanged.",
+		"iron": 3,
+		"diamond": 6,
+		"netherite": 8
+	},
+	"stone_tools": {
+		"_comment": "Stone tool stats (vanilla stone: uses 131, speed 4.0, attack_damage_bonus 1; vanilla wood: 59, 2.0, 0). They keep stone's mining level.",
+		"enabled": true,
+		"uses": 59,
+		"speed": 2,
+		"attack_damage_bonus": 0
+	}
+}

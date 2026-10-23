@@ -1,0 +1,12 @@
+{
+	// Shifts screen in the right direction when EMI is active (simulates a recipe book behaviour): true/false.
+	"screenShift": false,
+	// Switches effect location from RIGHT to RIGHT_COMPRESSED when EMI is active: true/false.
+	"switchEffectLocation": false,
+	// Makes EMI keybinds work even if EMI is not active: true/false.
+	"independentBinds": false,
+	// Adds Recipe Book buttons to some screens, that miss it, only when RecipeBookAction is not DEFAULT: true/false.
+	"addButtons": false,
+	// Shows EMI only in places of Recipe Book: true/false.
+	"imitateRecipeBook": false
+}

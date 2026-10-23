@@ -1,0 +1,13 @@
+name = "Not Enough Trials Mod Integrations"
+filename = "NETMiscCompat-1.21-v1.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/WlHHWwWT/versions/MSYVI66V/NETMiscCompat-1.21-v1.0.jar"
+hash-format = "sha512"
+hash = "0535ddf95d83acb706b0ec08ed75b50ed414b7c75478c4575ce6baa02e58db032ba8233ad1f74282f7998636f68d922294f00b95fa294df2cb67df0438398d0f"
+
+[update]
+[update.modrinth]
+mod-id = "WlHHWwWT"
+version = "MSYVI66V"

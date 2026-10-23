@@ -1,0 +1,51 @@
+###############################
+# Client GUI properties for Protect It  mod.
+###############################
+[GUI]
+	# Enables protection messages in chat. If enabled, when protection is triggered, a message will display in the chat.
+	enableProtectionChatMessages = false
+	#If true, a title overlay is shown when entering a Nation, Citizen,
+	#or Player parcel. The server config enableParcelEntryTitle must also
+	#be true for this to have any effect.
+	#Default: true.
+	enableParcelEntryTitle = true
+	#Seconds before the parcel entry title re-fires for the same parcel.
+	#Default: 30.
+	# Default: 30
+	# Range: 5 ~ 300
+	parcelEntryCooldownSeconds = 30
+	#Fade-in duration in ticks for the parcel entry title.
+	#Default: 10.
+	# Default: 10
+	# Range: 0 ~ 40
+	parcelEntryFadeInTicks = 10
+	#How long the parcel entry title stays on screen, in ticks.
+	#Default: 60.
+	# Default: 60
+	# Range: 10 ~ 200
+	parcelEntryStayTicks = 60
+	#Fade-out duration in ticks for the parcel entry title.
+	#Default: 20.
+	# Default: 20
+	# Range: 0 ~ 40
+	parcelEntryFadeOutTicks = 20
+	#Show the in-world parcel HUD overlay when standing inside a claimed parcel.
+	#Disable to hide the HUD without affecting gameplay or server behavior.
+	showParcelHud = true
+
+###############################
+# Rendering properties for Claim My Land mod.
+###############################
+[rendering]
+	# Maximum radius (in blocks) within which parcel borders are rendered.
+	# Parcels whose buffer boundary is entirely outside this radius are skipped.
+	# Default: 256.
+	# Default: 256
+	# Range: 64 ~ 2048
+	borderRenderRadius = 256
+	# How long (in seconds) conflict highlights remain visible after a Foundation Stone
+	# preview clears. Highlights also clear if the player moves 32+ blocks away.
+	# Range: 10–300. Default: 60.
+	# Default: 60
+	# Range: 10 ~ 300
+	conflictHighlightTimeoutSeconds = 60

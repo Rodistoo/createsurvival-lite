@@ -1,0 +1,28 @@
+{
+  "enabled": false,
+  "generateOres": true,
+  "generateStructures": false,
+  "adaptStructuresToExistingTerrain": true,
+  "maxOperationsPerTick": 8,
+  "maxMillisPerTick": 30,
+  "structureReferenceRadius": 8,
+  "maxTerrainShift": 96,
+  "maxTerrainSampleSpread": 32,
+  "maxInhabitedTimeTicks": -1,
+  "automaticNamespaces": [
+    "*"
+  ],
+  "excludedNamespaces": [
+    "minecraft",
+    "retrogen",
+    "terralith",
+    "tectonic",
+    "supplementaries",
+    "amendments",
+    "quark"
+  ],
+  "includePlacedFeatures": [],
+  "excludePlacedFeatures": [],
+  "includeStructures": [],
+  "excludeStructures": []
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "create:block/mechanical_piston/extended/block",
+  "textures": {
+    "0": "createsurvival_mechanics:block/physics_piston_casing_piston",
+    "particle": "createsurvival_mechanics:block/physics_piston_casing_piston"
+  }
+}

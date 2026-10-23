@@ -1,0 +1,5 @@
+{
+  "parent": "create:block/cart_assembler/minecart_anchor",
+  "textures": {},
+  "render_type": "minecraft:cutout_mipped"
+}

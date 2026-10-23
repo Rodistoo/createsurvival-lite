@@ -1,0 +1,13 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"minecraft:stone_slab"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:track"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"sable_schematic_api:camera"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:asurine"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:crushed_raw_zinc"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:zinc_ingot"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:raw_zinc"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:tuff"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create:zinc_nugget"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:bundle","components":"{\"minecraft:bundle_contents\":[{count:7,id:\"minecraft:polished_blackstone_bricks\"},{count:7,id:\"minecraft:cobblestone\"},{count:1,id:\"minecraft:dark_oak_fence_gate\"},{count:2,id:\"minecraft:chest\"},{count:16,id:\"minecraft:iron_ingot\"},{count:2,id:\"minecraft:gunpowder\"},{count:9,id:\"minecraft:scaffolding\"},{count:1,id:\"minecraft:stone\"},{count:5,id:\"minecraft:dirt\"},{count:1,id:\"minecraft:snowball\"},{count:7,id:\"minecraft:netherrack\"},{count:1,id:\"minecraft:powered_rail\"}]}"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

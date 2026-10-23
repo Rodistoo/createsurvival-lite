@@ -1,0 +1,13 @@
+name = "Wavify"
+filename = "wavify-1.2.1-1.21.1-neoforge.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/yTjEgNSm/versions/aOScm14J/wavify-1.2.1-1.21.1-neoforge.jar"
+hash-format = "sha512"
+hash = "2108e14ffc2e92e4b326a3aa36f2711caef7e56a285b1ca0676a1be51bc9a26ce40e67568cbda46ca2b195aa1cab5eb170f740b7b9adf57330c136ebc75b5637"
+
+[update]
+[update.modrinth]
+mod-id = "yTjEgNSm"
+version = "aOScm14J"

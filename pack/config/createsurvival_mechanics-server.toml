@@ -1,0 +1,304 @@
+#Linear Drive: a powered bearing that pushes its physics object along a Linear Bearing casing.
+#Physics units: a normal block weighs about 1, gravity pulls with 11 per weight unit,
+#so lifting a 20-block object straight up needs a force of about 220.
+[linearDrive]
+	#Stress impact in SU per RPM, like other Create machines.
+	# Default: 8.0
+	# Range: 0.0 ~ 1024.0
+	stressImpact = 8.0
+	#Maximum pushing force per SU the drive uses (stressImpact x RPM). A faster or stronger drive pushes
+	#harder; when the needed force is higher (heavy load, something in the way) the drive stalls.
+	# Default: 1.0
+	# Range: 0.0 ~ 1000.0
+	forcePerStressUnit = 1.0
+	#Force with which a drive that isn't turning holds its object in place (like a gantry pinion).
+	#0 = it slides freely like a plain linear bearing.
+	# Default: 500.0
+	# Range: 0.0 ~ 1000000.0
+	holdForce = 500.0
+	#Travel speed multiplier. 1 = the speed of a Create gantry at the same RPM (256 RPM = 10 blocks/s).
+	# Default: 1.0
+	# Range: 0.0 ~ 100.0
+	speedMultiplier = 1.0
+
+#Linear Drive and Linear Slider: what one carriage holds before it is pulled out of its casing and the
+#object falls free. Several carriages on one object share the load.
+[carriage]
+	#Largest load pressing the carriage into its track (e.g. the weight on top of a floor track). More doesn't
+	#pull it out, it slows it down: a drive gets slower and a slider drags, and at twice this load they don't
+	#move at all. 5000 is roughly 450 stone blocks. 0 = no limit.
+	# Default: 5000.0
+	# Range: 0.0 ~ 1.0E9
+	maxTopLoad = 1500.0
+	#Largest force sideways or pulling the carriage away from its track (e.g. a load hanging under a ceiling
+	#track). 5000 is roughly 450 stone blocks.
+	# Default: 5000.0
+	# Range: 0.0 ~ 1.0E9
+	maxSideForce = 5000.0
+	#Largest twisting load (weight times how far it sits off the track). 5000 is roughly 90 stone blocks
+	#hanging 5 blocks off to one side.
+	# Default: 5000.0
+	# Range: 0.0 ~ 1.0E9
+	maxTorque = 5000.0
+
+#Pocket Contraption: picks up a small physics object as an item and places it back.
+[pocketContraption]
+	#Forces on a held Pocket Contraption (propeller thrust, balloons, ...) push the player holding it, as
+	#if the tool were part of them. This is the player's weight for that (Sable's mass units); the tool
+	#itself weighs nothing. Lower = pushed harder.
+	# Default: 1.0
+	# Range: 0.01 ~ 1000000.0
+	playerWeight = 5.0
+	#Most blocks the object may have.
+	# Default: 4
+	# Range: 1 ~ 4096
+	maxBlocks = 4
+	#How much a block that isn't a full cube (slab, stairs, redstone dust, bytes, ...) counts towards maxBlocks.
+	# Default: 0.5
+	# Range: 0.0 ~ 1.0
+	partialBlockCount = 0.5
+	#Longest side of the object's bounding box, in blocks.
+	# Default: 3
+	# Range: 1 ~ 64
+	maxSize = 3
+	#Most weight the object may have (Sable's mass: a normal block weighs about 1, heavy blocks more).
+	# Default: 6.0
+	# Range: 0.0 ~ 1000000.0
+	maxWeight = 6.0
+	#Blocks an object can't be picked up with (block ids, or #tags). Offroad's borehead bearing and
+	#rockcutting wheel don't work in a pocket contraption, and what they assemble doesn't count towards the weight.
+	forbiddenBlocks = ["offroad:borehead_bearing", "offroad:rockcutting_wheel"]
+	#How far in front of the eyes the front of a held Pocket Contraption is, in blocks. Its front points
+	#along the view; the middle of its front side sits on the view line at this distance. Negative: behind
+	#the eyes (the tool reaches less far).
+	# Default: 0.5
+	# Range: -8.0 ~ 8.0
+	holdDistance = 0.5
+	#Automatic reach: a held tool whose front block is in autoReachBlocks slides along the view so its front
+	#block works on the block you aim at (up to your reach plus autoReachExtra away), instead of at holdDistance.
+	autoReach = true
+	#Front blocks with automatic reach: "block id" or "block id=distance", the distance (in blocks) the
+	#tool's front side keeps from the block aimed at (-8 to 8; negative: the front side reaches into it).
+	#Tested: a deployer wants 2, a drill 0.
+	autoReachBlocks = ["create:deployer=2", "create:mechanical_drill=0", "createsurvival_mechanics:block_placer=1"]
+	#How much further than the player's own reach (their block reach, e.g. from CreateSurvival Core's
+	#[reach] blockReach) a tool with automatic reach works, in blocks.
+	# Default: 1.0
+	# Range: -8.0 ~ 16.0
+	autoReachExtra = 1.0
+
+#Simulated's Swivel Bearing.
+[swivelBearing]
+	#How far (degrees) the angle the bearing turns its object to may run ahead of where the object really is. When
+	#something blocks the object, the bearing keeps pushing with the force of that much lead instead of winding up
+	#further (which made objects snap to impossible angles). At least twice its turn per tick is always allowed.
+	# Default: 20.0
+	# Range: 1.0 ~ 180.0
+	maxLeadDegrees = 20.0
+	#Right-click turns the object back into blocks, turned like the object, only within this many degrees of a
+	#quarter turn.
+	# Default: 10.0
+	# Range: 0.0 ~ 45.0
+	disassembleAngleTolerance = 10.0
+	#... and only while it turns slower than this (radians per second, relative to the bearing).
+	# Default: 0.35
+	# Range: 0.0 ~ 100.0
+	disassembleMaxSpeed = 0.35
+	#Extra stress impact (SU per RPM) for every 100 weight of the object it turns, on the cogwheel driving it (a stone block weighs about 11), times
+	#[stress] multiplier, on top of its own.
+	# Default: 2.0
+	# Range: 0.0 ~ 1000000.0
+	stressPer100Weight = 2.0
+
+#Gantry Drive.
+[gantryDrive]
+	#Right-click on the drive turns its object back into blocks (snapped to the nearest block position, turned like
+	#the object), only within this many degrees of lining up with the block grid.
+	# Default: 10.0
+	# Range: 0.0 ~ 45.0
+	disassembleAngleTolerance = 10.0
+	#... and only while it moves slower than this (blocks per second; turning: radians per second).
+	# Default: 0.35
+	# Range: 0.0 ~ 100.0
+	disassembleMaxSpeed = 0.35
+	#Extra stress impact (SU per RPM) for every 100 weight of the object it moves (shared between the drives on it), on whatever turns it: the drive itself, or the gantry
+	#shaft it runs on (a stone block weighs about 11), times
+	#[stress] multiplier, on top of its own.
+	# Default: 2.0
+	# Range: 0.0 ~ 1000000.0
+	stressPer100Weight = 2.0
+
+#Steel Rope Pulley: lowers and raises a physics object on a rope of real blocks (one Steel Rope per block).
+[steelRopePulley]
+	#Stress impact in SU per RPM.
+	# Default: 4.0
+	# Range: 0.0 ~ 1024.0
+	stressImpact = 2.0
+	#Extra stress impact (SU per RPM) for every 100 weight hanging from the rope (rope, load and what hangs from that), only while it pulls up (a stone block weighs about 11), times
+	#[stress] multiplier, on top of its own.
+	# Default: 2.0
+	# Range: 0.0 ~ 1000000.0
+	stressPer100Weight = 1.0
+	#Lifting force per SU it uses (stressImpact x RPM). A load heavier than that can still be held and lowered,
+	#but not lifted: the pulley stalls. A stone block weighs about 11.
+	# Default: 10.0
+	# Range: 0.0 ~ 1000000.0
+	forcePerStressUnit = 10.0
+	#How much Steel Rope the pulley holds (its one slot).
+	# Default: 256
+	# Range: 1 ~ 4096
+	ropeCapacity = 256
+	#Longest rope, in blocks.
+	# Default: 512
+	# Range: 1 ~ 1000
+	maxRopeLength = 512
+	#Heaviest load (its weight) a rope holds: a heavier one snaps it, and the rope and load come down. A stone block
+	#weighs about 11, so 5000 is roughly 450 stone blocks.
+	# Default: 5000.0
+	# Range: 0.0 ~ 1.0E9
+	maxLoad = 5000.0
+	#A pulley on a physics object: how far (degrees) that object may turn away from upright before the rope snaps
+	#(a rope can only hang down, it can't let a load down sideways or upwards).
+	# Default: 30.0
+	# Range: 0.0 ~ 180.0
+	maxTiltDegrees = 30.0
+	#How far (blocks) the pulley may wind ahead of where its load really is when something holds the load back.
+	# Default: 0.5
+	# Range: 0.05 ~ 4.0
+	maxLead = 0.5
+	#Sneak-right-click with an empty hand turns the load back into blocks (snapped to the nearest block position; the
+	#rope stays), only within this many degrees of lining up with the block grid.
+	# Default: 10.0
+	# Range: 0.0 ~ 45.0
+	disassembleAngleTolerance = 10.0
+	#... and only while it moves slower than this (blocks per second).
+	# Default: 0.35
+	# Range: 0.0 ~ 100.0
+	disassembleMaxSpeed = 0.35
+
+#Simulated's Merging Glue.
+[mergingGlue]
+	#How far (degrees) two glued faces may be from facing each other exactly to join.
+	# Default: 25.0
+	# Range: 1.0 ~ 90.0
+	contactAngle = 20.0
+	#true: glue goes on one face of a physics object and stays wet for lifetimeSeconds; when it touches a glued face of
+	#another object (up on down, side on side; up, down and side glue look different) they merge like with Merging Glue.
+	#false: Simulated's own way (pick two faces, they are pulled together).
+	singleSurface = true
+	#How long glue on one face stays wet, in seconds.
+	# Default: 30
+	# Range: 1 ~ 3600
+	lifetimeSeconds = 30
+	#How close (blocks) two glued faces must come to join.
+	# Default: 0.75
+	# Range: 0.05 ~ 4.0
+	contactDistance = 0.75
+
+#Natural blocks (still the way world generation put them, as tracked by CreateSurvival Core for Simple Block
+#Physics) and Core's reinforced blocks can't be glued with Super Glue or Honey Glue and aren't moved by any
+#contraption (Create's contraptions, the physics assembler, physics carts, pulleys, ...). Placed blocks are man-made.
+#Entries below are block ids or #tags.
+[naturalBlocks]
+	#Never movable or gluable, even when placed.
+	neverMovable = ["#quark:stone_type/shale"]
+	#Always movable and gluable, even untouched (e.g. to lift generated structures).
+	alwaysMovable = []
+
+#Physics carts (Physics Cart Assembler): a minecart and the blocks above it as one physics object on the rails.
+[physicsCart]
+	#A load comes off on an assembler (turned back into blocks, snapped to the grid) only within this many degrees of
+	#lining up with the block grid ...
+	# Default: 10.0
+	# Range: 0.0 ~ 45.0
+	disassembleAngleTolerance = 10.0
+	#... and moving slower than this (blocks per second; the assembler brakes the cart).
+	# Default: 0.5
+	# Range: 0.0 ~ 100.0
+	disassembleMaxSpeed = 0.5
+	#Heaviest load (its weight, cart included) a physics cart carries: heavier, the cart breaks and everything falls.
+	#A stone block weighs about 11, so 2000 is roughly 180 stone blocks.
+	# Default: 2000.0
+	# Range: 0.0 ~ 1.0E9
+	maxLoad = 2000.0
+	#Most weight to one side of the rails (weight times how far the center of mass is off the track): more tips
+	#the cart off its rails to that side. 1000 is roughly 90 stone blocks one block off to the side.
+	# Default: 1000.0
+	# Range: 0.0 ~ 1.0E9
+	maxSideTorque = 1000.0
+
+#Physical Mechanical Piston (and the sticky one): like Create's mechanical piston (extension poles behind it set its
+#range), but its head and poles become a physics object (the arm), and its load (the block in front of the head, with
+#what is glued to it) one of its own: the normal piston pushes it, the sticky one also pulls it. Anything else in the
+#way stops it. Works in the world and on physics objects.
+[physicsPiston]
+	#Its own stress impact in SU per RPM.
+	# Default: 4.0
+	# Range: 0.0 ~ 1024.0
+	stressImpact = 4.0
+	#Extra stress impact (SU per RPM) for every 100 weight it moves (a stone block weighs about 11), times
+	#[stress] multiplier, on top of its own.
+	# Default: 2.0
+	# Range: 0.0 ~ 1000000.0
+	stressPer100Weight = 2.0
+	#Pushing force per SU it uses (stress impact x RPM). Holding always works.
+	# Default: 10.0
+	# Range: 0.0 ~ 1000000.0
+	forcePerStressUnit = 10.0
+	#Most weight it moves (its arm and the loads at its head): more, and it doesn't move. A stone block weighs about 11.
+	# Default: 5000.0
+	# Range: 0.0 ~ 1.0E9
+	maxLoad = 5000.0
+	#Sticky piston: most weight off to one side its head holds (weight times how far the center of mass is from the
+	#head, across the weight: to a side, or forward or back when the piston lies down); more, and it lets go and the
+	#load falls (a normal piston's load just tips over by itself).
+	#1000 is roughly 90 stone blocks one block off to the side.
+	# Default: 2000.0
+	# Range: 0.0 ~ 1.0E9
+	maxSideTorque = 2000.0
+	#How far (blocks) from a whole extension the arm may be to turn back into blocks (it jumps that far). When that
+	#happens is the piston's movement mode, set on the block like on Create's pistons.
+	# Default: 0.2
+	# Range: 0.0 ~ 0.5
+	disassembleTolerance = 0.2
+
+#Machines that move physics objects by rotation (Gantry Drive, Swivel Bearing, Steel Rope Pulley, Physical Mechanical
+#Piston) need more stress the heavier the object: see their stressPer100Weight. Overstressed, the network stops.
+[stress]
+	#Multiplier for all their stressPer100Weight. 0 = weight needs no stress.
+	# Default: 1.0
+	# Range: 0.0 ~ 1000.0
+	multiplier = 1.0
+
+#Block Placer: while powered (redstone) and turning, places the blocks in its slots one by one into the space in
+#front of it, each taking as long as a player takes to place it (CreateSurvival Core's placing time), faster the
+#faster it turns. On a physics object it places in the world in front of it. In a held Pocket Contraption it places
+#where its holder looks (powered like anywhere else), using the block in their off hand first.
+[blockPlacer]
+	#At this speed (RPM) it places as fast as a player; twice as fast at twice the speed.
+	# Default: 32.0
+	# Range: 1.0 ~ 256.0
+	referenceRpm = 25.0
+	#Ticks a block takes at least at the reference speed (blocks a player places at once, too).
+	# Default: 4
+	# Range: 1 ~ 200
+	minTicks = 4
+	#Its stress impact in SU per RPM.
+	# Default: 2.0
+	# Range: 0.0 ~ 1024.0
+	stressImpact = 2.0
+
+#How physics objects touch the world.
+[objectPhysics]
+	#How much of their blocks' friction objects keep while a Swivel Bearing, Gantry or Linear Drive moves them
+	#(1 = all of it, 0 = none). Less makes them slide smoothly along floors, ceilings and walls they rub on; they still
+	#bump into things in their way. The Physical Mechanical Piston's arm and load and a Steel Rope Pulley's rope and load
+	#have none (they only move along the piston's axis or the rope).
+	# Default: 0.25
+	# Range: 0.0 ~ 1.0
+	contraptionFriction = 0.25
+	#Snow layers up to this many (of 8) don't stop physics objects: they run over them as over air. Players and mobs
+	#still walk on them. 0 = as in vanilla (only a single layer has no collision). Needs a restart.
+	# Default: 4
+	# Range: 0 ~ 7
+	snowLayersWithoutCollision = 4

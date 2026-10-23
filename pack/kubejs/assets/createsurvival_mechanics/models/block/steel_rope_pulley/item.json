@@ -1,0 +1,8 @@
+{
+  "parent": "create:block/rope_pulley/item",
+  "textures": {
+    "1": "createsurvival_mechanics:block/steel_rope_pulley",
+    "2": "createsurvival_mechanics:block/steel_rope_pulley_coil",
+    "particle": "createsurvival_mechanics:block/steel_rope_pulley"
+  }
+}

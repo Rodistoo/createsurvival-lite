@@ -1,0 +1,217 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "createsurvival_core:block/beam",
+    "beam": "createsurvival_core:block/beam"
+  },
+  "elements": [
+    {
+      "name": "center",
+      "from": [
+        7,
+        7,
+        7
+      ],
+      "to": [
+        9,
+        9,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            7,
+            2,
+            9
+          ],
+          "texture": "#beam"
+        },
+        "east": {
+          "uv": [
+            0,
+            7,
+            2,
+            9
+          ],
+          "texture": "#beam"
+        },
+        "south": {
+          "uv": [
+            0,
+            7,
+            2,
+            9
+          ],
+          "texture": "#beam"
+        },
+        "west": {
+          "uv": [
+            0,
+            7,
+            2,
+            9
+          ],
+          "texture": "#beam"
+        },
+        "up": {
+          "uv": [
+            0,
+            7,
+            2,
+            9
+          ],
+          "texture": "#beam"
+        },
+        "down": {
+          "uv": [
+            0,
+            7,
+            2,
+            9
+          ],
+          "texture": "#beam"
+        }
+      }
+    },
+    {
+      "name": "bottom",
+      "from": [
+        7,
+        0,
+        7
+      ],
+      "to": [
+        9,
+        7,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            9,
+            2,
+            16
+          ],
+          "texture": "#beam"
+        },
+        "east": {
+          "uv": [
+            0,
+            9,
+            2,
+            16
+          ],
+          "texture": "#beam"
+        },
+        "south": {
+          "uv": [
+            0,
+            9,
+            2,
+            16
+          ],
+          "texture": "#beam"
+        },
+        "west": {
+          "uv": [
+            0,
+            9,
+            2,
+            16
+          ],
+          "texture": "#beam"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#beam"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#beam"
+        }
+      }
+    },
+    {
+      "name": "top",
+      "from": [
+        7,
+        9,
+        7
+      ],
+      "to": [
+        9,
+        16,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            7
+          ],
+          "texture": "#beam"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            7
+          ],
+          "texture": "#beam"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            7
+          ],
+          "texture": "#beam"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            7
+          ],
+          "texture": "#beam"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#beam"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "texture": "#beam"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

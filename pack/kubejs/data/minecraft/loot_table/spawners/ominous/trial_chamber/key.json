@@ -1,0 +1,22 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "name": "notenoughtrials:trial_keys",
+          "expand": true,
+          "weight": 3
+        },
+        {
+          "type": "minecraft:tag",
+          "name": "notenoughtrials:ominous_trial_keys",
+          "expand": true,
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "random_sequence": "minecraft:spawners/ominous/trial_chamber/key"
+}

@@ -1,0 +1,5 @@
+["Modify Auger Shafts"]
+	#Set this to false to disable Auger Shafts from depositing items into inventories at end of their direction flow
+	allowItemDeposit = true
+	#Set this to false to disable the Auger Shaft from extracting items from Boreheads using Swivel Bearings
+	allowSwivelExtraction = false

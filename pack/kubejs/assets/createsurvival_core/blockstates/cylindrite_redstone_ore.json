@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "createsurvival_core:block/cylindrite_redstone_ore"
+    },
+    "lit=true": {
+      "model": "createsurvival_core:block/cylindrite_redstone_ore"
+    }
+  }
+}

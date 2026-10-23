@@ -1,0 +1,13 @@
+name = "Sable: True Impact (For Create: Aeronautics)"
+filename = "true_impact-0.5.7-delta.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/PskD6LDU/versions/MuLiB7bA/true_impact-0.5.7-delta.jar"
+hash-format = "sha512"
+hash = "9396955793b5281612793b1df0fed10ab75755da28fbdbecf651aec58ecea96e851f7f72158e1c521e4e83fd107874621eb6a7b0d14b9631067d175d71aab697"
+
+[update]
+[update.modrinth]
+mod-id = "PskD6LDU"
+version = "MuLiB7bA"

@@ -1,0 +1,21 @@
+{
+  "config_version": "2.0.43",
+  "config_datetime": "2026-10-13_15-44-21",
+  "general": {
+    "prevent_structure_overlap": true
+  },
+  "structure_namespaces": [
+    {
+      "name": "global",
+      "enable_flatness_check": true
+    }
+  ],
+  "structures": [
+    {
+      "name": "alexscaves:underground_cabin",
+      "is_disabled": true
+    }
+  ],
+  "structure_sets": [],
+  "structure_template_pools": []
+}

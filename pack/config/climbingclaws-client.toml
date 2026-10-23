@@ -1,0 +1,2 @@
+#Shows the Wall Spring cooldown overlay on Climbing Claws item stacks. This only affects local rendering.
+showWallSpringCooldownOverlay = true

@@ -1,0 +1,62 @@
+#Which features of CreateSurvival Core are there. Off: the feature isn't there at all, with its blocks and items (placed
+#ones disappear from worlds; bytes and vertical slabs become slabs, hardened stone stone, cylindrite ores deepslate ores).
+#Changes need a restart, and a server and its players need the same switches. Most features also have settings of
+#their own in createsurvival_core-server.toml and createsurvival_core-worldgen.toml.
+[features]
+	#Bytes: eighth blocks of any material, the chisel, mixed byte blocks, byte terrain.
+	bytes = false
+	#Claims: the claim block, building only in the own claim (quick placement, Building Wands, glue, wrench).
+	claims = false
+	#Mining: dense mining, tool and machine speeds, hardness overrides.
+	mining = true
+	#Timed placing: placing blocks takes time, with its preview.
+	timedPlacing = false
+	#Block inventory: blocks go into block bags, stack limits, build mode and the build hammer.
+	blockInventory = false
+	#Reinforcing: the reinforcing tool, reinforced girders and structures.
+	reinforcing = false
+	#Beams: blocks held up by beams.
+	beams = false
+	#Block physics: Simple Block Physics settings and fixes, how falling blocks land and break.
+	blockPhysics = false
+	#Finite water: placed water keeps its volume, partly filled buckets, fresh water.
+	finiteWater = true
+	#Structure and loot editor (/createsurvival_core editor).
+	structureEditor = true
+	#Terrain: world layouts (continent, regions, border), caverns, ocean edges, terrainTop.
+	terrain = true
+	#Cave biomes: their own climate underground, the biome blacklist, Alex's Caves' cave biomes.
+	caveBiomes = true
+	#Structures: density, terrain shaped around structures, no structures standing on water.
+	structures = true
+	#Stone tiers: hardened stone and cylindrite (with its ores) deeper down.
+	stoneTiers = false
+	#Painted maps: WorldPainter maps left to populate get underground structures and cave biomes.
+	paintedMaps = true
+	#Night spawning: monsters spawn at night only, in waves; cave biome mobs, special mobs.
+	nightSpawning = true
+	#Mobs: creeper explosions, miner mobs digging out towers, Creature Feature's detritus clone limit.
+	mobs = true
+	#Reach: block reach and attack range.
+	reach = true
+	#Movement: run speed.
+	movement = true
+	#Shield parry: parrying projectiles and hits with a shield (works with Shield Expansion).
+	shieldParry = true
+	#Enchanting: anvils without experience, ancient books in loot.
+	enchanting = true
+	#Clay furnace: the furnace only smelts what a clay furnace can.
+	clayFurnace = true
+	#Distant entities: entities seen from further away than the view distance.
+	distantEntities = true
+	#Fixes for Minecraft and other mods: lighting (ScalableLux, Better Skylight, Sable Dynamic Lights), Hardcore
+	#Torches campfires and water bottles, physics gantries, Alex's Caves ferrouslimes, True Impact on physics objects,
+	#flammable modded blocks, broken chunk palettes, vault and suffocation checks.
+	compatFixes = true
+	#Vertical slabs for other mods' slabs that have none (which: [verticalSlabs] in createsurvival_core-startup.toml).
+	verticalSlabs = true
+	#Night vision: its strength grows with the level, full only from the level set in the server config.
+	nightVision = true
+	#Minecarts: 1.21.2+'s Minecart Improvements (movement along the rails at any speed up to the gamerule
+	#minecartMaxSpeed, tilting on slopes, smooth on the client, turning the rider's view with the client option).
+	minecarts = true

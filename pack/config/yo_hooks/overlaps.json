@@ -1,0 +1,29 @@
+{
+	"durabilityOverlap": {
+		"gold": 24,
+		"diamond": 156,
+		"iron": 72,
+		"netherite": 384,
+		"copper": 42,
+		"rose-gold": 98,
+		"shadoline": 100
+	},
+	"rangeOverlap": {
+		"gold": 17,
+		"diamond": 21,
+		"iron": 12,
+		"netherite": 26,
+		"copper": 10,
+		"rose-gold": 19,
+		"shadoline": 23
+	},
+	"damageOverlap": {
+		"gold": 1,
+		"diamond": 2,
+		"rose-gold": 1,
+		"shadoline": 1,
+		"iron": 1,
+		"copper": 1,
+		"netherite": 2
+	}
+}

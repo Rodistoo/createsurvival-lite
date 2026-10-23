@@ -1,0 +1,13 @@
+name = "Shoppy - Player Maintained Shops"
+filename = "shoppy2-NEOFORGE-1.21.1-2.2.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "e7e72f353c2aeb185269459112958cfd3fab35ec"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7693336
+project-id = 559983

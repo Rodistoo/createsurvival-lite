@@ -1,0 +1,16 @@
+{
+  "region_radius": 192,
+  "blend": 128,
+  "y": 40,
+  "regions": [
+    {"biome": "minecraft:nether_wastes", "under": "minecraft:plains"},
+    {"biome": "incendium:quartz_flats", "under": "minecraft:dark_forest", "structures": ["incendium:sanctum", "incendium:abandoned_tower", "incendium:quartz_kitchen"]},
+    {"biome": "incendium:ash_barrens", "under": "minecraft:deep_ocean", "structures": ["incendium:forbidden_castle"]},
+    {"biome": "incendium:volcanic_deltas", "under": "terralith:volcanic_peaks", "structures": ["incendium:nether_reactor"]},
+    {"biome": "incendium:infernal_dunes", "under": "minecraft:desert", "structures": ["incendium:pipeline", "incendium:infernal_altar"]},
+    {"biome": "incendium:toxic_heap", "under": "minecraft:swamp"},
+    {"biome": "incendium:weeping_valley", "under": "terralith:moonlight_valley", "structures": ["minecraft:bastion_remnant"]},
+    {"biome": "minecraft:soul_sand_valley"},
+    {"biome": "minecraft:basalt_deltas"}
+  ]
+}

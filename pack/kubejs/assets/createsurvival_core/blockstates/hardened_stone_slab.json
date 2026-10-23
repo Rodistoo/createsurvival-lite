@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "createsurvival_core:block/hardened_stone_slab"
+    },
+    "type=double": {
+      "model": "createsurvival_core:block/hardened_stone"
+    },
+    "type=top": {
+      "model": "createsurvival_core:block/hardened_stone_slab_top"
+    }
+  }
+}

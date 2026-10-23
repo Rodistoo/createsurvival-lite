@@ -1,0 +1,47 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "1": "create:block/chute_large",
+    "6": "createsurvival_mechanics:block/steel_rope_cap",
+    "particle": "createsurvival_mechanics:block/steel_rope_cap"
+  },
+  "elements": [
+    {
+      "name": "rope",
+      "from": [5.95, 5, 5.95],
+      "to": [10.05, 16, 10.05],
+      "faces": {
+        "north": {"uv": [12, 0, 16, 11], "texture": "#6"},
+        "east": {"uv": [12, 0, 16, 11], "texture": "#6"},
+        "south": {"uv": [12, 0, 16, 11], "texture": "#6"},
+        "west": {"uv": [12, 0, 16, 11], "texture": "#6"},
+        "up": {"uv": [12, 0, 16, 4], "rotation": 90, "texture": "#6"}
+      }
+    },
+    {
+      "name": "magnet",
+      "from": [4.95, 5, 4.95],
+      "to": [11.05, 7, 11.05],
+      "faces": {
+        "north": {"uv": [10, 12, 16, 14], "texture": "#6"},
+        "east": {"uv": [10, 12, 16, 14], "texture": "#6"},
+        "south": {"uv": [10, 12, 16, 14], "texture": "#6"},
+        "west": {"uv": [10, 12, 16, 14], "texture": "#6"},
+        "up": {"uv": [10.5, 11, 13.5, 14], "texture": "#1"}
+      }
+    },
+    {
+      "name": "plate",
+      "from": [3, 0, 3],
+      "to": [13, 5, 13],
+      "faces": {
+        "north": {"uv": [0, 10, 10, 15], "texture": "#6"},
+        "east": {"uv": [0, 10, 10, 15], "texture": "#6"},
+        "south": {"uv": [0, 10, 10, 15], "texture": "#6"},
+        "west": {"uv": [0, 10, 10, 15], "texture": "#6"},
+        "up": {"uv": [0, 0, 10, 10], "texture": "#6"},
+        "down": {"uv": [0, 0, 10, 10], "texture": "#6"}
+      }
+    }
+  ]
+}

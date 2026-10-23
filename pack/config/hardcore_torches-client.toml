@@ -1,0 +1,4 @@
+#General Settings
+[general]
+	#Send an actionbar message when right clicking a Hardcore Torches block to show its fuel amount.
+	fuelMessage = false

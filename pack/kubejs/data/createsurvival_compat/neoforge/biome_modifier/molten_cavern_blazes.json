@@ -1,0 +1,16 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "darkerdepths"
+    }
+  ],
+  "type": "neoforge:add_spawns",
+  "biomes": "darkerdepths:molten_cavern",
+  "spawners": {
+    "type": "minecraft:blaze",
+    "weight": 40,
+    "minCount": 1,
+    "maxCount": 3
+  }
+}

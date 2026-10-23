@@ -1,0 +1,233 @@
+{
+  "type": "minecraft:equipment",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:power": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": {
+            "type": "minecraft:equipment",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "minecraft:iron_chestplate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:trim": {
+                            "material": "minecraft:copper",
+                            "pattern": "minecraft:flow"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "minecraft:iron_leggings",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:trim": {
+                            "material": "minecraft:copper",
+                            "pattern": "minecraft:flow"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "minecraft:bow"
+                  }
+                ]
+              }
+            ]
+          },
+          "weight": 1
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": {
+            "type": "minecraft:equipment",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "minecraft:bow",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_enchantments",
+                        "enchantments": {
+                          "minecraft:power": 1
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_chestplate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:trim": {
+                            "material": "minecraft:iron",
+                            "pattern": "minecraft:bolt"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_leggings",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:trim": {
+                            "material": "minecraft:iron",
+                            "pattern": "minecraft:bolt"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bow",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:punch": 1,
+                "minecraft:flame": 1
+              }
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": {
+            "type": "minecraft:equipment",
+            "pools": [
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "minecraft:bow"
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_chestplate",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:trim": {
+                            "material": "minecraft:iron",
+                            "pattern": "minecraft:bolt"
+                          }
+                        }
+                      },
+                      {
+                        "function": "minecraft:set_enchantments",
+                        "enchantments": {
+                          "minecraft:projectile_protection": 2
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "rolls": 1,
+                "entries": [
+                  {
+                    "type": "minecraft:item",
+                    "name": "minecraft:leather_leggings",
+                    "functions": [
+                      {
+                        "function": "minecraft:set_components",
+                        "components": {
+                          "minecraft:trim": {
+                            "material": "minecraft:iron",
+                            "pattern": "minecraft:bolt"
+                          }
+                        }
+                      },
+                      {
+                        "function": "minecraft:set_enchantments",
+                        "enchantments": {
+                          "minecraft:projectile_protection": 2
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "random_sequence": "minecraft:equipment/trial_chamber_melee"
+}

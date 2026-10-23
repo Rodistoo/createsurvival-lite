@@ -1,0 +1,15 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "minecraft:item/generated",
+    "textures": {
+      "layer0": "createsurvival_core:item/structural_goggles"
+    }
+  },
+  "perspectives": {
+    "head": {
+      "parent": "createsurvival_core:item/structural_goggles_worn"
+    }
+  }
+}

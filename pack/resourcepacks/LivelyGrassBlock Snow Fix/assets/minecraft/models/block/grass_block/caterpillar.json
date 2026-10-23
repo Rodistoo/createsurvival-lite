@@ -1,0 +1,11 @@
+{
+	"parent":"block/grass_block_top",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"lay_top": "block/lay_top/caterpillar",
+		"lay_side": "block/grass_block_side_overlay",
+		"side": "block/dirt",
+		"top": "block/grass_block_top",
+		"particle": "block/dirt"
+	}
+}

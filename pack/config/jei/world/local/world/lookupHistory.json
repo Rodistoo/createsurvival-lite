@@ -1,0 +1,5 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"shoppy:bartering_station"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:stripped_warped_stem"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

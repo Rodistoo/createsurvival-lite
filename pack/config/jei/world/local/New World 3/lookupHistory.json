@@ -1,0 +1,15 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"immersiveenchanting:ancient_book","components":"{\"minecraft:stored_enchantments\":{levels:{\"minecraft:depth_strider\":1}}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"immersiveenchanting:ancient_book","components":"{\"minecraft:stored_enchantments\":{levels:{\"minecraft:aqua_affinity\":1}}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"immersiveenchanting:music_disc_biblioclasm"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"immersiveenchanting:music_disc_arcane_memories"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"immersiveenchanting:creative_bookshelf"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:mossy_cobblestone"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:enchanted_book","components":"{\"minecraft:stored_enchantments\":{levels:{\"minecraft:impaling\":1}}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:enchanted_book","components":"{\"minecraft:stored_enchantments\":{levels:{\"minecraft:impaling\":2}}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:enchanted_book","components":"{\"minecraft:stored_enchantments\":{levels:{\"minecraft:impaling\":3}}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"quark:ancient_tome","components":"{\"quark:tome_enchantments\":{levels:{\"minecraft:impaling\":5}}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"quark:ancient_tome","components":"{\"quark:tome_enchantments\":{levels:{\"minecraft:sharpness\":5}}}"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:enchanted_book","components":"{\"minecraft:stored_enchantments\":{levels:{\"minecraft:silk_touch\":1}}}"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

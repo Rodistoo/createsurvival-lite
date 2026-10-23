@@ -1,0 +1,11 @@
+{
+  "minecraft:overworld": {
+    "world": "minecraft:overworld",
+    "centerX": 600.0,
+    "centerZ": -2800.0,
+    "radiusX": 7000.0,
+    "radiusZ": 3000.0,
+    "shape": "ellipse",
+    "wrap": "none"
+  }
+}

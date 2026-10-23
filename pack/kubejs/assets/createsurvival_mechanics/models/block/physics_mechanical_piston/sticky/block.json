@@ -1,0 +1,6 @@
+{
+  "parent": "createsurvival_mechanics:block/physics_mechanical_piston/normal/block",
+  "textures": {
+    "5": "minecraft:block/piston_top_sticky"
+  }
+}

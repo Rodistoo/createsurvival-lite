@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ars_nouveau"
+    }
+  ],
+  "type": "minecraft:entity",
+  "functions": [
+    {
+      "add": false,
+      "count": 1,
+      "function": "minecraft:set_count"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "entries": [],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "ars_nouveau:dispel_witch"
+}

@@ -1,0 +1,12 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"minecraft:reinforced_deepslate"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"tinyredstone:block_chopper"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:calcite"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:diorite"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:quartz"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"tinyredstone:silicon_compound"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"tinyredstone:silicon"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"tinyredstone:tiny_redstone"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:granite_stairs"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]
