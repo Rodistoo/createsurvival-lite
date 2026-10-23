@@ -10,3 +10,9 @@
 	#to the colour, all of it at the second, e.g. "minecraft:overworld -45 -85 #3a0707" (dark red towards the bottom)
 	#or "minecraft:the_nether 130 168 #0a1238" (dark blue towards the top).
 	voidColors = ["minecraft:overworld -40 -85 #3a0707", "minecraft:the_nether 130 168 #0a1238"]
+
+#Chat.
+[chat]
+	#Chat messages that aren't shown (nor logged): regular expressions matched against the whole message,
+	#e.g. "\\[Axiom\\] The Editor UI keybind has conflicts.*" for a mod's message that can't be switched off.
+	hiddenMessages = ["\\[Axiom\\] The Editor UI keybind has conflicts.*"]

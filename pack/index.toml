@@ -818,7 +818,7 @@ hash = "035dc09f52f8dc8b79db3e42eb74cb86e586b45ca28da12c21b757bdfd6fea32"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/overworld.properties"
-hash = "6570bca0631b3e4e4350737b8ea70dd780224b330eeeca141eb7b5b2ff23f325"
+hash = "ecfcf3e74e97d3a289df37b4347cde5db674ff006675c06933ff22aef9396af3"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/the_nether.properties"
@@ -1082,7 +1082,7 @@ hash = "6965c760ab8a8245011ea53840a4a8ba9678d96ca84f300ebd0a7f5ddb6eb4f2"
 
 [[files]]
 file = "config/createsurvival_core-client.toml"
-hash = "10978c565a0200696781426551270bc52d3309f32e618848bf9430c8d7c8b8a4"
+hash = "4587372a38bccb0c24368fc0835b3dc4eb650b939a4dda546c64aa8a5597915a"
 
 [[files]]
 file = "config/createsurvival_core-features.toml"
@@ -1126,7 +1126,7 @@ hash = "20ed72a6239820451c66df78486101155c86b8a684a9135c6fc5190f2b54b80a"
 
 [[files]]
 file = "config/createsurvival_mechanics-server.toml"
-hash = "6aa03546de9ca000d1149be373f114e8e485d0e4dff341d72182c638fc42b732"
+hash = "8d327c836afef3ffd7db04976e684cfd04df13e46159fe191c7a3df4c4b60684"
 
 [[files]]
 file = "config/createthrusters-client.toml"
@@ -1150,7 +1150,7 @@ hash = "bae863653ce11ee9ab21cebf33049e854fb560a05a74be07be33c68cf2615b1e"
 
 [[files]]
 file = "config/createthrusters_physics_goggles_overlays.json"
-hash = "780e27b7e67a9c4e4e65079a4c74f97f8b355a24e33462804b61fb22034b94dd"
+hash = "d283e3cb9adaa6bbc6c4578ba5f99d2c52cbd3ec890f62689a81024398e6dd51"
 
 [[files]]
 file = "config/creativecore-client.json"
@@ -1522,7 +1522,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "996f8a70edac28d676f6698a6dae416272ebf13e97090b87a0e0aa72968b1abb"
+hash = "096dd4561d1e6acdf1226c615c7cd546f43d6dffb3ca41d8adb4143c46256590"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1774,7 +1774,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "524eb74fa70ffcc126cbf7f114e345d259a43f5c04ad613177137b6cc4f4f115"
+hash = "48ab56c38dcc10e3544a34236b7c6cad46cc4e497b7393bf7dc56451f42a1bd8"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2814,7 +2814,7 @@ hash = "e04586d7dc58c806eb2d71eff53458bc56fe8e5d88675a710783bab85124fee3"
 
 [[files]]
 file = "config/terralith.json"
-hash = "eadc7fad5ce55fbcec25df521820d36c222d5b12f17006ed9fea34ebeb6fd01d"
+hash = "cb8a5d8613fdcc2316654d573c1c06220b5db35802c8837f2dd4a11f1767bd4a"
 
 [[files]]
 file = "config/tfmg-common.toml"
@@ -3054,7 +3054,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "b23bf07574dadc59bcaef9fe6a632c291bd858bdf422f9eca234be0758098ad8"
+hash = "a947fbd0eb4f3d990aba2117beb84fe216e2948b8d913a7b08039a014107fe20"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -5139,6 +5139,10 @@ hash = "32ad2eb1149257f3891e818e9cd51082c7de85becaffa17625503e35af3899eb"
 [[files]]
 file = "kubejs/data/immersiveenchanting/enchantment_costs/notenoughtrials/storm_front.json"
 hash = "6f4818680614ab7c4c7471085ca1ec4efed2633432a32c05b6cdd201a5871ad6"
+
+[[files]]
+file = "kubejs/data/immersiveenchanting/enchantment_costs/notenoughtrials/storm_front_marker.json"
+hash = "cb70d13201399eea914461ec6fab28cdf6f2e0a5276a9cdba7e76c81dbf9aaed"
 
 [[files]]
 file = "kubejs/data/immersiveenchanting/enchantment_costs/supplementaries/stasis.json"
@@ -7538,12 +7542,12 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
-file = "mods/createsurvival_core-1.90.1.jar"
-hash = "6d974e1d060dc18f31890dd761161b18851dd8f499b71f66fbf810a943224b1f"
+file = "mods/createsurvival_core-1.91.0.jar"
+hash = "ead325e8b8ade937c0581a8eb39c72cc1b40c5c082e5cf79303a365a06da0f6b"
 
 [[files]]
-file = "mods/createsurvival_mechanics-0.20.0.jar"
-hash = "eb9e84f153747e17d2afb4ffe9432b97d4b4b5bfd535ee0912a98df5428a6fd1"
+file = "mods/createsurvival_mechanics-0.21.0.jar"
+hash = "3de2b3111a8549f55c71795463586f6ac34af4e4ad2594bd637d065d4bee2f83"
 
 [[files]]
 file = "mods/createthreadedtrains-neoforge-1.21.1-1.0.0.pw.toml"

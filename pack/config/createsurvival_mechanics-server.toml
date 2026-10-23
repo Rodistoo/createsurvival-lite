@@ -133,12 +133,12 @@
 	#Stress impact in SU per RPM.
 	# Default: 4.0
 	# Range: 0.0 ~ 1024.0
-	stressImpact = 2.0
+	stressImpact = 1.0
 	#Extra stress impact (SU per RPM) for every 100 weight hanging from the rope (rope, load and what hangs from that), only while it pulls up (a stone block weighs about 11), times
 	#[stress] multiplier, on top of its own.
 	# Default: 2.0
 	# Range: 0.0 ~ 1000000.0
-	stressPer100Weight = 1.0
+	stressPer100Weight = 0.5
 	#Lifting force per SU it uses (stressImpact x RPM). A load heavier than that can still be held and lowered,
 	#but not lifted: the pulley stalls. A stone block weighs about 11.
 	# Default: 10.0
