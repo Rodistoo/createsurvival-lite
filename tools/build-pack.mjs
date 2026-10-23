@@ -10,7 +10,9 @@ import { execFileSync } from 'node:child_process'; import { createRequire } from
 const { entries } = createRequire(import.meta.url)('./zipread.cjs');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SRC = process.argv[2] || path.join(process.env.APPDATA, 'PrismLauncher', 'instances', 'CreateSurvival Lite', '.minecraft');
+// the instance the pack is made from (not the one the installer set up, folder createsurvival-lite)
+const SOURCES = ['CreateSurvival Lite OG', 'CreateSurvival Lite'].map(f => path.join(process.env.APPDATA, 'PrismLauncher', 'instances', f, '.minecraft'));
+const SRC = process.argv[2] || SOURCES.find(s => fs.existsSync(path.join(s, 'mods'))) || SOURCES[0];
 const OUT = path.join(ROOT, 'pack');
 const PACKWIZ = path.join(ROOT, 'tools', 'bin', 'packwiz.exe');
 const UA = 'Rodistoo/createsurvival-lite-pack (pack builder)';

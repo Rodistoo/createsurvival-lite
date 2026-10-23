@@ -7,7 +7,8 @@ exit /b %errorlevel%
 # started once and logged in to a Minecraft account. Asks for the memory (running it again changes it) and sets up the
 # performance video settings. The instance keeps itself up to date: before every start it downloads what changed in the
 # pack (createsurvival/sync.ps1, Prism's pre-launch command).
-# Test overrides (environment): CSL_PACK_URL, CSL_PRISM_DIR, CSL_SILENT=1 with CSL_RAM_MB and CSL_MODE.
+# Test overrides (environment): CSL_PACK_URL, CSL_PRISM_DIR, CSL_SILENT=1 with CSL_RAM_MB and CSL_MODE, CSL_NOGUI=1
+# (download without its window), CSL_FORM_TEST=1 (build the window, don't show it).
 
 $ErrorActionPreference = 'Stop'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -86,6 +87,7 @@ function Install-Pack($prism, $ramMb, $mode, $log) {
 
     & $log 'Writing the instance settings...'
     $settings = [ordered]@{ packUrl = $PackUrl; mode = $mode }
+    if ($env:CSL_NOGUI -eq '1') { $settings['noGui'] = $true }
     Write-Text (Join-Path $own 'settings.json') ($settings | ConvertTo-Json)
     $jvm = '-XX:+UseStringDeduplication'
     if ($ramMb -ge 6144) { $jvm = '-XX:+UseZGC -XX:+ZGenerational -XX:+UseStringDeduplication' }
@@ -102,8 +104,30 @@ function Install-Pack($prism, $ramMb, $mode, $log) {
     }
     if (-not $existing) { $keys['iconKey'] = 'flame' }
     Set-CfgKeys (Join-Path $inst 'instance.cfg') $keys
-    if ($existing) { return "Updated: $([math]::Round($ramMb / 1024, 1)) GB (used from the next start on)." }
+    $downloaded = Test-Path -LiteralPath (Join-Path $own 'state.json')
+    if ($existing -and $downloaded) { return "Updated: $([math]::Round($ramMb / 1024, 1)) GB (used from the next start on)." }
+
+    # the first download right away, with a Java that Prism already has (a new Prism gets one at the first start)
+    $java = Find-Java $prism
+    if ($java) {
+        & $log 'Downloading the modpack (a window shows the progress)...'
+        $env:INST_DIR = $inst; $env:INST_MC_DIR = $mc; $env:INST_JAVA = $java
+        $sync = Start-Process -FilePath 'powershell' -ArgumentList @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', "`"$(Join-Path $own 'sync.ps1')`"") -NoNewWindow -Wait -PassThru
+        if ($sync.ExitCode -eq 0) { return "Installed and downloaded. Open Prism Launcher, pick '$InstanceName' and press Launch." }
+    }
     return "Installed. Open Prism Launcher, pick '$InstanceName' and press Launch: the first start downloads the whole pack (a few minutes)."
+}
+
+function Find-Java($prism) {
+    foreach ($name in @('java-runtime-delta', 'java-runtime-epsilon', 'java-runtime-gamma')) {
+        $exe = Join-Path $prism "java\$name\bin\java.exe"
+        if (Test-Path -LiteralPath $exe) { return $exe }
+    }
+    $any = Get-ChildItem -Path (Join-Path $prism 'java\*\bin\java.exe') -ErrorAction SilentlyContinue | Select-Object -First 1
+    if ($any) { return $any.FullName }
+    $onPath = Get-Command java -ErrorAction SilentlyContinue
+    if ($onPath) { return $onPath.Source }
+    return $null
 }
 
 function Test-PrismRunning { return @(Get-Process -Name 'prismlauncher' -ErrorAction SilentlyContinue).Count -gt 0 }
