@@ -91,7 +91,10 @@ function Install-Pack($prism, $ramMb, $mode, $log) {
     Write-Text (Join-Path $own 'settings.json') ($settings | ConvertTo-Json)
     $jvm = '-XX:+UseStringDeduplication'
     if ($ramMb -ge 6144) { $jvm = '-XX:+UseZGC -XX:+ZGenerational -XX:+UseStringDeduplication' }
+    # (ConfigVersion 1.3: Prism reads the values as quoted INI strings; without it it takes the quotes literally,
+    # and the pre-launch command becomes a program named "powershell -NoProfile ..." that isn't found)
     $keys = [ordered]@{
+        'ConfigVersion' = '1.3'
         'InstanceType' = 'OneSix'
         'name' = $InstanceName
         'OverrideMemory' = 'true'
