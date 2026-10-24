@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "bivrik/common.json"
-hash = "68666473b4d485fdc60d48a9319fb5efc6e3632c3c49659e40213d90667d5fed"
+hash = "6c9d3157ebe0d352e009ac3a69b64197dc5ac39e605e6a36a36febb6190300e8"
 
 [[files]]
 file = "bivrik/mods/fancytoasts.json"
-hash = "4f2c9fc4c0b40e11c37d7d1d1c463a4061e48929f4b73ed0245f664b10b84f97"
+hash = "37f7d95cfc3ab049dc45fae7efe173779876ffe9d283fb8f55f60078950e3d31"
 
 [[files]]
 file = "config/BBEConfig.json"
@@ -22,7 +22,7 @@ hash = "6d46bdc090d4bb9bdfb660be4ca94075dc08e09d5fed84108eba92a422a23c49"
 
 [[files]]
 file = "config/DistantHorizons.toml"
-hash = "8579cb5d169aa738b30635e06b5cc0f689611a7bd71f5cc54a70c9fc69fb1299"
+hash = "c82b8eaef8d1310543c947af19d4d4c3b5d1cb7a89698e5caf8f2d6daf890351"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -818,7 +818,7 @@ hash = "ac8225c33a239b6bc9256d795383bcab59d8626e2fe3f2d9770231f97c35a650"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/overworld.properties"
-hash = "5bd722d57d9c5ac5951e67634aa482c7af4aad2c94a42a4a7460f7d773746f52"
+hash = "fded5a374caa8a943aca5af4c1af637d7e65472284c04b76aeca9f30b14bfa48"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/the_nether.properties"
@@ -826,7 +826,7 @@ hash = "56b8ebc631a85690caf0fbe0744dd08b5413801b87a0e672ea0776db10ed89b0"
 
 [[files]]
 file = "config/chunksmith/worldgen-faults.txt"
-hash = "320b2b5e6e9973f108605ca7911e6cf1a77caf754ca352778d7c9d7ea588faf2"
+hash = "3686825e48c042c3a88f50e3f3d3e6447983c7faf8fca52bd4f7f98f555fa011"
 
 [[files]]
 file = "config/chunky/config.json"
@@ -1082,7 +1082,7 @@ hash = "6965c760ab8a8245011ea53840a4a8ba9678d96ca84f300ebd0a7f5ddb6eb4f2"
 
 [[files]]
 file = "config/createsurvival_core-client.toml"
-hash = "0174f13d1072c433935b1e5aeb9ca1b3e800442a4c42525290f8595d983a8faf"
+hash = "bb7c31b87bdbf0f63ceb126a3fdebac257926601be43955cf9e0add84b206ba7"
 
 [[files]]
 file = "config/createsurvival_core-features.toml"
@@ -1522,7 +1522,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "e96d2b1ae0f9510387e0cc2a3328bfff41ba3d6127ee5a7bb54861d92b5028d1"
+hash = "fee171d95d713bba8aadca35991f7c1d8527da6e389b34b9e8eaa23adf9d269a"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1774,7 +1774,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "3e9bd5de65369a97dc6f5f13efb8bbf7d295dabf4ab2a9f4649d6af3c32636ef"
+hash = "e83f0e646b13af374372ff5d3b3cbdb57468b4e5882089bbf11bf88d16f5c02e"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2626,7 +2626,7 @@ hash = "f02c4f19736ba21f48c0100128ad3208d2cec4e2fae2fa52b3a3b8639cc69c3c"
 
 [[files]]
 file = "config/stackable-planar-dimensions.json"
-hash = "11fad772b8953863e259da5063a18833aaced71037885e17a33c2ed3188b3554"
+hash = "966f9ab96e804d2295742f63cfd3453c23d495ed703624c917e913a44aebaa46"
 
 [[files]]
 file = "config/stonezone-common.toml"
@@ -2894,7 +2894,7 @@ hash = "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
 
 [[files]]
 file = "config/voicechat/voicechat-client.properties"
-hash = "b2be0b8f68bf0eef2e958a65b17ccbba460424cde256125b3a75160139cd9d97"
+hash = "865712037d4075e29eb3a467283f1aaaf82f1398f076e8ef7b250207ce736724"
 
 [[files]]
 file = "config/voicechat/voicechat-server.properties"
@@ -2953,78 +2953,6 @@ file = "config/worldborder.json5"
 hash = "ecb3a7a02843a76f96263e1904ddeac2f5ebfcdadacd8dfbe1a55d0214d44b1b"
 
 [[files]]
-file = "config/xaero/lib/client.cfg"
-hash = "43ed9dbfa5b4d6f0f3d2e8c2ced17ad298164b22c68ff11d415257a39b074336"
-
-[[files]]
-file = "config/xaero/lib/common.cfg"
-hash = "98f698d96a6d21d830a455b4ad045b70516fa63c298021742d8499e7f0366cd2"
-
-[[files]]
-file = "config/xaero/lib/profiles/default.cfg"
-hash = "34ae854b17d896d7cb853bdc28c27231a3947e91cb9f0991f372846ee3c2a907"
-
-[[files]]
-file = "config/xaero/lib/server_profiles/default.cfg"
-hash = "d438aea41ca41e93697e059f523686935c0add482f6abe96b532bbf10c6ed80a"
-
-[[files]]
-file = "config/xaero/minimap/client.cfg"
-hash = "c0915eff5d1a7905cd1038d646eb9086fd1a29e2f637d53535e4da161de17b9f"
-
-[[files]]
-file = "config/xaero/minimap/common.cfg"
-hash = "2b49df024c03a369c62a303c72755e7fedeb4f4653ff53a12fd37bd83ccd4ed0"
-
-[[files]]
-file = "config/xaero/minimap/default_radar_categories_client.json"
-hash = "3c888b22cba252e8f0a974f8c1604bc05109affbf4354ad3b16e71778c4b9774"
-
-[[files]]
-file = "config/xaero/minimap/default_radar_categories_server.json"
-hash = "a4c652cafa7dea324e5f5cf3b1df46a84e54b6d4f877195857bce55a559c1cfd"
-
-[[files]]
-file = "config/xaero/minimap/profiles/default.cfg"
-hash = "2d7bd2e52ba6e1456ca50e47e4e6c2f5df3478c139f6e87311ffac7d680907d0"
-
-[[files]]
-file = "config/xaero/minimap/profiles/entity_radar_categories/default.cfg.json"
-hash = "d44155ad6524baf93af689dcc2f7bab16d1989475f4c91a88ee526687e4957ec"
-
-[[files]]
-file = "config/xaero/minimap/profiles/info_display_config/default.cfg.txt"
-hash = "184e654fa1fc8ad09943c97c4e65ab78acb5b3cfca22417a831513d1b6d9bbc6"
-
-[[files]]
-file = "config/xaero/minimap/server_profiles/default.cfg"
-hash = "d438aea41ca41e93697e059f523686935c0add482f6abe96b532bbf10c6ed80a"
-
-[[files]]
-file = "config/xaero/world-map/client.cfg"
-hash = "2ef73949aace94389d1469c2a9c60f1626cc631d7b4287ccfcd16185d93e76da"
-
-[[files]]
-file = "config/xaero/world-map/common.cfg"
-hash = "0c229eb0daf85bd09af51f21eeeb99497a3bd50a825d5ab1ca695fb21bf6cf9d"
-
-[[files]]
-file = "config/xaero/world-map/profiles/default.cfg"
-hash = "5422abf9c83fedef6509144293fad20f588d4bb6ce0cf1af78cbcd2bcd0d2ccf"
-
-[[files]]
-file = "config/xaero/world-map/server_profiles/default.cfg"
-hash = "d438aea41ca41e93697e059f523686935c0add482f6abe96b532bbf10c6ed80a"
-
-[[files]]
-file = "config/xaerohud.txt"
-hash = "3116a9f22412199efc4939cb96b8afc46167561e5666a5e7062420b4fa7938c0"
-
-[[files]]
-file = "config/xaeropatreon.txt"
-hash = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-
-[[files]]
 file = "config/yacl.json5"
 hash = "121b93764159be6fb7dab523b29a844e2bb78400ce8c48f52135a097e9b0006e"
 
@@ -3054,7 +2982,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "66b536cba81f0902c6b3a614fab3b1799c040cd0282bdb929f0f883d96c9d7a6"
+hash = "cf165cfdd8ede8ee01eb9edb60528770f1587527043daf2debe7df94bf765f5a"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -8249,16 +8177,6 @@ metafile = true
 [[files]]
 file = "mods/witherreincarnated-1.21.1-1.0.5.pw.toml"
 hash = "4c763ea5adfeb8f39d057c499ae5ace236c2e3691e2f48a38461aaf73983ea53"
-metafile = true
-
-[[files]]
-file = "mods/xaerominimap-neoforge-1.21.1-26.6.0.pw.toml"
-hash = "e97cb865d7a8c8310905d9140899fa55ea23c3fff2e23a17255ce2c162322ad7"
-metafile = true
-
-[[files]]
-file = "mods/xaeroworldmap-neoforge-1.21.1-1.47.0.pw.toml"
-hash = "3a8e91aecdb602039ba1f7445bbf6b64cc5a46344339a3ffaf3b2e3eb2f5bcbc"
 metafile = true
 
 [[files]]

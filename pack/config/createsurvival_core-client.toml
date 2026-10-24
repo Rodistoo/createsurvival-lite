@@ -26,6 +26,6 @@
 	# Range: 4 ~ 256
 	fogDepth = 48
 	#Layers the fog in front of the border is made of (more: smoother, a little slower).
-	# Default: 12
-	# Range: 1 ~ 48
+	# Default: 32
+	# Range: 1 ~ 64
 	fogLayers = 12

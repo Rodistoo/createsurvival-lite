@@ -23,6 +23,9 @@ const SKIP = [/\.bak$/i, /\.old$/i, /(^|\/)createsurvival_core-history(\/|$)/, /
   // not used: the edited Just Colored Lighting shaders (don't work), resource packs nobody has switched on
   /^shaderpacks\/Just Colored Lighting .*\+ CreateSurvival\.zip(\.txt)?$/, /^resourcepacks\/USWRP-10\.zip$/,
   /^config\/paxi\/resourcepacks\/(Better Grounds|Better SB Upgrades|Clear Glass Pack 1\.21|Lower Shield)\.zip$/];
+// mods only for testing in the instance, never in the pack (by jar name), and their configs
+const TEST_ONLY_MODS = [/^xaero/i];
+SKIP.push(/^config\/xaero/i);
 const skipped = rel => SKIP.some(re => re.test(rel));
 
 function copyTree(from, to, base = '') {
@@ -116,6 +119,7 @@ const byId = {}, plain = [];
 for (const f of fs.readdirSync(modsDir).filter(f => /\.(jar|zip)$/i.test(f))) {
   const full = path.join(modsDir, f);
   if (!f.toLowerCase().endsWith('.jar')) { console.log(`(${f} left out: only jars load from mods)`); continue; }
+  if (TEST_ONLY_MODS.some(re => re.test(f))) { console.log(`(${f} left out: only for testing)`); continue; }
   const { id, version } = modInfo(full);
   if (!id) { plain.push(full); continue; }
   if (!byId[id] || newer(version, byId[id].version)) {

@@ -1,5 +1,5 @@
 Chunksmith - Worldgen Fault Report
-Generated: Sat, 24 Oct 2026 03:07:43 +0200
+Generated: Sat, 24 Oct 2026 03:57:38 +0200
 Chunksmith generation task active: no
 Total faults this session: 4
 
@@ -13,5 +13,5 @@ mod/datapack: minecraft
     - block-attached entity: anchor more than 16 blocks from the entity x4
   structures involved:
     - minecraft:trial_chambers x4
-  sample broken chunks (up to 10): [-465,-174]
+  sample broken chunks (up to 10): [243,289]
 

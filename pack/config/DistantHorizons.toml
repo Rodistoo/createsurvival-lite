@@ -84,7 +84,7 @@ _version = 5
 				# 
 				# COMPLETE: LODs will render transparent. 
 				# DISABLED: LODs will be opaque.
-				transparency = "COMPLETE"
+				transparency = "DISABLED"
 				#
 				# How should LODs be shaded? 
 				# 

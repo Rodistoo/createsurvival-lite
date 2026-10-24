@@ -22,6 +22,6 @@
   "HELPteleportDelay": "How many ticks you need to wait to teleport to the next dimension",
   "HELPdimensions": "minecraft:overworld*-65!320? is how you format dimensions, with the dimension name, minimum and maximum of the dimension (Find values with /spd.height), ALWAYS END THE LIST WITH A DOLLAR SIGN ($)",
   "tutorialExample": "A full tutorial can be viewed on the mod page via the notion link",
-  "dimensions": "minecraft:overworld*-90!2000?minecraft:the_nether*-1!190$",
+  "dimensions": "minecraft:overworld*-62!2000?minecraft:the_nether*-1!190$",
   "enableMod": true
 }
