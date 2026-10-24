@@ -1,2 +1,4 @@
 tools/bin/
 *.download
+server-build/
+CreateSurvival-Lite-Server.zip

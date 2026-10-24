@@ -22,7 +22,9 @@ const COPY_DIRS = ['config', 'kubejs', 'defaultconfigs', 'moonlight-global-datap
 const SKIP = [/\.bak$/i, /\.old$/i, /(^|\/)createsurvival_core-history(\/|$)/, /(^|\/)_0euphoria/i, /(^|\/)\.cache(\/|$)/,
   // not used: the edited Just Colored Lighting shaders (don't work), resource packs nobody has switched on
   /^shaderpacks\/Just Colored Lighting .*\+ CreateSurvival\.zip(\.txt)?$/, /^resourcepacks\/USWRP-10\.zip$/,
-  /^config\/paxi\/resourcepacks\/(Better Grounds|Better SB Upgrades|Clear Glass Pack 1\.21|Lower Shield)\.zip$/];
+  /^config\/paxi\/resourcepacks\/(Better Grounds|Better SB Upgrades|Clear Glass Pack 1\.21|Lower Shield)\.zip$/,
+  // state of the instance, not settings: Chunksmith's saved pregen tasks and fault log, spark's profiler history
+  /^config\/chunksmith\/(tasks\/|worldgen-faults\.txt$)/, /^config\/spark\/activity\.json$/];
 // mods only for testing in the instance, never in the pack (by jar name), and their configs
 const TEST_ONLY_MODS = [/^xaero/i];
 SKIP.push(/^config\/xaero/i);
