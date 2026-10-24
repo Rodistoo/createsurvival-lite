@@ -24,7 +24,7 @@
 
 [food_timeout]
 	#Damages players when one of their food slot runs out (boolean, default = true)
-	timeout_damage = true
+	timeout_damage = false
 	#Displays a message to the player when one of their food slots becomes empty (boolean, default = false)
 	timeout_message = false
 	#Plays a sound when a player's food slot becomes empty (boolean, default = false)
