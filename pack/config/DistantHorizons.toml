@@ -685,7 +685,7 @@ _version = 5
 		# 
 		# DISABLED 
 		# No distant terrain will be generated.
-		generatorPlan = "DISABLED"
+		generatorPlan = "CHUNKS_ONLY"
 		#
 		# How detailed should LODs be generated outside the vanilla render distance? 
 		# 
@@ -816,9 +816,6 @@ _version = 5
 		databaseSyncMode = "NORMAL"
 
 	[common.multiThreading]
-		#
-		# How many threads should be used by Distant Horizons?
-		numberOfThreads = 6
 		#
 		# A value between 1.0 and 0.0 that represents the percentage 
 		# of time each thread can run before going idle. 

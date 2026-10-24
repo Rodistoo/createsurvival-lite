@@ -3,7 +3,8 @@
 // Mods, resource packs and shader packs found on Modrinth (by SHA-1) become .pw.toml download entries; jars Modrinth
 // doesn't know are handed to `packwiz curseforge detect`; what neither knows (our own mods) goes in as a file.
 // Disabled jars are left out; of two jars with the same mod id only the newest goes in. Configs, KubeJS and the
-// createsurvival folder (sync script, presets) are copied. options.txt stays out: players keep their own. Finally
+// createsurvival folder (sync script, presets) are copied, then overrides/ (files players get as they are in this repo).
+// options.txt stays out: players keep their own. Finally
 // `packwiz refresh` writes the index.
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process'; import { createRequire } from 'node:module'; import { fileURLToPath } from 'node:url';
@@ -162,6 +163,9 @@ const linked = await modrinth(zips);
 for (const z of zips) if (linked[z].version) { writeModrinthEntry(path.dirname(z), linked[z]); fs.rmSync(z); }
 console.log(`packs in config: ${zips.filter(z => linked[z].version).length} of ${zips.length} linked from Modrinth`);
 copyTree(path.join(ROOT, 'createsurvival'), path.join(OUT, 'createsurvival'), 'createsurvival');
+// files players get as they are in this repo, not as they are in the instance (where Paul has his own settings):
+// overrides/config/DistantHorizons.toml (distant generation on, CPU left at DH's own Balanced default)
+copyTree(path.join(ROOT, 'overrides'), OUT);
 fs.writeFileSync(path.join(OUT, 'createsurvival', 'mmc-pack.json'), JSON.stringify(mmc, null, 4));
 fs.writeFileSync(path.join(OUT, '.packwizignore'), '.packwizignore\n');
 

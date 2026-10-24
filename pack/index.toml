@@ -22,7 +22,7 @@ hash = "6d46bdc090d4bb9bdfb660be4ca94075dc08e09d5fed84108eba92a422a23c49"
 
 [[files]]
 file = "config/DistantHorizons.toml"
-hash = "c82b8eaef8d1310543c947af19d4d4c3b5d1cb7a89698e5caf8f2d6daf890351"
+hash = "c9fb4c1e804537cc4a014d2a1ede99bf6aaadb8de6429464d343e59b4b04193f"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -2950,7 +2950,7 @@ hash = "2fda48fbb2f2774c4ca7d29a340bd9002a8fb4ec5ff8e1114f1b15dfd14c3052"
 
 [[files]]
 file = "createsurvival/presets.json"
-hash = "f5055f93caf4005a0bb28c3280b45943ebcb53e42be66ef9a4a9b17cab7b4d6c"
+hash = "3f5eafc6efdd3fe8708590ec4206e2753df383bacc1d4bf7799927b8b3abca4b"
 
 [[files]]
 file = "createsurvival/sync.ps1"
