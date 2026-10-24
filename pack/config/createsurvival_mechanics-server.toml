@@ -143,7 +143,7 @@
 	#but not lifted: the pulley stalls. A stone block weighs about 11.
 	# Default: 10.0
 	# Range: 0.0 ~ 1000000.0
-	forcePerStressUnit = 10.0
+	forcePerStressUnit = 30.0
 	#How much Steel Rope the pulley holds (its one slot).
 	# Default: 256
 	# Range: 1 ~ 4096

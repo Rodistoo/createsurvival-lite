@@ -26,7 +26,7 @@
   "lodIndexBudgetMb": 2048,
   "worldEnterPregen": true,
   "worldEnterLod": "auto",
-  "worldEnterPregenRadius": 4096,
+  "worldEnterPregenRadius": 4000,
   "worldEnterLodHorizon": 0,
   "worldEnterPregenCenter": "auto",
   "lodBackchannelBindAddress": "",

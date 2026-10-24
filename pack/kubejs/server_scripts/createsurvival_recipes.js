@@ -93,10 +93,7 @@ ServerEvents.recipes(event => {
   replaceShaped('minecraft:stone_axe', 'minecraft:stone_axe', ['II', 'IS', ' S'], { I: 'rocks:cobblestone_splitter', S: 'minecraft:stick' })
 
 
-  // clay furnace: the vanilla furnace, made of clay (what it smelts: createsurvival_clay_furnace.js); every other furnace
-  // recipe (cobblestone, blackstone, deepslate, other mods' stones) goes
-  event.remove({ output: 'minecraft:furnace' })
-  shaped('createsurvival_core:clay_furnace', 'minecraft:furnace', ['CCC', 'C C', 'CCC'], { C: 'minecraft:clay_ball' })
+  // (clay furnace: off in the Lite pack - the vanilla furnace and its recipes stay)
 
   // bytes: eighth blocks of other blocks, e.g. createsurvival_core:bytes/minecraft/stone (which blocks get bytes:
   // config/createsurvival_core-startup.toml, needs a restart). The chisel (right-click a block with bytes) breaks off the

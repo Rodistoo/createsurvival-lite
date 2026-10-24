@@ -4,9 +4,6 @@
 
 // translation key -> new name
 const NAMES = {
-  // the vanilla furnace is CreateSurvival Core's clay furnace (createsurvival_clay_furnace.js)
-  'block.minecraft.furnace': 'Clay Furnace',
-  'container.furnace': 'Clay Furnace',
   // Ars Nouveau's Ignite glyph is the fire element of CreateSurvival Magic's spell mode
   'ars_nouveau.glyph_name.glyph_ignite': 'Fire',
   'ars_nouveau.glyph_desc.glyph_ignite': 'The fire element in spell mode: a stream of fire like a Create fan through fire (more fire: through lava), pillars of fire out of the ground (Underfoot, AOE, Wall), a fireball with Projectile (a ghast\'s with two), fire resistance with Self. In a spell book: sets blocks and mobs on fire for a short time.'

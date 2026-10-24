@@ -22,7 +22,7 @@ hash = "6d46bdc090d4bb9bdfb660be4ca94075dc08e09d5fed84108eba92a422a23c49"
 
 [[files]]
 file = "config/DistantHorizons.toml"
-hash = "9fee418a5d66225eaedbe1f40910e4a3c64e7f1c1c9c84aab80c81cde9aadd7a"
+hash = "8579cb5d169aa738b30635e06b5cc0f689611a7bd71f5cc54a70c9fc69fb1299"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -814,11 +814,11 @@ hash = "e0d6b95e522e714d8d95173e9d4d130690a8c916b305bb9d9e808014a8f1293b"
 
 [[files]]
 file = "config/chunksmith/config.json"
-hash = "035dc09f52f8dc8b79db3e42eb74cb86e586b45ca28da12c21b757bdfd6fea32"
+hash = "ac8225c33a239b6bc9256d795383bcab59d8626e2fe3f2d9770231f97c35a650"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/overworld.properties"
-hash = "f75a5d6508ec2cedd5d64a0da8a453eed0bb7e36833a0759ff6287c1e5598ea9"
+hash = "5bd722d57d9c5ac5951e67634aa482c7af4aad2c94a42a4a7460f7d773746f52"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/the_nether.properties"
@@ -826,7 +826,7 @@ hash = "56b8ebc631a85690caf0fbe0744dd08b5413801b87a0e672ea0776db10ed89b0"
 
 [[files]]
 file = "config/chunksmith/worldgen-faults.txt"
-hash = "fdbdd2e06f57c2ef72abc3fca4b7d7efbcc9493c541b8f8aa84fc0db105c74b8"
+hash = "320b2b5e6e9973f108605ca7911e6cf1a77caf754ca352778d7c9d7ea588faf2"
 
 [[files]]
 file = "config/chunky/config.json"
@@ -1082,11 +1082,11 @@ hash = "6965c760ab8a8245011ea53840a4a8ba9678d96ca84f300ebd0a7f5ddb6eb4f2"
 
 [[files]]
 file = "config/createsurvival_core-client.toml"
-hash = "4587372a38bccb0c24368fc0835b3dc4eb650b939a4dda546c64aa8a5597915a"
+hash = "0174f13d1072c433935b1e5aeb9ca1b3e800442a4c42525290f8595d983a8faf"
 
 [[files]]
 file = "config/createsurvival_core-features.toml"
-hash = "d9cc65470e4dc9e3835e4465cd3138aa0415495cd5522baa63e2fb1e18146239"
+hash = "590d276076bea39a89a202a90424d616430e596c408d205ca1b025d4ab0bc7fe"
 
 [[files]]
 file = "config/createsurvival_core-server.toml"
@@ -1126,7 +1126,7 @@ hash = "20ed72a6239820451c66df78486101155c86b8a684a9135c6fc5190f2b54b80a"
 
 [[files]]
 file = "config/createsurvival_mechanics-server.toml"
-hash = "8d327c836afef3ffd7db04976e684cfd04df13e46159fe191c7a3df4c4b60684"
+hash = "433fc214fa013ec61dd5b036570a2502a4d53b91419281ad3197ce138b80d2d4"
 
 [[files]]
 file = "config/createthrusters-client.toml"
@@ -1150,7 +1150,7 @@ hash = "bae863653ce11ee9ab21cebf33049e854fb560a05a74be07be33c68cf2615b1e"
 
 [[files]]
 file = "config/createthrusters_physics_goggles_overlays.json"
-hash = "780e27b7e67a9c4e4e65079a4c74f97f8b355a24e33462804b61fb22034b94dd"
+hash = "d283e3cb9adaa6bbc6c4578ba5f99d2c52cbd3ec890f62689a81024398e6dd51"
 
 [[files]]
 file = "config/creativecore-client.json"
@@ -1522,7 +1522,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "355ef8522ebc49593b6d1e4747d2ca20df09ef2da3b9ded1e48268e7f3233547"
+hash = "e96d2b1ae0f9510387e0cc2a3328bfff41ba3d6127ee5a7bb54861d92b5028d1"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1774,7 +1774,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "f4632b4675aed7c68df337152a2d19ff8011e015bdd9ee6b200855b3efbcd207"
+hash = "3e9bd5de65369a97dc6f5f13efb8bbf7d295dabf4ab2a9f4649d6af3c32636ef"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2894,7 +2894,7 @@ hash = "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
 
 [[files]]
 file = "config/voicechat/voicechat-client.properties"
-hash = "865712037d4075e29eb3a467283f1aaaf82f1398f076e8ef7b250207ce736724"
+hash = "b2be0b8f68bf0eef2e958a65b17ccbba460424cde256125b3a75160139cd9d97"
 
 [[files]]
 file = "config/voicechat/voicechat-server.properties"
@@ -3054,7 +3054,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "70c37428da4b735a5afcdddd1ca236710bfd3d748afc0b8e0edc435a0320982e"
+hash = "66b536cba81f0902c6b3a614fab3b1799c040cd0282bdb929f0f883d96c9d7a6"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -4105,22 +4105,6 @@ file = "kubejs/assets/minecraft/models/block/template_lantern.json"
 hash = "aa2bb75e023970f832dd6e6cb5c80f854aaa5dcb8058e230d78b9b5684dff401"
 
 [[files]]
-file = "kubejs/assets/minecraft/textures/block/furnace_front.png"
-hash = "5953598a9ff4b5c70b88a8785b9b51680e5849f48c4ae9c57c512e659138a3d0"
-
-[[files]]
-file = "kubejs/assets/minecraft/textures/block/furnace_front_on.png"
-hash = "b9682dd0a63dc0ac324f0079a1ac611d8d1940a477dfedb5c4935a152dc54149"
-
-[[files]]
-file = "kubejs/assets/minecraft/textures/block/furnace_side.png"
-hash = "91cd5f4f8ef2469681bf16d494d6af186d498c570a86b09355fd0fdcc0372ff1"
-
-[[files]]
-file = "kubejs/assets/minecraft/textures/block/furnace_top.png"
-hash = "b03cee1de0073c1a74fcbe60c9defe214c30919ee615eeb7050d8f3597bb07f6"
-
-[[files]]
 file = "kubejs/assets/minecraft/textures/entity/creeper.png"
 hash = "53caa57c41d46d3023e783566033b42c09bf2b1805d8e401c613e91a1d5d59e0"
 
@@ -4166,7 +4150,7 @@ hash = "2d78a813a374a5f37f82148d71d8ac78f9a15baf719391a6e7a92cfd6442e78d"
 
 [[files]]
 file = "kubejs/client_scripts/createsurvival_names.js"
-hash = "7065b10735c4e146633dd5883e4926f3a7719c87e734fc4eed9f7b9348b32bd6"
+hash = "11b2a2c29d64c07be6d6b5e113e81bfa56d6f399b7d6eba6d14d0724fcc2a559"
 
 [[files]]
 file = "kubejs/client_scripts/createsurvival_tools.js.disabled"
@@ -7229,7 +7213,7 @@ file = "kubejs/server_scripts/createsurvival_belt_blocks.js"
 hash = "5086c337b0c0334b3ec105d8672307c2d3b73ea89c25802db5d69a3cfba02d52"
 
 [[files]]
-file = "kubejs/server_scripts/createsurvival_clay_furnace.js"
+file = "kubejs/server_scripts/createsurvival_clay_furnace.js.disabled"
 hash = "95b6c77c0167d140f7ef58586e489b0994e2a3237241cd6397f55ea192c64e30"
 
 [[files]]
@@ -7262,7 +7246,7 @@ hash = "1e3fc4a5407cc1202b67f706299436e0759125a429a297a4239b0ccc9bd6a0f7"
 
 [[files]]
 file = "kubejs/server_scripts/createsurvival_recipes.js"
-hash = "17461c592de5957f239460cc7672f483a5a89bfec411ebe1b553ec4fdb1004b7"
+hash = "d92062bdd012d001acb2f80c511df4f4b15dbc959174c61086d690f47ef1b0b1"
 
 [[files]]
 file = "kubejs/server_scripts/createsurvival_resource_nodes.js"
@@ -7550,8 +7534,8 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
-file = "mods/createsurvival_core-1.92.0.jar"
-hash = "aafb65b8c020f55defe49cf71380224c34c3adfa67bb21d5c35230eb0f58c986"
+file = "mods/createsurvival_core-1.93.0.jar"
+hash = "0d1ca056b40ae3799ae2f3f021e6a1dfb8f24723fb49619f0db4d0562f6fb5bb"
 
 [[files]]
 file = "mods/createsurvival_mechanics-0.21.0.jar"
@@ -8265,6 +8249,16 @@ metafile = true
 [[files]]
 file = "mods/witherreincarnated-1.21.1-1.0.5.pw.toml"
 hash = "4c763ea5adfeb8f39d057c499ae5ace236c2e3691e2f48a38461aaf73983ea53"
+metafile = true
+
+[[files]]
+file = "mods/xaerominimap-neoforge-1.21.1-26.6.0.pw.toml"
+hash = "e97cb865d7a8c8310905d9140899fa55ea23c3fff2e23a17255ce2c162322ad7"
+metafile = true
+
+[[files]]
+file = "mods/xaeroworldmap-neoforge-1.21.1-1.47.0.pw.toml"
+hash = "3a8e91aecdb602039ba1f7445bbf6b64cc5a46344339a3ffaf3b2e3eb2f5bcbc"
 metafile = true
 
 [[files]]

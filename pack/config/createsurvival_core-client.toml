@@ -16,3 +16,16 @@
 	#Chat messages that aren't shown (nor logged): regular expressions matched against the whole message,
 	#e.g. "\\[Axiom\\] The Editor UI keybind has conflicts.*" for a mod's message that can't be switched off.
 	hiddenMessages = ["\\[Axiom\\] The Editor UI keybind has conflicts.*"]
+
+#The fog at a rectangular world border (feature worldBorder, /createsurvival_core border set).
+[borderFog]
+	#Fog at the border: nothing behind it is seen (Distant Horizons doesn't draw past it either).
+	borderFog = true
+	#How far in front of the border the fog starts, in blocks; it thickens towards the border.
+	# Default: 48
+	# Range: 4 ~ 256
+	fogDepth = 48
+	#Layers the fog in front of the border is made of (more: smoother, a little slower).
+	# Default: 12
+	# Range: 1 ~ 48
+	fogLayers = 12

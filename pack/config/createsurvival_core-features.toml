@@ -46,7 +46,7 @@
 	#Enchanting: anvils without experience, ancient books in loot.
 	enchanting = true
 	#Clay furnace: the furnace only smelts what a clay furnace can.
-	clayFurnace = true
+	clayFurnace = false
 	#Distant entities: entities seen from further away than the view distance.
 	distantEntities = true
 	#Fixes for Minecraft and other mods: lighting (ScalableLux, Better Skylight, Sable Dynamic Lights), Hardcore
@@ -60,3 +60,6 @@
 	#Minecarts: 1.21.2+'s Minecart Improvements (movement along the rails at any speed up to the gamerule
 	#minecartMaxSpeed, tilting on slopes, smooth on the client, turning the rider's view with the client option).
 	minecarts = true
+	#World border: rectangular world borders (/createsurvival_core border set <x1> <z1> <x2> <z2>, per dimension) with
+	#fog that hides what lies behind them, also from Distant Horizons.
+	worldBorder = true
