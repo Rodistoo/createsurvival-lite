@@ -7241,11 +7241,6 @@ hash = "187eafde5974beee1263538b462b7b8fe2fc8948c5d413980d9796d55928580b"
 metafile = true
 
 [[files]]
-file = "mods/axiom-6.1.3-for-mc1.21.1.pw.toml"
-hash = "97fcda99a93799281fe5fe2a11f9fd43945983d87de2790d1537a2b4db017b3d"
-metafile = true
-
-[[files]]
 file = "mods/baguettelib-1.21.1-neoforge-2.0.7.pw.toml"
 hash = "ad964c7bc216dc509aba7cc617456a340e7746565e79d0cd4fab8a4d31ec95ed"
 metafile = true
@@ -7358,11 +7353,6 @@ metafile = true
 [[files]]
 file = "mods/configured.pw.toml"
 hash = "af4dc4828902eae1784568632a749fe9a442943f1570ac0ba3ea75e79934be41"
-metafile = true
-
-[[files]]
-file = "mods/connector-2.0.0-beta.17-1.21.1-full.pw.toml"
-hash = "a38d72ca403e9064338be6e0cf69532768b0c1aba8f88703a8ce74c2734da522"
 metafile = true
 
 [[files]]
