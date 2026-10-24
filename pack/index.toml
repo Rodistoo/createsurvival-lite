@@ -818,7 +818,7 @@ hash = "035dc09f52f8dc8b79db3e42eb74cb86e586b45ca28da12c21b757bdfd6fea32"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/overworld.properties"
-hash = "2237459c32147e62976aacab953b61dc0b6e5f1ac2c29c445786fdbcc619dcdf"
+hash = "f75a5d6508ec2cedd5d64a0da8a453eed0bb7e36833a0759ff6287c1e5598ea9"
 
 [[files]]
 file = "config/chunksmith/tasks/minecraft/the_nether.properties"
@@ -826,7 +826,7 @@ hash = "56b8ebc631a85690caf0fbe0744dd08b5413801b87a0e672ea0776db10ed89b0"
 
 [[files]]
 file = "config/chunksmith/worldgen-faults.txt"
-hash = "c37e5a7a09f068199879739fc1d22dabdee33d108be2b7fda2d0c43472f4c1ba"
+hash = "fdbdd2e06f57c2ef72abc3fca4b7d7efbcc9493c541b8f8aa84fc0db105c74b8"
 
 [[files]]
 file = "config/chunky/config.json"
@@ -1522,7 +1522,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "45a057991b11fd3fa92c9126a75eb0decfcc040fe11aa96047f9b1e98a8f582c"
+hash = "355ef8522ebc49593b6d1e4747d2ca20df09ef2da3b9ded1e48268e7f3233547"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1774,7 +1774,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "6b114585591cfecd5486281de81a926b6fdf1b61b39df24094283d091b55f9ed"
+hash = "f4632b4675aed7c68df337152a2d19ff8011e015bdd9ee6b200855b3efbcd207"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -3054,7 +3054,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "7606a29ded31f122abe7a88f0e548f2b1edf17710d24d97f407e72db6f8f7710"
+hash = "70c37428da4b735a5afcdddd1ca236710bfd3d748afc0b8e0edc435a0320982e"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -7550,8 +7550,8 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
-file = "mods/createsurvival_core-1.91.0.jar"
-hash = "ead325e8b8ade937c0581a8eb39c72cc1b40c5c082e5cf79303a365a06da0f6b"
+file = "mods/createsurvival_core-1.92.0.jar"
+hash = "aafb65b8c020f55defe49cf71380224c34c3adfa67bb21d5c35230eb0f58c986"
 
 [[files]]
 file = "mods/createsurvival_mechanics-0.21.0.jar"
