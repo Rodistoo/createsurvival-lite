@@ -4590,7 +4590,7 @@ hash = "4931c277af67dc10a025a4f805a66d6a14b3362622351b33b600e8347c3d8cdd"
 
 [[files]]
 file = "kubejs/data/createsurvival_core/world_layout.json"
-hash = "844912a51bed5c7239c3e6b291d84066cc2f33c7ffa154753fc6adb3d077e880"
+hash = "57dc01d162ec31d30754d3d1b5de1389bf07894cb000b271727499472202ad6d"
 
 [[files]]
 file = "kubejs/data/createsurvival_magic/tags/block/lit_by_fire_starter.json"
