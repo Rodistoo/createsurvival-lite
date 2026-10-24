@@ -1,7 +1,8 @@
 # CreateSurvival Lite: runs before every start (Prism's pre-launch command, set up by the installer).
 #  1. brings the instance up to date with the pack (packwiz-installer: only what changed is downloaded)
-#  2. the chosen mode (performance / quality, createsurvival/presets.json): applied when it was picked and again when
-#     an update rewrote one of its files - other changes a player makes stay. options.txt is never touched.
+#  2. the chosen mode (performance / quality, createsurvival/presets.json): applied when it was picked, when the pack
+#     changed the mode's values and when an update rewrote one of its files - other changes a player makes stay.
+#     options.txt is never touched.
 #  3. a new NeoForge version of the pack goes into the instance (used from the next start on)
 # Local files (not part of the pack): createsurvival/settings.json (installer: pack url, mode), createsurvival/state.json.
 # Without internet the game starts as it is.
@@ -89,13 +90,17 @@ function Set-Keys($path, $keys) {
 $presets = Read-Json $presetsFile
 if ($presets -and $presets.PSObject.Properties[$settings.mode]) {
     $modeChanged = $state.appliedMode -ne $settings.mode
+    # the values themselves, as last applied (a pack update may change them, e.g. a longer DH render distance)
+    $values = $presets.($settings.mode) | ConvertTo-Json -Compress -Depth 5
+    $valuesChanged = $state.appliedValues -ne $values
     foreach ($p in $presets.($settings.mode).PSObject.Properties) {
         $path = Join-Path $mc $p.Name
-        if ($modeChanged -or (Get-Hash $path) -ne $before[$p.Name]) {
+        if ($modeChanged -or $valuesChanged -or (Get-Hash $path) -ne $before[$p.Name]) {
             try { Set-Keys $path $p.Value } catch { Write-Host "CreateSurvival: couldn't set $($p.Name): $_" }
         }
     }
     $state.appliedMode = $settings.mode
+    $state | Add-Member -NotePropertyName appliedValues -NotePropertyValue $values -Force
 }
 Write-Json $stateFile $state
 

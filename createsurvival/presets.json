@@ -2,7 +2,7 @@
   "_comment": "What each mode sets. File -> key -> value (.toml key = value, value written as is, quote strings; .properties key=value). Applied when a player picks the mode and again whenever a pack update rewrites one of these files; other changes the player makes stay. options.txt is never touched.",
   "performance": {
     "config/DistantHorizons.toml": {
-      "lodChunkRenderDistanceRadius": "64",
+      "lodChunkRenderDistanceRadius": "200",
       "horizontalQuality": "\"LOW\"",
       "verticalQuality": "\"LOW\"",
       "enableSsao": "false"

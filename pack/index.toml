@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "bivrik/common.json"
-hash = "5fe6478e02df64091d6fd750069bd8ac728aaac5983c53743d7be6a843fbe898"
+hash = "50b39531451baf178cb428a556c9a006818ab387c6943bda2aa5081ecab94c0f"
 
 [[files]]
 file = "bivrik/mods/fancytoasts.json"
-hash = "b427187a5a92f288b2ee1e29d0dc745d07456dd3e329e2b18a3bd3504ded2bbc"
+hash = "45a38c7af02031e668ae1107f5147617fb8c1717ab269482df9855e0ec4ba6a0"
 
 [[files]]
 file = "config/BBEConfig.json"
@@ -1510,7 +1510,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "31aa86150d46ab5b2faf2b60bb555ba277dd4bce8c44aa5cd0ebb41e7cc0f1e9"
+hash = "86878765b33ce049841482857431efe354d35123fb7b32968d2079ed9315f0bb"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1762,7 +1762,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "32caceb101e3fd00c61d68fcd7b359825b60fe670716af3e10e7775792609ca4"
+hash = "2125ec15c2294dc360a3bfe86765656e984fe3c467627475dc48609d075b822e"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2966,7 +2966,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "d2f05a212bc2aa2cba86efbdb605da183768ade2a4c3f5d46a8af331aeba99e3"
+hash = "df10335b0054eb073b925d93c4b7a8be224ceb7f25ad558c470b20f11c2e2b09"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -2974,11 +2974,11 @@ hash = "2fda48fbb2f2774c4ca7d29a340bd9002a8fb4ec5ff8e1114f1b15dfd14c3052"
 
 [[files]]
 file = "createsurvival/presets.json"
-hash = "c246f00a62cd922b4769e3c64a051851a48862efe3bd7cf9e36e99d80351ff34"
+hash = "f5055f93caf4005a0bb28c3280b45943ebcb53e42be66ef9a4a9b17cab7b4d6c"
 
 [[files]]
 file = "createsurvival/sync.ps1"
-hash = "a3acef8ad4a4953144971a2b2df3cc3521baad2e1ccaef0ad687afac072fde30"
+hash = "d3662a3114ccdf2da97ed6d1203204a20966fac97a2ceb4c3ca7eef3e80c55e7"
 
 [[files]]
 file = "defaultconfigs/biolith/general.json"
@@ -7446,8 +7446,8 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
-file = "mods/createsurvival_core-1.94.0.jar"
-hash = "690b0b3108bb6f50fd441812734c2f7e7ab9454673808c50f5366bc56584b2df"
+file = "mods/createsurvival_core-1.95.0.jar"
+hash = "b9e35e7910cd168a90d44f9d9f80d581eb7041762147dc612e43b80bc4836ced"
 
 [[files]]
 file = "mods/createsurvival_mechanics-0.21.0.jar"
