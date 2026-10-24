@@ -685,22 +685,6 @@ file = "config/arsdelight-server.toml"
 hash = "cdd272a01d1c7294685107e11373f09fb88c99c7acdf72f3a87b6f35029e5896"
 
 [[files]]
-file = "config/axiom/.axiom.json.backup"
-hash = "26b083af11ff807ab34c1fa630e0f91dbe9ebb3aa28f8edb467f54b4baa818ae"
-
-[[files]]
-file = "config/axiom/axiom.json"
-hash = "26b083af11ff807ab34c1fa630e0f91dbe9ebb3aa28f8edb467f54b4baa818ae"
-
-[[files]]
-file = "config/axiom/hotbars/Structure building"
-hash = "42f830f178bce32de2df6e90f92e02f27f06575d75c319a4b9bc792c34d87e01"
-
-[[files]]
-file = "config/axiom/imgui.ini"
-hash = "b138e57ffd1b71fd889573cab5ee9a187458a5afb7b52dd915a4aab89f77d2b4"
-
-[[files]]
 file = "config/badoptimizations.txt"
 hash = "cae5ba66971b2f61e0b523c5aeb8b8d4fa806f0bea8a1709860e4fea94426ac9"
 
@@ -875,14 +859,6 @@ hash = "f6df47d3f1002fde8d9e59c8068acbc39e976b3392e8fd528dc9b38b2856c5a0"
 [[files]]
 file = "config/configured-client.properties"
 hash = "a9f1058d68eb630eb4783d12da4a5dea5c2f5481fdf38280e33944b9593d2d9c"
-
-[[files]]
-file = "config/connector.json"
-hash = "67bee06b2b321ed25e0d4e9b5bac7ab76c8ae76442de6caf11f463ce2ae1ac5e"
-
-[[files]]
-file = "config/connectorextras_energy_bridge-common.toml"
-hash = "2960bccd52230cb571c760ba9122ec1f4b21b5079f977700d4ac03f1518aef6d"
 
 [[files]]
 file = "config/convenient_augershafts-common.toml"

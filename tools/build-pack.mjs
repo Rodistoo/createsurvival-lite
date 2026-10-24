@@ -25,9 +25,10 @@ const SKIP = [/\.bak$/i, /\.old$/i, /(^|\/)createsurvival_core-history(\/|$)/, /
   /^config\/paxi\/resourcepacks\/(Better Grounds|Better SB Upgrades|Clear Glass Pack 1\.21|Lower Shield)\.zip$/,
   // state of the instance, not settings: Chunksmith's saved pregen tasks and fault log, spark's profiler history
   /^config\/chunksmith\/(tasks\/|worldgen-faults\.txt$)/, /^config\/spark\/activity\.json$/];
-// mods only for testing in the instance, never in the pack (by jar name), and their configs
-const TEST_ONLY_MODS = [/^xaero/i];
-SKIP.push(/^config\/xaero/i);
+// mods only for the instance, never in the pack (by jar name), and their configs: Xaero's maps (testing), Axiom and
+// Connector (only Axiom needs it)
+const TEST_ONLY_MODS = [/^xaero/i, /^axiom/i, /^connector-/i];
+SKIP.push(/^config\/xaero/i, /^config\/axiom/i, /^config\/connector/i);
 const skipped = rel => SKIP.some(re => re.test(rel));
 
 function copyTree(from, to, base = '') {
