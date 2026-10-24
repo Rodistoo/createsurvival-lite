@@ -22,7 +22,7 @@ hash = "6d46bdc090d4bb9bdfb660be4ca94075dc08e09d5fed84108eba92a422a23c49"
 
 [[files]]
 file = "config/DistantHorizons.toml"
-hash = "c9fb4c1e804537cc4a014d2a1ede99bf6aaadb8de6429464d343e59b4b04193f"
+hash = "5b743a97b6970c7f0b8024d6d5101294f35f9b386c76dc05e35c7379db4a28b2"
 
 [[files]]
 file = "config/MouseTweaks.cfg"
@@ -1486,7 +1486,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "86878765b33ce049841482857431efe354d35123fb7b32968d2079ed9315f0bb"
+hash = "e3b55a96534a9e405be0d9dfc10031c9873035667769d706296f010b4dda33f0"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1738,7 +1738,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "2125ec15c2294dc360a3bfe86765656e984fe3c467627475dc48609d075b822e"
+hash = "c7daf0ae224bda5cb151cfd379c83dfcaa63d6a3e23be27752baa3e51c568524"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2942,7 +2942,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "df10335b0054eb073b925d93c4b7a8be224ceb7f25ad558c470b20f11c2e2b09"
+hash = "894739de0c6c1541d38c846c8d0e7ce1eb831646cb4c6dcd4a4dba18c6fda315"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
