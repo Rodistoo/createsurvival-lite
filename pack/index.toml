@@ -1054,7 +1054,7 @@ hash = "590d276076bea39a89a202a90424d616430e596c408d205ca1b025d4ab0bc7fe"
 
 [[files]]
 file = "config/createsurvival_core-server.toml"
-hash = "c0820ef24c1471dc32306fd26de058ef5da863f75549e0d36097770bfad12578"
+hash = "61fbc9eddb746438a892dee9398fb39693f2f8ff05b8a959ba6d59c3dbc76fa5"
 
 [[files]]
 file = "config/createsurvival_core-startup.toml"
@@ -1486,7 +1486,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "34b5bea7cfa306a12eb70b7cd0d5d24522ae8c2863eaaf590d360786cfd22d50"
+hash = "ab233c1d40d10c9d892918451a6185b5aafeaea5148543758f00ec5fecb0c19f"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1738,7 +1738,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "b3a3518e0d9e0841c42b4ab29cb5ed6365a01c5ac262e5afdd60dafb7694acbc"
+hash = "cd6a0329c6c30b326934e04cee395664b205e3971a29e00a1d0676fdc9ce3d7c"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2942,7 +2942,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "59e061f07311483a10ef22a0fda3a2fa3592ab1215553d0363262a89d21d3ff1"
+hash = "37aea22c15efd98b58c472f1d48d249feec124b7b551139c9c4d53f62f2a1c24"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -4535,6 +4535,10 @@ hash = "5cfb03f89f5cb7d8cdbdeceeea889a7dac5f9d0ed65baf4a041ea8a42b8e587f"
 [[files]]
 file = "kubejs/data/createsurvival_core/nether_layout.json"
 hash = "c9adfa291ff2c2b67a342da271b00cac22f390411ff16e48371f3f627f4c764e"
+
+[[files]]
+file = "kubejs/data/createsurvival_core/tags/block/dense_mining/building_stone.json"
+hash = "565f2fc3fd5a1e6f995eb31cdbf622844a4a3c5f60312dfe56b082a44b36fa68"
 
 [[files]]
 file = "kubejs/data/createsurvival_core/tags/item/soulbound_enchantable.json"
