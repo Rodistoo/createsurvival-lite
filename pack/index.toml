@@ -1486,7 +1486,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "cb1fa31b7c5f41e0f2679bd0db8d4bf13786cda7a82189956c88001c5839a31f"
+hash = "34b5bea7cfa306a12eb70b7cd0d5d24522ae8c2863eaaf590d360786cfd22d50"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1738,7 +1738,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "e4da66772dd69bc7a6fc5d9cdf09ef6f148f761564a649d00e7387b2d96a85df"
+hash = "b3a3518e0d9e0841c42b4ab29cb5ed6365a01c5ac262e5afdd60dafb7694acbc"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2942,7 +2942,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "26d98ae2eee5bff81da8e21e2cea189fddd02f13f5ed16c4c653e002bb101e41"
+hash = "59e061f07311483a10ef22a0fda3a2fa3592ab1215553d0363262a89d21d3ff1"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -7412,8 +7412,8 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
-file = "mods/createsurvival_core-1.102.0.jar"
-hash = "e0748846df25c6915c464175d65abe08f6ce50ff6613435c84468b577fb7513b"
+file = "mods/createsurvival_core-1.103.0.jar"
+hash = "28db6484d820c171d7a5968855baef2a2dbbb6438fbffdccd28e8d6c0381c791"
 
 [[files]]
 file = "mods/createsurvival_mechanics-0.22.0.jar"
