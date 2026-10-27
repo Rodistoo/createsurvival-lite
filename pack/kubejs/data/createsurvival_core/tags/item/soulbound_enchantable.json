@@ -1,5 +1,22 @@
 {
   "values": [
+    "#minecraft:enchantable/durability",
+    "#minecraft:enchantable/armor",
+    "#minecraft:enchantable/weapon",
+    "#minecraft:enchantable/mining",
+    "#minecraft:enchantable/bow",
+    "#minecraft:enchantable/crossbow",
+    "#minecraft:enchantable/trident",
+    "#minecraft:enchantable/mace",
+    "#minecraft:enchantable/fishing",
+    {
+      "id": "#c:tools",
+      "required": false
+    },
+    {
+      "id": "#c:armors",
+      "required": false
+    },
     {
       "id": "#createsurvival_core:bags",
       "required": false

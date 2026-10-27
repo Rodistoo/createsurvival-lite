@@ -6,7 +6,8 @@
 		#Per-block values: "<block id or #tag> = <speed>, <denseSpeed>"
 		#  speed      - multiplier when the block is fully exposed (on top of globalSpeed). 1 = no change.
 		#  denseSpeed - additional multiplier when the block is surrounded by other listed blocks. 1 = no dense slowdown.
-		#The first matching entry wins, so put single blocks before tags.
+		#The first matching entry wins, so put single blocks before tags. The dense_mining tags hold ores too (#c:ores_in_ground/...),
+		#so an entry for ores ("#c:ores = 1.0, 1.0") must come before them. /createsurvival_core miningspeed <pos> names the entry used.
 		blocks = ["minecraft:deepslate = 0.3, 0.001", "minecraft:rooted_dirt = 0.1, 0.15", "#minecraft:logs = 0.7, 0.08", "#createsurvival_core:dense_mining/deep_stone = 0.3, 0.005", "#createsurvival_core:dense_mining/hard_stone = 0.3, 0.05", "#createsurvival_core:dense_mining/stone = 0.6, 0.15", "#createsurvival_core:dense_mining/soft_stone = 0.4, 0.25", "#createsurvival_core:dense_mining/rubble = 0.5, 0.3", "#createsurvival_core:dense_mining/masonry_deep = 0.3, 0.01", "#createsurvival_core:dense_mining/masonry_metal = 0.3, 0.03", "#createsurvival_core:dense_mining/masonry_hard = 0.3, 0.08", "#createsurvival_core:dense_mining/masonry = 0.4, 0.2", "#createsurvival_core:dense_mining/masonry_soft = 0.5, 0.35", "#createsurvival_core:dense_mining/soil = 0.6, 0.4", "#createsurvival_core:dense_mining/loose = 0.8, 0.6", "#createsurvival_core:dense_mining/nether_end = 0.5, 0.3", "#createsurvival_core:dense_mining/ice = 0.5, 0.3", "#createsurvival_core:dense_mining/wood = 0.8, 0.4", "#quark:stone_type/shale = 0.0001, 0.001", "quark:shale_bricks_vertical_slab = 0.001, 0.001"]
 		enabled = true
 		#Mining speed multiplier for every block. 1 = no change.
@@ -32,12 +33,12 @@
 		#create:mechanical_drill and create:mechanical_saw (as blocks, on contraptions and physics objects) and Offroad's
 		#offroad:borehead_bearing (its rock cutting wheels). 1 = unchanged, 0.5 = half as fast.
 		machineSpeeds = ["create:mechanical_drill = 1.0", "offroad:borehead_bearing = 1.0"]
-		#How much the rules above (globalSpeed, the per-block speeds and dense neighbours) slow block-breaking machines down
-		#too: 1 = exactly as players, 0.5 = half as much (in the exponent: a factor of 0.25 becomes 0.5), 0 = not at all.
+		#The same for block-breaking machines: 1 = fully slowed by the rules above, 0.5 = half as much (in the exponent: a
+		#factor of 0.25 becomes 0.5), 0 = not at all.
 		# Default: 1.0
 		# Range: 0.0 ~ 1.0
 		machineDenseFactor = 1.0
-		#The same for mining mobs (Enhanced AI's miner zombies, Mob Control's block breakers): 1 = as slowed as players, 0 = not at all.
+		#The same for mining mobs (Enhanced AI's miner zombies, Mob Control's block breakers): 1 = fully slowed, 0 = not at all.
 		# Default: 1.0
 		# Range: 0.0 ~ 1.0
 		minerMobDenseFactor = 1.0
@@ -47,6 +48,11 @@
 		# Default: 5.0
 		# Range: 0.0 ~ 3600.0
 		bytesAboveSeconds = 5.0
+		#How much the rules above (globalSpeed, the per-block speeds and dense neighbours) slow players down: 1 = fully,
+		#0.5 = half as much (in the exponent: a factor of 0.25 becomes 0.5), 0 = not at all. maxSeconds applies either way.
+		# Default: 1.0
+		# Range: 0.0 ~ 1.0
+		playerDenseFactor = 1.0
 
 	#Blocks that are never used up (block tag createsurvival_core:infinite_blocks, e.g. made with KubeJS): mined, they
 	#drop what their loot table gives and stay.

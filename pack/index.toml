@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "bivrik/common.json"
-hash = "50b39531451baf178cb428a556c9a006818ab387c6943bda2aa5081ecab94c0f"
+hash = "1be559e9ac66a81306ae9fe56860303d6434fba3f4e592bb5789b0d2d0ba49e3"
 
 [[files]]
 file = "bivrik/mods/fancytoasts.json"
-hash = "45a38c7af02031e668ae1107f5147617fb8c1717ab269482df9855e0ec4ba6a0"
+hash = "e520cbf3d3995fc2f55c1300a2be3fc1eb5b77e56696ef5b2102a0bceb1a7c71"
 
 [[files]]
 file = "config/BBEConfig.json"
@@ -1054,7 +1054,7 @@ hash = "590d276076bea39a89a202a90424d616430e596c408d205ca1b025d4ab0bc7fe"
 
 [[files]]
 file = "config/createsurvival_core-server.toml"
-hash = "ec413b900ed2b3cc0771dc71979d0fab196ab75cdf300e1fa7fdc0e5b448a074"
+hash = "c0820ef24c1471dc32306fd26de058ef5da863f75549e0d36097770bfad12578"
 
 [[files]]
 file = "config/createsurvival_core-startup.toml"
@@ -1486,7 +1486,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "379e12761ecc505df1f533af0fb7073899526785475dacd5397508ae5a337708"
+hash = "9db2857173b69ccd3798fbf5c211419189fa212eb8e2d189bc04e663f4d4098d"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1738,7 +1738,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "6dbc024e43abc0daf609a9c350ea5ded5156691d03543bb6776d0d3f54827202"
+hash = "a676c1ee8c336e1a181718705bf7547445203c4f03dd5a833cf86086a536132a"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2942,7 +2942,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "68c1d2fc74d2d81f6879ee6ce1e03b36b724a20ab3b698ed648d06457cae9262"
+hash = "e886667c48db5f11b756f8057f0b05e9b45f3e8ec1d5f9eddf6921c2a2aceb24"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -4538,7 +4538,7 @@ hash = "c9adfa291ff2c2b67a342da271b00cac22f390411ff16e48371f3f627f4c764e"
 
 [[files]]
 file = "kubejs/data/createsurvival_core/tags/item/soulbound_enchantable.json"
-hash = "e6ce1b5a18c799e5dd03920350131a4c8b66c7206d2154364179607be3e3e9c3"
+hash = "9aa6a60d78bd50a96e6f66bd7a5b2196180ca90584ac7115ac830c897501f168"
 
 [[files]]
 file = "kubejs/data/createsurvival_core/tags/worldgen/structure/in_caves.json"
@@ -7412,12 +7412,12 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
-file = "mods/createsurvival_core-1.98.0.jar"
-hash = "2ac69bf4397659ec9d34d6e266d68e703500f18cc2982cd373df8381877513ae"
+file = "mods/createsurvival_core-1.100.0.jar"
+hash = "37ca4101f4fb3b3e032e5652ded8148ff45676dfc34a904437b048086812e770"
 
 [[files]]
-file = "mods/createsurvival_mechanics-0.21.0.jar"
-hash = "3de2b3111a8549f55c71795463586f6ac34af4e4ad2594bd637d065d4bee2f83"
+file = "mods/createsurvival_mechanics-0.22.0.jar"
+hash = "ba155c2cf7107f098bb4dc5fa3749e0ea6cc50c4c9533d929845e320fc2a23ef"
 
 [[files]]
 file = "mods/createthreadedtrains-neoforge-1.21.1-1.0.0.pw.toml"
