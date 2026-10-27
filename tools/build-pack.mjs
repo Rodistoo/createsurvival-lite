@@ -64,6 +64,15 @@ function modInfo(file) {
   if (version.includes('${') && manifestVersion) version = manifestVersion;
   return { id, version };
 }
+// a Fabric mod (only runs through Sinytra Connector, which stays out of the pack): its fabric.mod.json id, else null
+function fabricOnlyId(file) {
+  try {
+    const es = entries(file), names = es.map(e => e.name);
+    if (names.includes('META-INF/neoforge.mods.toml') || names.includes('META-INF/mods.toml')) return null;
+    const fmj = es.find(e => e.name === 'fabric.mod.json');
+    return fmj ? JSON.parse(fmj.read().toString()).id || '?' : null;
+  } catch { return null; }
+}
 function newer(a, b) { // whether version a > b
   const pa = String(a).split(/[^0-9]+/).filter(Boolean).map(Number), pb = String(b).split(/[^0-9]+/).filter(Boolean).map(Number);
   for (let i = 0; i < Math.max(pa.length, pb.length); i++) { const x = pa[i] || 0, y = pb[i] || 0; if (x !== y) return x > y; }
@@ -124,6 +133,14 @@ for (const f of fs.readdirSync(modsDir).filter(f => /\.(jar|zip)$/i.test(f))) {
   const full = path.join(modsDir, f);
   if (!f.toLowerCase().endsWith('.jar')) { console.log(`(${f} left out: only jars load from mods)`); continue; }
   if (TEST_ONLY_MODS.some(re => re.test(f))) { console.log(`(${f} left out: only for testing)`); continue; }
+  const fabric = fabricOnlyId(full);
+  if (fabric) {
+    // and its configs (config/<id>.toml, config/<id>/...)
+    console.log(`(${f} left out: a Fabric mod, needs Connector)`);
+    const escaped = fabric.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    SKIP.push(new RegExp(`^config/${escaped}([._-]|/|$)`, 'i'));
+    continue;
+  }
   const { id, version } = modInfo(full);
   if (!id) { plain.push(full); continue; }
   if (!byId[id] || newer(version, byId[id].version)) {
