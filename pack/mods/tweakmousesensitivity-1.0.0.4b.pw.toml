@@ -1,0 +1,13 @@
+name = "tweak mouse sensitivity"
+filename = "tweakmousesensitivity-1.0.0.4b.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/FZqTsIlY/versions/Zy0ceNzV/tweakmousesensitivity-1.0.0.4b.jar"
+hash-format = "sha512"
+hash = "7d226e1dfa6ac7ace3b6d6b6eda94705640d10076baa23211cdb01ccf49ca2bf635b5aad8c7113cbc6c08e80ddc4f37c97dcae0b0c9e3fc829b7095e6bd3e250"
+
+[update]
+[update.modrinth]
+mod-id = "FZqTsIlY"
+version = "Zy0ceNzV"
