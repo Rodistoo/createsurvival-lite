@@ -61,4 +61,4 @@
 [verticalSlabs]
 	#Which slabs: block ids, * matches anything, a leading ! leaves slabs out again (as materials above). Needs a
 	#restart, and players need the same list as the server.
-	slabs = ["caverns_and_chasms:*"]
+	slabs = ["caverns_and_chasms:*", "create:*", "minecraft:*", "!minecraft:petrified_oak_slab", "supplementaries:*", "yungscavebiomes:*", "createsurvival_core:hardened_stone_slab"]

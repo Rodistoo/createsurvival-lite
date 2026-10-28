@@ -302,3 +302,10 @@
 	# Default: 4
 	# Range: 0 ~ 7
 	snowLayersWithoutCollision = 4
+
+#Create's steam engine boilers (fluid tanks with a heater under them).
+[boiler]
+	#Water each boiler level needs, in mB per tick (Create: 10). A level 18 boiler needs 18 times that.
+	# Default: 10.0
+	# Range: 0.1 ~ 1000.0
+	waterPerLevel = 10.0

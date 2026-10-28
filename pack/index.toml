@@ -798,7 +798,7 @@ hash = "e0d6b95e522e714d8d95173e9d4d130690a8c916b305bb9d9e808014a8f1293b"
 
 [[files]]
 file = "config/chunksmith/config.json"
-hash = "ac8225c33a239b6bc9256d795383bcab59d8626e2fe3f2d9770231f97c35a650"
+hash = "9df53c9fa166010f757d6d444d71daafb9a2b9b53504ed3f02d3bf2f5e9d03fc"
 
 [[files]]
 file = "config/chunky/config.json"
@@ -1058,7 +1058,7 @@ hash = "61fbc9eddb746438a892dee9398fb39693f2f8ff05b8a959ba6d59c3dbc76fa5"
 
 [[files]]
 file = "config/createsurvival_core-startup.toml"
-hash = "a8b912bf3e9857e8165c15f8fd85fd24c01c0dc95bcafd4628f218b76db63e2d"
+hash = "528dc351c4758ea281098a413086b114ebb0ec34a53d519f40ec7d1aa5f54895"
 
 [[files]]
 file = "config/createsurvival_core-worldgen.toml"
@@ -1090,7 +1090,7 @@ hash = "20ed72a6239820451c66df78486101155c86b8a684a9135c6fc5190f2b54b80a"
 
 [[files]]
 file = "config/createsurvival_mechanics-server.toml"
-hash = "433fc214fa013ec61dd5b036570a2502a4d53b91419281ad3197ce138b80d2d4"
+hash = "6166c95da631ad910b5ec218622b8fe8381dc59a627c0ca795df528b5817b41e"
 
 [[files]]
 file = "config/createthrusters-client.toml"
@@ -1106,7 +1106,7 @@ hash = "50d5101756bbb11a7727bd5179b4a744f96efb0cb5c87c40cf15fa174c0dbaab"
 
 [[files]]
 file = "config/createthrusters-server.toml"
-hash = "0a88d8ec3e8c12c6db8d86e2e8876726f3f6fbabfd4c393b1eed8a1117175637"
+hash = "f44e4d07130f94663fb45fba912d658e80f4e7c0a4c104d9a2caaa960a7c0c0d"
 
 [[files]]
 file = "config/createthrusters-tablet-apps-server.toml"
@@ -1490,7 +1490,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "f198a92005e113b33e9d65b211bb2894d606108d836d59ee54fcb43ffe0e8ce1"
+hash = "34b4beae3163698f5d56933c17ca56a2c6a344f23011da60476edd2593e97cd2"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1742,7 +1742,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "4d28961812df876db85ace2616170ee836fb4b18cbd7057fd8030043ba790143"
+hash = "14f68d7f8ce0d36beb0de1c02f3a44bd2a06c2a20826d7d90e072f0df57dde03"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2946,7 +2946,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "933dd8442ad0f0b47b84feed269db6d9a5a81f5ad7e883d9c6c166ed700c89a4"
+hash = "35e35b9427c5c316e390f95b56072617bbc5e178e0ba9230eecbfc65f4d4ef91"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -7424,8 +7424,8 @@ file = "mods/createsurvival_core-1.104.0.jar"
 hash = "f8606db8fd754049a409fec865980cb92959f01db40a80265b9e163fb0216e84"
 
 [[files]]
-file = "mods/createsurvival_mechanics-0.24.0.jar"
-hash = "a04838f52a30df5f4f503abbb3581a860dce095cd1963427c370b96522b98722"
+file = "mods/createsurvival_mechanics-0.25.0.jar"
+hash = "6b8cbb6d43d3bab08ef0e36996779fd59e0395ee3b8aa4e22fd51e366a1338d6"
 
 [[files]]
 file = "mods/createthreadedtrains-neoforge-1.21.1-1.0.0.pw.toml"
