@@ -1166,7 +1166,7 @@ hash = "1a3bee95a96f082b8e97cccbce30c1efe1352b616c78e06d5884fd4475668add"
 
 [[files]]
 file = "config/cwb.json"
-hash = "f32b4b2393e6c45ef71fcce3486dda23733a49c250ba0c998783e5c222587393"
+hash = "59df651d6ab8a40b5bd3311a1a588429148ed13926b5f8e0ea3e5e8b437ff983"
 
 [[files]]
 file = "config/darkerdepths-common.toml"
@@ -1490,7 +1490,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "53d47636ad0fb3e3fa4f839007161ff260d455d09061e6d2c6d8c5f3f403a14d"
+hash = "339950a87d9d754de6518ae2c6a35554af51617f1be50fd88d16ea95aa5c6a84"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1742,7 +1742,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "4558da8958e0c866206c4e3a1777e3ca01a39bda59b136632087e7c4006a78a5"
+hash = "eb7420366770778a15bd5ffb32a8a3e2187b6887ab68b27fa28567b46017fa4d"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2946,7 +2946,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "673e8bda5b5a6d5506714feda4fa890c14238641750316190609d77c79d92fdb"
+hash = "e11b2bbd79ec0a342a893415bd54158bf6f4d77abdb7113784e55c6977a596e5"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -7424,12 +7424,12 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
-file = "mods/createsurvival_core-1.104.0.jar"
-hash = "f8606db8fd754049a409fec865980cb92959f01db40a80265b9e163fb0216e84"
+file = "mods/createsurvival_core-1.105.0.jar"
+hash = "f3a6f3641a01ba355e381616c13620704c6425d59c361417a4aacecc5375b5ed"
 
 [[files]]
-file = "mods/createsurvival_mechanics-0.27.0.jar"
-hash = "8dd39dc98a7cb9cc6d8813420259bc069f6e97d8dd1d531c26226f8b4bc7908b"
+file = "mods/createsurvival_mechanics-0.28.0.jar"
+hash = "da800ae476aca995a9ee24f82be17feae5f1bdd50bc2810246191536f1229347"
 
 [[files]]
 file = "mods/createthreadedtrains-neoforge-1.21.1-1.0.0.pw.toml"
