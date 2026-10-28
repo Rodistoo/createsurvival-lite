@@ -1490,7 +1490,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "060d985689a8fb57a489976308368a2bdd931f792be9011c88d07fa6800556b6"
+hash = "f198a92005e113b33e9d65b211bb2894d606108d836d59ee54fcb43ffe0e8ce1"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1742,7 +1742,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "9a56de87884118332ef836ac902b50c175fe4297da4ceb7be7ae3d858e9e688c"
+hash = "4d28961812df876db85ace2616170ee836fb4b18cbd7057fd8030043ba790143"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2946,7 +2946,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "7120f61e6f092b42349f6c8fc9aecc492357cd83ed1c24f62edb61e2cce47dab"
+hash = "933dd8442ad0f0b47b84feed269db6d9a5a81f5ad7e883d9c6c166ed700c89a4"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -7683,8 +7683,8 @@ hash = "e5347f876614ddeaff10c2e7417f946ac5ef56c56acf7838d166d1cd5a8d9d1c"
 metafile = true
 
 [[files]]
-file = "mods/jei-1.21.1-neoforge-19.70.0.461.pw.toml"
-hash = "e410ddead3a27ce0ccd93438670165353c4ffe019708c0819fed0220b9fb1f89"
+file = "mods/jei-1.21.1-neoforge-19.69.0.457.pw.toml"
+hash = "2ffd0c6ed2e981835168a60cb3418482223ee02d22dd35d0bb541774fa89f81c"
 metafile = true
 
 [[files]]
