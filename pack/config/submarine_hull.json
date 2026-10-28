@@ -6877,6 +6877,498 @@
     "maxWaterDepth": 85,
     "implosionChance": 0.25540897
   },
+  "createsurvival_core:vertical_slab/create/copper_shingle_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/copper_tile_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/cut_andesite_brick_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_andesite_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_asurine_brick_slab": {
+    "maxWaterDepth": 66,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/cut_asurine_slab": {
+    "maxWaterDepth": 66,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/cut_calcite_brick_slab": {
+    "maxWaterDepth": 26,
+    "implosionChance": 0.50653845
+  },
+  "createsurvival_core:vertical_slab/create/cut_calcite_slab": {
+    "maxWaterDepth": 26,
+    "implosionChance": 0.50653845
+  },
+  "createsurvival_core:vertical_slab/create/cut_crimsite_brick_slab": {
+    "maxWaterDepth": 66,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/cut_crimsite_slab": {
+    "maxWaterDepth": 66,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/cut_deepslate_brick_slab": {
+    "maxWaterDepth": 80,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/cut_deepslate_slab": {
+    "maxWaterDepth": 80,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/cut_diorite_brick_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_diorite_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_dripstone_brick_slab": {
+    "maxWaterDepth": 32,
+    "implosionChance": 0.4556853
+  },
+  "createsurvival_core:vertical_slab/create/cut_dripstone_slab": {
+    "maxWaterDepth": 32,
+    "implosionChance": 0.4556853
+  },
+  "createsurvival_core:vertical_slab/create/cut_granite_brick_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_granite_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_limestone_brick_slab": {
+    "maxWaterDepth": 44,
+    "implosionChance": 0.47872132
+  },
+  "createsurvival_core:vertical_slab/create/cut_limestone_slab": {
+    "maxWaterDepth": 44,
+    "implosionChance": 0.47872132
+  },
+  "createsurvival_core:vertical_slab/create/cut_ochrum_brick_slab": {
+    "maxWaterDepth": 29,
+    "implosionChance": 0.48153841
+  },
+  "createsurvival_core:vertical_slab/create/cut_ochrum_slab": {
+    "maxWaterDepth": 29,
+    "implosionChance": 0.48153841
+  },
+  "createsurvival_core:vertical_slab/create/cut_scorchia_brick_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_scorchia_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_scoria_brick_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_scoria_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_tuff_brick_slab": {
+    "maxWaterDepth": 47,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_tuff_slab": {
+    "maxWaterDepth": 47,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/cut_veridium_brick_slab": {
+    "maxWaterDepth": 46,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/cut_veridium_slab": {
+    "maxWaterDepth": 46,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/exposed_copper_shingle_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/exposed_copper_tile_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/oxidized_copper_shingle_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/oxidized_copper_tile_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_andesite_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_asurine_slab": {
+    "maxWaterDepth": 66,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_calcite_slab": {
+    "maxWaterDepth": 26,
+    "implosionChance": 0.50653845
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_crimsite_slab": {
+    "maxWaterDepth": 66,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_deepslate_slab": {
+    "maxWaterDepth": 80,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_diorite_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_dripstone_slab": {
+    "maxWaterDepth": 32,
+    "implosionChance": 0.4556853
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_granite_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_limestone_slab": {
+    "maxWaterDepth": 44,
+    "implosionChance": 0.47872132
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_ochrum_slab": {
+    "maxWaterDepth": 29,
+    "implosionChance": 0.48153841
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_scorchia_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_scoria_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_tuff_slab": {
+    "maxWaterDepth": 47,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/polished_cut_veridium_slab": {
+    "maxWaterDepth": 46,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/small_andesite_brick_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/small_asurine_brick_slab": {
+    "maxWaterDepth": 66,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/small_calcite_brick_slab": {
+    "maxWaterDepth": 26,
+    "implosionChance": 0.50653845
+  },
+  "createsurvival_core:vertical_slab/create/small_crimsite_brick_slab": {
+    "maxWaterDepth": 66,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/small_deepslate_brick_slab": {
+    "maxWaterDepth": 80,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/small_diorite_brick_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/small_dripstone_brick_slab": {
+    "maxWaterDepth": 32,
+    "implosionChance": 0.4556853
+  },
+  "createsurvival_core:vertical_slab/create/small_granite_brick_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/small_limestone_brick_slab": {
+    "maxWaterDepth": 44,
+    "implosionChance": 0.47872132
+  },
+  "createsurvival_core:vertical_slab/create/small_ochrum_brick_slab": {
+    "maxWaterDepth": 29,
+    "implosionChance": 0.48153841
+  },
+  "createsurvival_core:vertical_slab/create/small_scorchia_brick_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/small_scoria_brick_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/small_tuff_brick_slab": {
+    "maxWaterDepth": 47,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/create/small_veridium_brick_slab": {
+    "maxWaterDepth": 46,
+    "implosionChance": 0.34290898
+  },
+  "createsurvival_core:vertical_slab/create/waxed_copper_shingle_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/waxed_copper_tile_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/waxed_exposed_copper_shingle_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/waxed_exposed_copper_tile_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/waxed_oxidized_copper_shingle_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/waxed_oxidized_copper_tile_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/waxed_weathered_copper_shingle_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/waxed_weathered_copper_tile_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/weathered_copper_shingle_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/create/weathered_copper_tile_slab": {
+    "maxWaterDepth": 85,
+    "implosionChance": 0.25540897
+  },
+  "createsurvival_core:vertical_slab/createsurvival_core/hardened_stone_slab": {
+    "maxWaterDepth": 74,
+    "implosionChance": 0.292909
+  },
+  "createsurvival_core:vertical_slab/minecraft/black_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/black_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/blue_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/blue_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/brown_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/brown_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/cinnabar_brick_slab": {
+    "maxWaterDepth": 47,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/minecraft/cinnabar_slab": {
+    "maxWaterDepth": 47,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/minecraft/cyan_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/cyan_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/gray_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/gray_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/green_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/green_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/light_blue_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/light_blue_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/light_gray_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/light_gray_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/lime_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/lime_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/magenta_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/magenta_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/orange_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/orange_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/pale_oak_slab": {
+    "maxWaterDepth": 44,
+    "implosionChance": 0.36137056
+  },
+  "createsurvival_core:vertical_slab/minecraft/pink_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/pink_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/polished_cinnabar_slab": {
+    "maxWaterDepth": 47,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/minecraft/polished_sulfur_slab": {
+    "maxWaterDepth": 47,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/minecraft/poplar_slab": {
+    "maxWaterDepth": 44,
+    "implosionChance": 0.36137056
+  },
+  "createsurvival_core:vertical_slab/minecraft/purple_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/purple_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/red_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/red_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/resin_brick_slab": {
+    "maxWaterDepth": 47,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/minecraft/sulfur_brick_slab": {
+    "maxWaterDepth": 47,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/minecraft/sulfur_slab": {
+    "maxWaterDepth": 47,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/minecraft/white_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/white_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/minecraft/yellow_concrete_slab": {
+    "maxWaterDepth": 56,
+    "implosionChance": 0.40703806
+  },
+  "createsurvival_core:vertical_slab/minecraft/yellow_wool_slab": {
+    "maxWaterDepth": 27,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/supplementaries/ash_bricks_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/supplementaries/blackstone_tile_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/supplementaries/checker_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/supplementaries/fine_wood_slab": {
+    "maxWaterDepth": 44,
+    "implosionChance": 0.36137056
+  },
+  "createsurvival_core:vertical_slab/supplementaries/lapis_bricks_slab": {
+    "maxWaterDepth": 40,
+    "implosionChance": 0.39013878
+  },
+  "createsurvival_core:vertical_slab/supplementaries/stone_tile_slab": {
+    "maxWaterDepth": 68,
+    "implosionChance": 0.330409
+  },
+  "createsurvival_core:vertical_slab/yungscavebiomes/ancient_sandstone_slab": {
+    "maxWaterDepth": 41,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/yungscavebiomes/cut_ancient_sandstone_slab": {
+    "maxWaterDepth": 41,
+    "implosionChance": 0.50122136
+  },
+  "createsurvival_core:vertical_slab/yungscavebiomes/smooth_ancient_sandstone_slab": {
+    "maxWaterDepth": 41,
+    "implosionChance": 0.50122136
+  },
   "createsurvival_mechanics:block_placer": {
     "maxWaterDepth": 77,
     "implosionChance": 0.27459225

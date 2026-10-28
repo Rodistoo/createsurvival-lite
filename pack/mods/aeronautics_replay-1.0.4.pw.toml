@@ -1,6 +1,6 @@
 name = "Aeronautics Replay"
 filename = "aeronautics_replay-1.0.4.jar"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/KD2QrWTM/versions/tTmUhGBg/aeronautics_replay-1.0.4.jar"

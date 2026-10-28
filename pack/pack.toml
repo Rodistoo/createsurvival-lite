@@ -1,12 +1,12 @@
 name = "CreateSurvival Lite"
 author = "Rodistoo"
-version = "2026.10.28.1116"
+version = "2026.10.28.1316"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "82d06fde1e057b4ce674aa8a50ee2d6cd4d8456378e707f6cbb344d204786e46"
+hash = "55228923c3678026a0959b1ef69ae265498447265f947e9d12f3dea02beda2eb"
 
 [versions]
 minecraft = "1.21.1"

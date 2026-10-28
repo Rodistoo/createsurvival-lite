@@ -91,8 +91,9 @@ function sides(file) {
     return { ids, client: !!game && /side\s*=\s*"CLIENT"/i.test(game), needs };
   } catch { return { ids: [], client: false, needs: [] }; }
 }
-// client-only mods that don't say so (they crash a dedicated server), by jar name
-const CLIENT_ONLY_MODS = [/^cwb-/i, /^lambdynamiclights/i, /^PresenceFootsteps-/i];
+// client-only mods that don't say so (they crash a dedicated server), by jar name. aeronautics_replay: its
+// startRiding mixin loads LocalPlayer, the server crashes as soon as a mob mounts (spider jockey)
+const CLIENT_ONLY_MODS = [/^cwb-/i, /^lambdynamiclights/i, /^PresenceFootsteps-/i, /^aeronautics_replay-/i];
 // the jars that can't go on the server: client-only ones, and those that require one of them (colorwheel needs Iris)
 function clientOnlyJars(files) {
   const info = files.map(f => ({ name: path.basename(f), ...sides(f) }));
