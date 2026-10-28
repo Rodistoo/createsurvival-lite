@@ -1,6 +1,6 @@
 name = "Fancy Toasts | Better Advancements"
 filename = "fancytoasts-1.5.1-neoforge-1.21.1.jar"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/eUziWqPC/versions/X2GAO9kB/fancytoasts-1.5.1-neoforge-1.21.1.jar"

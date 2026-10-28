@@ -1,6 +1,6 @@
 name = "Cubes Without Borders"
 filename = "cwb-5.0.0+1.21.0.neoforge.jar"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/ETlrkaYF/versions/fmf8ZA2N/cwb-5.0.0%2B1.21.0.neoforge.jar"

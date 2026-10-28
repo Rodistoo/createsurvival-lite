@@ -1,6 +1,6 @@
 name = "Monsters in the Closet"
 filename = "monsters_in_the_closet-1.0.3+1.21-forge.jar"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/GMA8jFBD/versions/8nOX0cUH/monsters_in_the_closet-1.0.3%2B1.21-forge.jar"

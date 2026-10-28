@@ -1,6 +1,6 @@
 name = "Just Colored Lighting"
 filename = "Just Colored Lighting (vDEV 0.9.3).zip"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/McUqXQ0J/versions/PB8N13fw/Just%20Colored%20Lighting%20%28vDEV%200.9.3%29.zip"

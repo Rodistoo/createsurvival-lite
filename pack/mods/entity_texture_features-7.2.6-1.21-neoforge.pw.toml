@@ -1,6 +1,6 @@
 name = "[ETF] Entity Texture Features"
 filename = "entity_texture_features-7.2.6-1.21-neoforge.jar"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/BVzZfTc1/versions/lwNx1nD1/entity_texture_features-7.2.6-1.21-neoforge.jar"

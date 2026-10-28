@@ -1,6 +1,6 @@
 name = "Bray's Zombie Overhaul"
 filename = "§6Bray's Zombie Overhaul v1.4.zip"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/5cgIzEsV/versions/YLttPsfB/%C2%A76Bray%27s%20Zombie%20Overhaul%20v1.4.zip"

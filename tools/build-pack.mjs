@@ -6,6 +6,9 @@
 // createsurvival folder (sync script, presets) are copied, then overrides/ (files players get as they are in this repo).
 // options.txt stays out: players keep their own. Finally
 // `packwiz refresh` writes the index.
+// Client-only mods (they say so in their mods.toml) and resource/shader packs are marked side = "client": the server
+// (tools/server-starter, packwiz-installer -s server) leaves them out.
+//   PACK_OUT=<folder> builds somewhere else than ../pack (testing).
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process'; import { createRequire } from 'node:module'; import { fileURLToPath } from 'node:url';
 const { entries } = createRequire(import.meta.url)('./zipread.cjs');
@@ -14,7 +17,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 // the instance the pack is made from (not the one the installer set up, folder createsurvival-lite)
 const SOURCES = ['CreateSurvival Lite OG', 'CreateSurvival Lite'].map(f => path.join(process.env.APPDATA, 'PrismLauncher', 'instances', f, '.minecraft'));
 const SRC = process.argv[2] || SOURCES.find(s => fs.existsSync(path.join(s, 'mods'))) || SOURCES[0];
-const OUT = path.join(ROOT, 'pack');
+const OUT = process.env.PACK_OUT ? path.resolve(process.env.PACK_OUT) : path.join(ROOT, 'pack');
 const PACKWIZ = path.join(ROOT, 'tools', 'bin', 'packwiz.exe');
 const UA = 'Rodistoo/createsurvival-lite-pack (pack builder)';
 
@@ -73,6 +76,40 @@ function fabricOnlyId(file) {
     return fmj ? JSON.parse(fmj.read().toString()).id || '?' : null;
   } catch { return null; }
 }
+// a NeoForge mod's sides: ids (its [[mods]]), client (it declares itself client-only: its minecraft/neoforge dependency
+// has side = "CLIENT") and needs (mods it requires on the server too, i.e. not only on the client)
+function sides(file) {
+  try {
+    const es = entries(file), toml = es.find(e => e.name === 'META-INF/neoforge.mods.toml');
+    if (!toml) return { ids: [], client: false, needs: [] };
+    const s = toml.read().toString();
+    const ids = [...s.matchAll(/\[\[mods\]\][\s\S]*?modId\s*=\s*"([^"]+)"/g)].map(m => m[1]);
+    const deps = [...s.matchAll(/\[\[dependencies\.[^\]]+\]\]([\s\S]*?)(?=\[\[|$)/g)].map(m => m[1]);
+    const game = deps.find(d => /modId\s*=\s*"(minecraft|neoforge)"/.test(d));
+    const needs = deps.filter(d => (/type\s*=\s*"required"/i.test(d) || /mandatory\s*=\s*true/.test(d)) && !/side\s*=\s*"CLIENT"/i.test(d))
+      .map(d => (d.match(/modId\s*=\s*"([^"]+)"/) || [])[1]).filter(Boolean);
+    return { ids, client: !!game && /side\s*=\s*"CLIENT"/i.test(game), needs };
+  } catch { return { ids: [], client: false, needs: [] }; }
+}
+// client-only mods that don't say so (they crash a dedicated server), by jar name
+const CLIENT_ONLY_MODS = [/^cwb-/i, /^lambdynamiclights/i, /^PresenceFootsteps-/i];
+// the jars that can't go on the server: client-only ones, and those that require one of them (colorwheel needs Iris)
+function clientOnlyJars(files) {
+  const info = files.map(f => ({ name: path.basename(f), ...sides(f) }));
+  for (const i of info) i.client ||= CLIENT_ONLY_MODS.some(re => re.test(i.name));
+  const clientIds = new Set(info.filter(i => i.client).flatMap(i => i.ids));
+  for (let changed = true; changed;) {
+    changed = false;
+    for (const i of info) {
+      if (!i.client && i.needs.some(id => clientIds.has(id))) {
+        console.log(`(${i.name} only on clients: it requires ${i.needs.filter(id => clientIds.has(id)).join(', ')})`);
+        i.client = changed = true;
+        i.ids.forEach(id => clientIds.add(id));
+      }
+    }
+  }
+  return new Set(info.filter(i => i.client).map(i => i.name));
+}
 function newer(a, b) { // whether version a > b
   const pa = String(a).split(/[^0-9]+/).filter(Boolean).map(Number), pb = String(b).split(/[^0-9]+/).filter(Boolean).map(Number);
   for (let i = 0; i < Math.max(pa.length, pb.length); i++) { const x = pa[i] || 0, y = pb[i] || 0; if (x !== y) return x > y; }
@@ -103,11 +140,11 @@ async function modrinth(files) { // file path -> {sha1, sha512, version}
   for (const i of Object.values(info)) if (i.version) i.title = titles[i.version.project_id] || i.file.filename;
   return info;
 }
-function writeModrinthEntry(dir, i) {
+function writeModrinthEntry(dir, i, side = 'both') {
   const slug = i.file.filename.replace(/\.(jar|zip)$/i, '').replace(/[^A-Za-z0-9._-]+/g, '-').toLowerCase();
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, slug + '.pw.toml'), [
-    `name = ${tomlString(i.title)}`, `filename = ${tomlString(i.file.filename)}`, 'side = "both"', '',
+    `name = ${tomlString(i.title)}`, `filename = ${tomlString(i.file.filename)}`, `side = ${tomlString(side)}`, '',
     '[download]', `url = ${tomlString(i.file.url)}`, 'hash-format = "sha512"', `hash = ${tomlString(i.file.hashes.sha512)}`, '',
     '[update]', '[update.modrinth]', `mod-id = ${tomlString(i.version.project_id)}`, `version = ${tomlString(i.version.id)}`, ''
   ].join('\n'));
@@ -149,6 +186,7 @@ for (const f of fs.readdirSync(modsDir).filter(f => /\.(jar|zip)$/i.test(f))) {
   } else console.log(`(${f} left out: ${path.basename(byId[id].file)} is newer)`);
 }
 const modFiles = [...new Set(Object.values(byId).map(m => m.file))].concat(plain);
+const clientJars = clientOnlyJars(modFiles);
 const mods = await modrinth(modFiles);
 const unknown = [];
 for (const f of modFiles) {
@@ -165,7 +203,7 @@ for (const kind of ['resourcepacks', 'shaderpacks']) {
   for (const f of fs.readdirSync(dir)) {
     const full = path.join(dir, f);
     if (skipped(kind + '/' + f)) continue;
-    if (found[full] && found[full].version) writeModrinthEntry(path.join(OUT, kind), found[full]);
+    if (found[full] && found[full].version) writeModrinthEntry(path.join(OUT, kind), found[full], 'client');
     else if (fs.statSync(full).isDirectory()) copyTree(full, path.join(OUT, kind, f), kind + '/' + f);
     else { fs.mkdirSync(path.join(OUT, kind), { recursive: true }); fs.copyFileSync(full, path.join(OUT, kind, f)); }
   }
@@ -188,6 +226,16 @@ fs.writeFileSync(path.join(OUT, '.packwizignore'), '.packwizignore\n');
 
 // what Modrinth doesn't have: CurseForge, else the file itself
 packwiz('curseforge', 'detect', '-y');
+// the server leaves out client-only mods and all resource/shader packs (also those curseforge detect wrote)
+let clientSide = 0;
+for (const kind of ['mods', 'resourcepacks', 'shaderpacks']) {
+  const dir = path.join(OUT, kind); if (!fs.existsSync(dir)) continue;
+  for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.pw.toml'))) {
+    const meta = path.join(dir, f), s = fs.readFileSync(meta, 'utf8'), name = (s.match(/^filename\s*=\s*"((?:[^"\\]|\\.)*)"/m) || [])[1];
+    if (kind !== 'mods' || clientJars.has(name)) { fs.writeFileSync(meta, s.replace(/^side\s*=\s*"[^"]*"/m, 'side = "client"')); if (kind === 'mods') clientSide++; }
+  }
+}
+console.log(`client-only mods (left out on the server): ${clientSide} of ${clientJars.size} found`);
 packwiz('refresh');
 const left = fs.readdirSync(path.join(OUT, 'mods')).filter(f => /\.(jar|zip)$/i.test(f));
 console.log(`\nPack ${packVersion} (Minecraft ${minecraft}, NeoForge ${neoforge}) built in ${OUT}`);

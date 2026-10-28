@@ -1,6 +1,6 @@
 name = "Lively Grass Block"
 filename = "LivelyGrassBlock1.0.zip"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/dCt327b0/versions/OO7ROBnO/LivelyGrassBlock1.0.zip"

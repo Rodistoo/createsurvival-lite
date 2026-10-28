@@ -1,6 +1,6 @@
 name = "True Darkness Biomes"
 filename = "darkness-1.2.1.jar"
-side = "both"
+side = "client"
 
 [download]
 url = "https://cdn.modrinth.com/data/c44xmpkF/versions/bORmByU7/darkness-1.2.1.jar"

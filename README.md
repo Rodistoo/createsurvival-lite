@@ -28,3 +28,7 @@ from the instance and pushes it; players get it at their next start.
 - What the modes change: `createsurvival/presets.json`. The script that runs before every start:
   `createsurvival/sync.ps1`.
 - Tools: `tools/build-pack.mjs` (Node 18+), `tools/bin/packwiz.exe` (packwiz, not in the repository).
+
+## The server
+
+The server updates itself from this pack every time it starts: see [server/README.md](server/README.md).
