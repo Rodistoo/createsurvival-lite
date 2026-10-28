@@ -41,7 +41,9 @@ import java.util.stream.Stream;
 public final class CreateSurvivalServerStarter {
     private static final String SETTINGS = "createsurvival-server.properties";
     private static final String DEFAULT_PACK = "https://raw.githubusercontent.com/Rodistoo/createsurvival-lite/main/pack/pack.toml";
-    private static final String DEFAULT_KEEP = "config/DistantHorizons.toml,config/chunksmith,config/chunksmith-lod.properties,server.properties";
+    // the CreateSurvival server configs too: players get the server's values on joining, so they can differ from the pack
+    private static final String DEFAULT_KEEP = "config/DistantHorizons.toml,config/chunksmith,config/chunksmith-lod.properties,server.properties,"
+            + "config/createsurvival_core-server.toml,config/createsurvival_mechanics-server.toml,config/createsurvival_magic-server.toml";
     private static final String BOOTSTRAP = "packwiz-installer-bootstrap.jar";
     private static final String BOOTSTRAP_URL = "https://github.com/packwiz/packwiz-installer-bootstrap/releases/latest/download/packwiz-installer-bootstrap.jar";
     private static final Path KEPT = Path.of(".createsurvival-kept");

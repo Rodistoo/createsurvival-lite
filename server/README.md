@@ -21,8 +21,14 @@ If GitHub can't be reached, the server starts with what it already has.
 
 - `packUrl`: the pack the server follows.
 - `keep`: files and folders the server keeps as they are, whatever the pack has, separated by commas. The default is
-  Distant Horizons' and Chunksmith's configs, because the server is set up differently there than players.
-  Add a config here if you change it on the server and want to keep that change.
+  Distant Horizons' and Chunksmith's configs, because the server is set up differently there than players, and the
+  CreateSurvival server configs (`createsurvival_core-server.toml`, `createsurvival_mechanics-server.toml`,
+  `createsurvival_magic-server.toml`), so what you set on the server stays.
+  Add a config here if you change it on the server and want to keep that change. Only server configs (`-server.toml`)
+  and configs that only the server uses belong here: players get the server's server configs when they join.
+  Startup configs like `createsurvival_core-startup.toml` or the `-features.toml` files decide which blocks and recipes
+  exist, so the server and the players need the same ones: those come from the pack.
+  The defaults are only written when the file is created; on a server set up before, add the new entries yourself.
 
 ## How it works
 
