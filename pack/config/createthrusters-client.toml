@@ -39,8 +39,6 @@
 	# Default: 320
 	# Range: 64 ~ 2048
 	cameraFeedResolution = 320
-	#Use the V2 node graph interface for Advanced Contraption Controllers
-	advancedControllerV2Ui = true
 
 	#Seasonal visual effects
 	[client.seasonal]
