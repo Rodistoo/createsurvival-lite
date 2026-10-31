@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "bivrik/common.json"
-hash = "cba88419c546661af01fc856dccb6e08e65cd6132953f8c4c0a9e3acbd8398cb"
+hash = "1f2b700170a904caa32cb1fc3a6820316b9e5320816427de2b184a0f62b04f9f"
 
 [[files]]
 file = "bivrik/mods/fancytoasts.json"
-hash = "8073f173c92a2a8f94fbfcdc5d009096bd541fe3a056b46f7ed8e85ff0a22304"
+hash = "1d15c7910b1a6546891692a49a5acec6904f1b5c84dd710c75297ecac5cd666c"
 
 [[files]]
 file = "config/BBEConfig.json"
@@ -278,7 +278,7 @@ hash = "c98f572839ace55b0792042fa4b984311e7d876abdaccfc8a4694f5bebad766c"
 
 [[files]]
 file = "config/amendments-client.toml"
-hash = "22c8afed5e61c986a35f4dfa58af49aca2e32962cbd10a127e63eee5ddd850a3"
+hash = "404d179a4e398a4f650fce80968e5b65c9a9d39a66fd0a6dfda012a77d3e7398"
 
 [[files]]
 file = "config/amendments-common.toml"
@@ -1166,7 +1166,7 @@ hash = "1a3bee95a96f082b8e97cccbce30c1efe1352b616c78e06d5884fd4475668add"
 
 [[files]]
 file = "config/cwb.json"
-hash = "d0699658dceaf12de3061c47cc23751547c379bef5180b62915af7868a14f71a"
+hash = "604dccb377d60349902deabaea9880f41cc37d3abda301c5094a75cb29dc44d9"
 
 [[files]]
 file = "config/darkerdepths-common.toml"
@@ -1434,7 +1434,11 @@ hash = "a5a96055169f302c28672e846bd4fb91800bd065cbfc54c1c183cf56e217c9c2"
 
 [[files]]
 file = "config/enhancedai/common.toml"
-hash = "8baa164311753a7a8abe780847d60e388cb010849386edbb5ebbf1629c7642e8"
+hash = "356bd1d0cbb4fb3afb555075a1de0d667f2e216310efc786bd6a79429e8d96d2"
+
+[[files]]
+file = "config/enhancedai/server.toml"
+hash = "ce8598cad2cad1c93dfcf2bd4a3ee45ea6c5a9384f251a878ad7e127324447f7"
 
 [[files]]
 file = "config/entity_model_features.json"
@@ -1490,7 +1494,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "6d6721ed3abe5741584650db9f610c9ebac50826259481b95dc0c8fc095da96d"
+hash = "b49e88e39322fcffb3a885ef9b3dbe9ecb55e19b7804feefd0108b0323057dc8"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1742,7 +1746,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "0cddeff494bb8317d20ebc4d2647b24c4db25bba850003b6e9e6b3ae9c536039"
+hash = "5a3ce2272c4610c3f91849258f77c2ca34d673f34d0df33352c8c92fa800f690"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2618,7 +2622,7 @@ hash = "72d4119b6504fd7f3c13b667817e2eb9ec101ec540eee25e33b897ec801a7ca2"
 
 [[files]]
 file = "config/streamsreflowing.properties"
-hash = "d69a21845682a7a55c39fd177827693c44f30057600c56b352ecf94c85a1222e"
+hash = "9589bc3070ad32b5ee3ce4f02323740340fff1db01f5d028bb2156d3126c9e4b"
 
 [[files]]
 file = "config/streamsreflowing/bank_features/.guide_version"
@@ -2950,7 +2954,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "491b0f44f2c4140befae896d284e1886337a1875946efd866f686f15521eea78"
+hash = "9007ab8dae48e755cdf0dfdd1b5b898aed11a2412516fe939c3992d9f57d3d0b"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -7428,8 +7432,8 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
-file = "mods/createsurvival_core-1.105.0.jar"
-hash = "f3a6f3641a01ba355e381616c13620704c6425d59c361417a4aacecc5375b5ed"
+file = "mods/createsurvival_core-1.109.0.jar"
+hash = "1a38c6f4528cca600d8b68f0d09e4b43327eaca0b882489ffe7f6bf3cf0cc7b4"
 
 [[files]]
 file = "mods/createsurvival_mechanics-0.28.0.jar"
@@ -8213,6 +8217,16 @@ metafile = true
 [[files]]
 file = "resourcepacks/.index/livelygrassblock.pw.toml"
 hash = "aa3768904435a7b18d49a7fb31be99c8f972fcb4f31570a307a51b135f66537f"
+metafile = true
+
+[[files]]
+file = "resourcepacks/.index/visual-enchantments.pw.toml"
+hash = "aa4083d80042f169004ef9d2c534fc995500ec6abbe1a7d4885c50d4660ab113"
+metafile = true
+
+[[files]]
+file = "resourcepacks/5.0.7v_visualenchantments.pw.toml"
+hash = "c1e97fc10a6d98b492fae3332078d009a9159a33ab195eab25843e72408bd40b"
 metafile = true
 
 [[files]]
