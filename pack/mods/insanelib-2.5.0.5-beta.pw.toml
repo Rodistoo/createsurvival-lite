@@ -1,0 +1,13 @@
+name = "InsaneLib"
+filename = "insanelib-2.5.0.5-beta.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/USZyvOJq/versions/CqA80atA/insanelib-2.5.0.5-beta.jar"
+hash-format = "sha512"
+hash = "bdf289d8e021ac1f9b023993854c38d65814a57cf63a15d7cd528d196bcbff563d38809ae83187f0060f86c1ee6a7ed82e0cb101a8333b048268be69656b7e9b"
+
+[update]
+[update.modrinth]
+mod-id = "USZyvOJq"
+version = "CqA80atA"

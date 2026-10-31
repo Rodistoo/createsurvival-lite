@@ -13733,6 +13733,10 @@
     "maxWaterDepth": 267,
     "implosionChance": 0.05
   },
+  "offgrid:mixed_slab": {
+    "maxWaterDepth": 72,
+    "implosionChance": 0.30540898
+  },
   "offroad:borehead_bearing": {
     "maxWaterDepth": 85,
     "implosionChance": 0.25540897

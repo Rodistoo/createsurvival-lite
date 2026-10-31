@@ -1,6 +1,6 @@
 {
-  "fullscreenMode": "BORDERLESS",
-  "preferredFullscreenMode": "BORDERLESS",
+  "fullscreenMode": "OFF",
+  "preferredFullscreenMode": "WINDOWED",
   "useDelayedFullscreen": true,
   "useScaledFramebuffer": true,
   "autoHideDock": false,
