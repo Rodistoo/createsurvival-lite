@@ -1,5 +1,5 @@
 {
-  "enabled": true,
+  "enabled": false,
   "mass_of_bucket": 1.0,
   "create": {
     "fluid_tank": true,

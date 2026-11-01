@@ -94,7 +94,7 @@
 		#When set to SLEEPING, this effect only applies when at least one player is sleeping in a dimension.
 		#Note: On NeoForge 1.21.1+ this is already handled by the platform. SLEEPING will still work as intended.
 		#Allowed Values: NEVER, ALWAYS, SLEEPING
-		blockEntityEffect = "SLEEPING"
+		blockEntityEffect = "NEVER"
 
 [sleep]
 	#Enables or disables the sleep feature of this mod. Enabling this setting will modify the vanilla sleep functionality
