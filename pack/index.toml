@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "bivrik/common.json"
-hash = "91b8b50e1acb7198640d389c639270b624eb0eeaadbbb2d61c9cd2261c609430"
+hash = "ab08236e0d2585c8d51e251c67e4ce9fb41122c584be9d67b983ca802ce5b4a1"
 
 [[files]]
 file = "bivrik/mods/fancytoasts.json"
-hash = "15a71908df133721b27c90dd534184d651699e4b05aee51c6b1883d8fe971d35"
+hash = "85b1db966ec114f85d10d6f04f253db801f8fb5f8c9718387b346a6dbf7d3f85"
 
 [[files]]
 file = "config/BBEConfig.json"
@@ -1494,7 +1494,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "f57aef70c4ee10eb4e5696b00a36b196be2ae69e379e79e86f5663f94082dc77"
+hash = "e0b73c2418b82a633d9479aeaf480b6f782883e96429ae168f442e39779c426c"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1746,7 +1746,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "3700b6de10f310d6689b3a48cdcdb904cbe41d0d27d9d54b31b0794e78686e40"
+hash = "5c6d1a8c4e5e12fdd261aa5a9c8bc3e3a22afb332cc1ed7f09e5a28fe2ebba76"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2954,7 +2954,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "6f237adeea4ae3376aeb1bb63a6caa765ca1ab7add1e41190dcac4efbfef163d"
+hash = "2fd9f86fdda925901843e49d6caabeecfaa21d7cef89fc5cb7491a3d658ec157"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -7432,8 +7432,8 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
-file = "mods/createsurvival_core-1.110.3.jar"
-hash = "f8829c1c15787e2d25ff630b2d3b965f2c71ccc128ed8b9b719401b38144f18d"
+file = "mods/createsurvival_core-1.110.4.jar"
+hash = "870d7a770a31cfeeeb34180ddc09bb394d8b79fdbfe70816bba231fb7cd31dbc"
 
 [[files]]
 file = "mods/createsurvival_mechanics-0.28.0.jar"
