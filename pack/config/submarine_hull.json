@@ -7501,6 +7501,10 @@
     "maxWaterDepth": 64,
     "implosionChance": 0.39013878
   },
+  "createthrusters:celebration_thruster": {
+    "maxWaterDepth": 71,
+    "implosionChance": 0.31137055
+  },
   "createthrusters:claw": {
     "maxWaterDepth": 71,
     "implosionChance": 0.31137055
@@ -7655,6 +7659,10 @@
   },
   "createthrusters:worker_pod": {
     "maxWaterDepth": 65,
+    "implosionChance": 0.3497237
+  },
+  "createthrusters:world_hologram_projector": {
+    "maxWaterDepth": 70,
     "implosionChance": 0.3497237
   },
   "creaturefeature:blind_fiendish_tiles": {

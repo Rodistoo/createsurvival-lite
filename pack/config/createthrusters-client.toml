@@ -23,8 +23,6 @@
 	#Claw marker render mode is disabled; OFF is enforced
 	#Allowed Values: DEPTH, DECAL, PARTICLE, OFF
 	clawMarkerRenderMode = "OFF"
-	#Thrusters emit light
-	thrustersEmitLight = true
 	#Target frames per second for each visible ACC Display or CCTV tablet camera feed. Actual FPS is limited by your computer's frame rate. Changes apply to active feeds.
 	# Default: 10
 	# Range: 1 ~ 60
@@ -33,12 +31,13 @@
 	useThrusterPlumeV2Renderer = true
 	#Use Plume metaball rendering for the active V2 exhaust
 	usePlumeMetaballRendering = true
-	#Plumes emit light into the surrounding world
-	plumesEmitLight = false
 	#Pixel resolution of the longest edge of ACC Display and CCTV tablet camera feeds. Aspect ratio is preserved. Higher values improve detail and use more GPU resources. Changes apply to active feeds.
 	# Default: 320
 	# Range: 64 ~ 2048
 	cameraFeedResolution = 320
+	#World Hologram Projector Resolution. FULL keeps original textured models. HIGH simplifies small projected blocks. MEDIUM always averages eligible solid faces; LOW also groups their colors, including nearby and layered terrain such as grass. Glass, thin blocks and block entity partials retain their models. Distant surfaces simplify further. Changes apply to active holograms.
+	#Allowed Values: FULL, HIGH, MEDIUM, LOW
+	worldHologramProjectorResolution = "FULL"
 
 	#Seasonal visual effects
 	[client.seasonal]

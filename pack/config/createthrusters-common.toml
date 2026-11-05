@@ -183,8 +183,6 @@
 
 	#App Ownership and persistance
 	[common.diagnostic_tablet]
-		#Legacy startup fallback for the Smart Tablet. The server.features.blocks.diagnostic_tablet setting takes precedence.
-		enabled = false
 		#Who owns the paid apps, PLAYER is shared across tablets, DEVICE is not.
 		#Allowed Values: PLAYER, DEVICE
 		appPurchaseScope = "PLAYER"
@@ -200,3 +198,10 @@
 		# Default: 215.0
 		# Range: 0.0 ~ 100000.0
 		rcsThrusterMaxThrust = 215.0
+
+	#Dye Applicator
+	[common.dye_applicator]
+		#Allow the Dye Applicator on Flight Control thruster plumes. The server controls application; each client controls visibility. Disabled clients see the native plume. Saved presets are retained.
+		flightControl = true
+		#Allow the Dye Applicator on Propulsion Simulated thruster plumes. The server controls application; each client controls visibility. Disabled clients see the native plume. Saved presets are retained.
+		propulsionSimulated = true

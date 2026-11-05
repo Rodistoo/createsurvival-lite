@@ -1,6 +1,6 @@
 [vortex]
-	#Master switch of the Vortex Engine.
-	#Turning it off disables everything the engine draws or computes.
+	#Master switch of the Vortex Engine, read when the game starts.
+	#Turning it off removes the whole engine from the game after a restart.
 	enabled = false
 
 [lights]
@@ -59,6 +59,14 @@
 	#other mods included (torches, lanterns, Sea Lanterns...), in the colour of its own texture.
 	#Off: only the blocks of Create Deep Seas, Create High Seas and Create Abyss do.
 	allBlocks = false
+	#Resolution the coloured light is worked out at before it is scaled up to the screen.
+	#HALF and QUARTER cost four and sixteen times less on the graphics card; the edges of
+	#blocks stay sharp and the pixel steps up close keep their size.
+	#Allowed Values: FULL, HALF, QUARTER
+	lightResolution = "FULL"
+	#Each frame shifts the light slightly and blends it with the previous frames, smoothing its
+	#grain and its edges, most of all at half or quarter resolution.
+	temporalAccumulation = false
 
 [mist]
 	#Drifting mist and smoke volumes, lit by the world and by coloured lights.
@@ -71,20 +79,15 @@
 
 [styles]
 	#How coloured light reaches the blocks around it. Switch in game with /vortex style.
-	#VOLUMES: one sphere of light per source, with sharp shadows (the first version).
 	#FLOOD: light spreads block by block and blends its colours, wrapping around corners
 	#and never through walls, like Complementary or Rethinking Voxels.
-	#VANILLA: the same spreading, but falling off one step per block like Minecraft's light.
-	#HYBRID: FLOOD for the soft bounce, plus sharp shadows from the lights close to you,
-	#like Rethinking Voxels.
 	#PIXEL: every glowing block is its own light, falling off one level per block like
 	#Minecraft's light, in texture pixels, with block shadows and a halo of glowing cubes.
-	#Allowed Values: VOLUMES, FLOOD, VANILLA, HYBRID, PIXEL
+	#Allowed Values: FLOOD, PIXEL
 	lightStyle = "FLOOD"
 	#How light shows in the water around its source.
 	#CORE: a small halo around each source (the first version).
 	#GLOW_FOG: the water itself glows where the light reaches, stopped by walls.
-	#Needs the FLOOD or VANILLA light style, otherwise CORE is used.
 	#NONE: no halo.
 	#Allowed Values: CORE, GLOW_FOG, NONE
 	haloStyle = "GLOW_FOG"
@@ -97,12 +100,14 @@
 	#How mist from /vortex mist is drawn.
 	#PUFFS: large smoke puffs that hug the ground (the first version).
 	#VOXEL: a volume of small cubes of fog, lit by every coloured light around.
-	#Needs the FLOOD or VANILLA light style, otherwise PUFFS is used.
 	#Allowed Values: PUFFS, VOXEL
 	mistStyle = "VOXEL"
 	#Tiny specks floating in the water, one pixel wide.
 	#PLANKTON: glowing plankton that twinkles in the colour of the light around it.
 	#SNOW: marine snow slowly sinking, caught by sunlight and coloured lights.
-	#Needs the FLOOD or VANILLA light style.
 	#Allowed Values: NONE, PLANKTON, SNOW
 	motesStyle = "PLANKTON"
+
+[effects]
+	#Water, glass and the other see-through blocks reflect the scene around them.
+	reflections = false
