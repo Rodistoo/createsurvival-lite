@@ -7440,17 +7440,17 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
+file = "mods/createloconautics.pw.toml"
+hash = "04ecac76938fdccf20db2b7d83385befa82ec0565a0ccd431577b5973ea74cd3"
+metafile = true
+
+[[files]]
 file = "mods/createsurvival_core-1.110.4.jar"
 hash = "870d7a770a31cfeeeb34180ddc09bb394d8b79fdbfe70816bba231fb7cd31dbc"
 
 [[files]]
 file = "mods/createsurvival_mechanics-0.28.0.jar"
 hash = "da800ae476aca995a9ee24f82be17feae5f1bdd50bc2810246191536f1229347"
-
-[[files]]
-file = "mods/createthreadedtrains-neoforge-1.21.1-1.0.0.pw.toml"
-hash = "f802c6f488a0141d9a51624bcce33c80c2c3d4bea731ea3f9301a6ec9d36cf4d"
-metafile = true
 
 [[files]]
 file = "mods/creativecore_neoforge_v2.13.54_mc1.21.1.pw.toml"
