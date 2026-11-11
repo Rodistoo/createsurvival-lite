@@ -7444,11 +7444,6 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
-file = "mods/createloconautics.pw.toml"
-hash = "04ecac76938fdccf20db2b7d83385befa82ec0565a0ccd431577b5973ea74cd3"
-metafile = true
-
-[[files]]
 file = "mods/createsurvival_core-1.110.4.jar"
 hash = "870d7a770a31cfeeeb34180ddc09bb394d8b79fdbfe70816bba231fb7cd31dbc"
 
@@ -7775,6 +7770,10 @@ metafile = true
 file = "mods/lmft-1.1.1-1.21.9-neoforge.pw.toml"
 hash = "35725a7bee95c5f0df1eeccd3ed406036c35fae26a7d7864fae1127a85957fdb"
 metafile = true
+
+[[files]]
+file = "mods/loconautics-0.1.1BETA.jar"
+hash = "c4a9a8b4b3bd8cec201efa5082f314ee4be72665a871f1046566ef0ebfa09a0d"
 
 [[files]]
 file = "mods/lootjs-neoforge-1.21.1-3.7.0.pw.toml"

@@ -94,6 +94,9 @@ function sides(file) {
 // client-only mods that don't say so (they crash a dedicated server), by jar name. aeronautics_replay: its
 // startRiding mixin loads LocalPlayer, the server crashes as soon as a mob mounts (spider jockey)
 const CLIENT_ONLY_MODS = [/^cwb-/i, /^lambdynamiclights/i, /^PresenceFootsteps-/i, /^aeronautics_replay-/i];
+// mods CurseForge has but doesn't let other tools download (packwiz-installer stops with "must be downloaded manually",
+// the server's update fails half way): they go in as files, by jar name. Loconautics: only on CurseForge.
+const FILE_MODS = [/^loconautics-/i];
 // the jars that can't go on the server: client-only ones, and those that require one of them (colorwheel needs Iris)
 function clientOnlyJars(files) {
   const info = files.map(f => ({ name: path.basename(f), ...sides(f) }));
@@ -227,6 +230,15 @@ fs.writeFileSync(path.join(OUT, '.packwizignore'), '.packwizignore\n');
 
 // what Modrinth doesn't have: CurseForge, else the file itself
 packwiz('curseforge', 'detect', '-y');
+for (const f of modFiles.filter(f => !mods[f].version && FILE_MODS.some(re => re.test(path.basename(f))))) {
+  const name = path.basename(f), dir = path.join(OUT, 'mods');
+  for (const m of fs.readdirSync(dir).filter(m => m.endsWith('.pw.toml'))) {
+    const s = fs.readFileSync(path.join(dir, m), 'utf8');
+    if ((s.match(/^filename\s*=\s*"((?:[^"\\]|\\.)*)"/m) || [])[1] === name) fs.rmSync(path.join(dir, m));
+  }
+  fs.copyFileSync(f, path.join(dir, name));
+  console.log(`(${name} goes in as a file: CurseForge doesn't let other tools download it)`);
+}
 // the server leaves out client-only mods and all resource/shader packs (also those curseforge detect wrote)
 let clientSide = 0;
 for (const kind of ['mods', 'resourcepacks', 'shaderpacks']) {
