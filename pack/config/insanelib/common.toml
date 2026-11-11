@@ -12,6 +12,8 @@
 "Enable Fixes" = true
 #Changes the behaviour of Falling Blocks to be smarter by preventing them from getting stuck when landing on a block but their center has air below, or try to stack or move them when inside a block.
 "Enable Better falling blocks" = true
+#Adds a new `insanelib:off_ground_mining_speed` attribute to players, the multiplier applied to the mining speed when off ground (vanilla is 0.2, 1 means no penalty). Disabling this will prevent the attribute from working.
+"Enable Off ground mining speed" = true
 
 #Allows modifying item data components via data packs
 ["Item components"]

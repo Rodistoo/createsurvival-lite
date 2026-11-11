@@ -8621,6 +8621,262 @@
     "maxWaterDepth": 72,
     "implosionChance": 0.30540898
   },
+  "loconautics:ball": {
+    "maxWaterDepth": 23,
+    "implosionChance": 0.5344535
+  },
+  "loconautics:bearing_axle": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:black_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:black_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:black_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:blue_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:blue_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:blue_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:brown_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:brown_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:brown_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:copycat_headstock": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:cyan_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:cyan_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:cyan_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:fluid_hatch_gray": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:ghost_wheel": {
+    "maxWaterDepth": 196,
+    "implosionChance": 0.05
+  },
+  "loconautics:gray_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:gray_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:gray_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:green_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:green_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:green_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:handbrake": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:hose_connector": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:hose_nozzle": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:hose_winch": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:industrial_glass_pipe": {
+    "maxWaterDepth": 76,
+    "implosionChance": 0.31137055
+  },
+  "loconautics:industrial_pipe": {
+    "maxWaterDepth": 76,
+    "implosionChance": 0.31137055
+  },
+  "loconautics:knuckle": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:light_blue_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:light_blue_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:light_blue_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:light_gray_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:light_gray_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:light_gray_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:lime_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:lime_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:lime_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:locomotive_gauge": {
+    "maxWaterDepth": 57,
+    "implosionChance": 0.43337092
+  },
+  "loconautics:magenta_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:magenta_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:magenta_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:orange_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:orange_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:orange_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:pink_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:pink_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:pink_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:purple_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:purple_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:purple_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:red_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:red_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:red_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:transmission": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:turntable_bearing": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:turntable_plate": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:white_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:white_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:white_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:yellow_analog_controller": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:yellow_buffer": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
+  "loconautics:yellow_dashboard": {
+    "maxWaterDepth": 82,
+    "implosionChance": 0.27459225
+  },
   "minecraft:acacia_button": {
     "maxWaterDepth": 27,
     "implosionChance": 0.5344535

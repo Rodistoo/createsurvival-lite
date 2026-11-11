@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "bivrik/common.json"
-hash = "f655ea6a6b96409b7e25289ccbdfc4d6cddaf569ba919dd22476e20d8447f73a"
+hash = "d41e479c34e237b55cfa640061984863cb7fb84032818fcc4128b12990e9fabc"
 
 [[files]]
 file = "bivrik/mods/fancytoasts.json"
-hash = "4b3ce4a306c6fa5fecf5a79205d006f1cf3c3a5c0bcfc5a596385f537799f62d"
+hash = "de14d564f4216269c7f76cce757c2eab162ae5481a30ad174b6fb1278063471b"
 
 [[files]]
 file = "config/BBEConfig.json"
@@ -1498,7 +1498,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "c64e5b0111512a53cb88f6e4963a8929027d67fa928ac4dc142991a3e19eea98"
+hash = "80480e1a81eaf3d4ec40fe7c6de61cd0a7455f83c01ceb8bdc4415f63fb4769b"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1682,7 +1682,7 @@ hash = "d6bee13ae45904562fc651630ce48fa4e70cd3853fe2f488403c9b67d0c74c2a"
 
 [[files]]
 file = "config/gravestonecurioscompat-common.toml"
-hash = "72600f265ecb14fb987c16ed99e91504a29250d9d30a273ca6e16edda6da7d6c"
+hash = "bfd885b5a9103f30b3b91a20b21e84c63cca5b3f2b3236428aa02336b5c2ab62"
 
 [[files]]
 file = "config/guideme.toml"
@@ -1742,7 +1742,7 @@ hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
 
 [[files]]
 file = "config/insanelib/common.toml"
-hash = "7d83d5d8664b8dc286388a2e285761b96199ba823187016063acbd33afffbf37"
+hash = "09d7c1d5228922a66797a6cc5947bb1b7c4fe7a6134ffb0d388c18af5fa7bd66"
 
 [[files]]
 file = "config/iris-excluded.json"
@@ -1750,7 +1750,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "7fd7a2693a0c59c2a745494f08b8f855bc724cc5096b072aab7ff22302c2b08b"
+hash = "4373698df3a5e02f8710856f596a836c17425d9f83d42246365b2d79ff9583e9"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2031,6 +2031,10 @@ hash = "d641bf3faf8f3cac38854d026f356f98915805578fc45bf596b2618ddbd4678e"
 [[files]]
 file = "config/lmft.json"
 hash = "2db3ac5121e652fc89122055e032f034f433fe4764acb2e93af9c88848267178"
+
+[[files]]
+file = "config/loconautics-client.toml"
+hash = "9780674a5f5e24322ebe069799688139ba71f476726a617f8795c082625ce601"
 
 [[files]]
 file = "config/magnumtorch-server.toml"
@@ -2630,7 +2634,7 @@ hash = "9589bc3070ad32b5ee3ce4f02323740340fff1db01f5d028bb2156d3126c9e4b"
 
 [[files]]
 file = "config/streamsreflowing/bank_features/.guide_version"
-hash = "915ae4e245a8938291ef90f1ed56a67e181036d0b3bde7bdad9db5f599e77449"
+hash = "889fbc507cb00528ea84ef3b88f70baa7a7dc8b1408f35e2b4a5723443ee7905"
 
 [[files]]
 file = "config/streamsreflowing/bank_features/.withdrew_2_13_2"
@@ -2638,7 +2642,7 @@ hash = "47b8a74a89873686ce4c3400289a2fe8cfc7ff7f1f7f25ef4fb781f101aaf9a2"
 
 [[files]]
 file = "config/streamsreflowing/bank_features/GUIDE.md"
-hash = "b0adf8e51e1c214172a26f7945fc65a0fc63ec49cf10af2f28fd44776244391c"
+hash = "816c14c269ba3909e30b508118b22d259717a64b558ce36a803de4596d1aa6a8"
 
 [[files]]
 file = "config/streamsreflowing/bank_features/README.md"
@@ -2670,11 +2674,11 @@ hash = "3fefd4ede5d87fe46e74c19e642fb8ffc90dffee1b8ee255f1ae823a6bcb7178"
 
 [[files]]
 file = "config/streamsreflowing/bank_styles/.guide_version"
-hash = "915ae4e245a8938291ef90f1ed56a67e181036d0b3bde7bdad9db5f599e77449"
+hash = "889fbc507cb00528ea84ef3b88f70baa7a7dc8b1408f35e2b4a5723443ee7905"
 
 [[files]]
 file = "config/streamsreflowing/bank_styles/GUIDE.md"
-hash = "b0adf8e51e1c214172a26f7945fc65a0fc63ec49cf10af2f28fd44776244391c"
+hash = "816c14c269ba3909e30b508118b22d259717a64b558ce36a803de4596d1aa6a8"
 
 [[files]]
 file = "config/streamsreflowing/bank_styles/README.md"
@@ -2690,7 +2694,7 @@ hash = "806e6b96cad4d91556d7ad60fc7134234170f39c02b9565777a78daabf140fcb"
 
 [[files]]
 file = "config/streamsreflowing/bank_styles/examples/03_patterns_and_mixes.json"
-hash = "cbce9c2f10aaf4c0bfa99017f62e87e3f47f404b50665bc59bb00f06979b7e66"
+hash = "77c4fb388586ed3107ec5489c2b9227fbad8134ba7b020de4913cb55b5493b47"
 
 [[files]]
 file = "config/streamsreflowing/bank_styles/examples/04_overrides.json"
@@ -2758,7 +2762,7 @@ hash = "d84f39220a4dde126c6b0f2052c13deb0d458c8ca4e46a6f01f8ef1ab0801b8d"
 
 [[files]]
 file = "config/submarine_hull.json"
-hash = "36d9f1beaaf335886ebca4de37079a6fb7cce8ab004f30043b4f95104a37a6b3"
+hash = "533edb3366ed36f40eee8bc0273faf0d515220ab6f8f0856f28707edbf56efa7"
 
 [[files]]
 file = "config/submarine_hull.json.bak.1790972099"
@@ -2958,7 +2962,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "905d7ea41d0807b6665e829aeb4f98e34310d50293a7ba1990bd7a15fee207ba"
+hash = "f3b06c069bc32cfa52f61dfa1e2a5ccac4fd381aaec8b39972dd2df8f5e7ffb6"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
