@@ -1498,7 +1498,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "80480e1a81eaf3d4ec40fe7c6de61cd0a7455f83c01ceb8bdc4415f63fb4769b"
+hash = "faf1eb1ffe30402c83646c3505d34c489003877e6312d0312e17d3c9e08a8552"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1750,7 +1750,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "4373698df3a5e02f8710856f596a836c17425d9f83d42246365b2d79ff9583e9"
+hash = "cf6a2231ed7eb1b7a56684f6bc5eb1d4875f51c1cc22d71a98bcbf6c60b49b67"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2962,7 +2962,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "f3b06c069bc32cfa52f61dfa1e2a5ccac4fd381aaec8b39972dd2df8f5e7ffb6"
+hash = "9e839b0612df89bc159d1167cf8a423304849da307208e545c2dd5743e1b90b5"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -7770,10 +7770,6 @@ metafile = true
 file = "mods/lmft-1.1.1-1.21.9-neoforge.pw.toml"
 hash = "35725a7bee95c5f0df1eeccd3ed406036c35fae26a7d7864fae1127a85957fdb"
 metafile = true
-
-[[files]]
-file = "mods/loconautics-0.1.1BETA.jar"
-hash = "c4a9a8b4b3bd8cec201efa5082f314ee4be72665a871f1046566ef0ebfa09a0d"
 
 [[files]]
 file = "mods/lootjs-neoforge-1.21.1-3.7.0.pw.toml"
