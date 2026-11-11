@@ -1,0 +1,13 @@
+name = "Create: Let The Adventure Begin"
+filename = "create_ltab-4.1.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/fUa6OtBG/versions/BQPhIZA4/create_ltab-4.1.1.jar"
+hash-format = "sha512"
+hash = "4cdf61c00401058517f617f7c18ead3f8f09ce94c2901163a277ce46e5a4fb4d40713c2018043c1d130838d72cb46806a58709596ecf8cf6a610ea84781a510a"
+
+[update]
+[update.modrinth]
+mod-id = "fUa6OtBG"
+version = "BQPhIZA4"

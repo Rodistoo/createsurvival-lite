@@ -125,6 +125,11 @@
 	#Industrial Alarms keep their lamp and light on while they sound instead of flashing.
 	#Turn this on if a photosensitive or epileptic player is on the server. Applies to every player.
 	alarmSteadyLight = false
+	#How hard ballast tanks pull a tilted submarine back upright.
+	#0 = no righting, the ship leans with its weight like with floaters.
+	# Default: 1.0
+	# Range: 0.0 ~ 10.0
+	ballastRighting = 1.0
 
 [experimental]
 	#Experimental: hide the ocean surface seen inside floating boats (sub-levels without an oxygen system).
