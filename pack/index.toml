@@ -1498,7 +1498,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "faf1eb1ffe30402c83646c3505d34c489003877e6312d0312e17d3c9e08a8552"
+hash = "158f703bdc351e96aa98651c3d524a1fcb242b2a83b7a1b537b706eb587b0e58"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1750,7 +1750,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "cf6a2231ed7eb1b7a56684f6bc5eb1d4875f51c1cc22d71a98bcbf6c60b49b67"
+hash = "886b9eb8598dca4bd825231fdee9c068c271ba7caa155e2d2db65ccb867f887a"
 
 [[files]]
 file = "config/item_descriptions.toml"
