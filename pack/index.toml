@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "bivrik/common.json"
-hash = "d41e479c34e237b55cfa640061984863cb7fb84032818fcc4128b12990e9fabc"
+hash = "10979cad0f8d904268b7ffc56918e4dd90097be7c07485133186af97b793a1a6"
 
 [[files]]
 file = "bivrik/mods/fancytoasts.json"
-hash = "de14d564f4216269c7f76cce757c2eab162ae5481a30ad174b6fb1278063471b"
+hash = "19debc98e4dc9d9b267a973a3d65a52da166a8324ffe5762f08be9959c607f6c"
 
 [[files]]
 file = "config/BBEConfig.json"
@@ -1498,7 +1498,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "158f703bdc351e96aa98651c3d524a1fcb242b2a83b7a1b537b706eb587b0e58"
+hash = "57a01b5fdf0ba5e8d500535c6f66e7676c1f4c3f8b7ab722a821c0c5864f53a0"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1750,7 +1750,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "886b9eb8598dca4bd825231fdee9c068c271ba7caa155e2d2db65ccb867f887a"
+hash = "9cad4bedaa229224c369584c4a3f8c6518bd230622e6bfa1a1159dee2abd1f6a"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2962,7 +2962,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "9e839b0612df89bc159d1167cf8a423304849da307208e545c2dd5743e1b90b5"
+hash = "e5003bdd16d4e30bb007a46dc04489ec6ebb22785b1f5d72365fcfaa117984e1"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -7770,6 +7770,10 @@ metafile = true
 file = "mods/lmft-1.1.1-1.21.9-neoforge.pw.toml"
 hash = "35725a7bee95c5f0df1eeccd3ed406036c35fae26a7d7864fae1127a85957fdb"
 metafile = true
+
+[[files]]
+file = "mods/loconautics-0.1.2BETA.jar"
+hash = "789a0b652e0d32c6399c6dc1ef914d954820315f8a8fb795af87bb700e4d2fe7"
 
 [[files]]
 file = "mods/lootjs-neoforge-1.21.1-3.7.0.pw.toml"
