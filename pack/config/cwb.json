@@ -1,5 +1,5 @@
 {
-  "fullscreenMode": "WINDOWED",
+  "fullscreenMode": "OFF",
   "preferredFullscreenMode": "WINDOWED",
   "useDelayedFullscreen": true,
   "useScaledFramebuffer": true,

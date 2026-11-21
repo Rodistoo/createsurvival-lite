@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "bivrik/common.json"
-hash = "10979cad0f8d904268b7ffc56918e4dd90097be7c07485133186af97b793a1a6"
+hash = "e589eba1c63b96744f2d9ad6cf3a5399a513d615ccefb12316621e7c333af81e"
 
 [[files]]
 file = "bivrik/mods/fancytoasts.json"
-hash = "19debc98e4dc9d9b267a973a3d65a52da166a8324ffe5762f08be9959c607f6c"
+hash = "f0ad92c39cdd987de9deae067d0457cfabacaf5745d10d806010bafc6551232e"
 
 [[files]]
 file = "config/BBEConfig.json"
@@ -902,7 +902,7 @@ hash = "2e77b1d93b40ce3f381ad7eb2a9e6d7148de917518be5c2616939a4369c4b140"
 
 [[files]]
 file = "config/create-server.toml"
-hash = "36216a05f3ed63106ba587c8c24ed6315385829e7f3dae695dcf545aba41a270"
+hash = "95425493bda11325a67f0ab087327d6bc849242d909f7f6fcf058e1bd9952df2"
 
 [[files]]
 file = "config/create_aeronautics_toolgun-client.properties"
@@ -910,11 +910,11 @@ hash = "caf3f7af53b9cc69eb644b32e80c132d3835693babda028fe4a1e4161154c806"
 
 [[files]]
 file = "config/create_aeronautics_toolgun-container.toml"
-hash = "5badac3c4153f5a7616cfd1e8cc0e7e34c686b8f461b0cc8a099b19c50cb4409"
+hash = "cb1ca623cc47eb3ba0c987dc554b4b6b237fa73cb9b6430fc311ac75054e5e2a"
 
 [[files]]
 file = "config/create_aeronautics_toolgun-server.toml"
-hash = "bed0d82c443ba94d2281e9080cf19e259114a9d106de777a479f6bb0f6a1a50f"
+hash = "f786af5180aed5c9f0924a8c158e2d05621e1612915c9254abf6fd442d08d583"
 
 [[files]]
 file = "config/create_dragons_plus-aether-integration-server.toml"
@@ -1002,7 +1002,7 @@ hash = "75a4f5f26a7bffbb0a8621fbb8cfe8865b5f7caaa184f3cf200e73872463e16f"
 
 [[files]]
 file = "config/create_submarine_client_state.json"
-hash = "b258d67088d98de2b8b20f3ccaf204f48e555828da51a301a2d96202a9cd4e08"
+hash = "a066e64228fb23c64792498aef801f6a89cf21fe79d339bbc51d2f2b7b8ac24c"
 
 [[files]]
 file = "config/createaddition-common.toml"
@@ -1170,7 +1170,7 @@ hash = "1a3bee95a96f082b8e97cccbce30c1efe1352b616c78e06d5884fd4475668add"
 
 [[files]]
 file = "config/cwb.json"
-hash = "604dccb377d60349902deabaea9880f41cc37d3abda301c5094a75cb29dc44d9"
+hash = "d0699658dceaf12de3061c47cc23751547c379bef5180b62915af7868a14f71a"
 
 [[files]]
 file = "config/darkerdepths-common.toml"
@@ -1498,7 +1498,7 @@ hash = "4067e50c6833df6619e511f2bc09630f16fa22e61cf250a8abbf3354afbe14f0"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "57a01b5fdf0ba5e8d500535c6f66e7676c1f4c3f8b7ab722a821c0c5864f53a0"
+hash = "49279e0a33645838a0cfdadcf4e48ea4fa9ee475c8e0338a611e31dbaa96921a"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
@@ -1750,7 +1750,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "9cad4bedaa229224c369584c4a3f8c6518bd230622e6bfa1a1159dee2abd1f6a"
+hash = "d2c620c4382ea95bc5812cd206d8cd58296270ab6e3a43a713c591835a744098"
 
 [[files]]
 file = "config/item_descriptions.toml"
@@ -2034,7 +2034,15 @@ hash = "2db3ac5121e652fc89122055e032f034f433fe4764acb2e93af9c88848267178"
 
 [[files]]
 file = "config/loconautics-client.toml"
-hash = "9780674a5f5e24322ebe069799688139ba71f476726a617f8795c082625ce601"
+hash = "c79a8a087b62d6d34e85fb85a667120d596a1b5b7da34256cf4bc94e2fd26faf"
+
+[[files]]
+file = "config/loconautics-experimental.toml"
+hash = "bbf6784af03b256ae4ab06fb5de4b7985b5603d304c7314abb7ba084f19df657"
+
+[[files]]
+file = "config/loconautics-server.toml"
+hash = "c7dd6b6f3e52f8dde6522499421dad52d3487c3d240d512e5c30c1d781a83a29"
 
 [[files]]
 file = "config/magnumtorch-server.toml"
@@ -2762,7 +2770,7 @@ hash = "d84f39220a4dde126c6b0f2052c13deb0d458c8ca4e46a6f01f8ef1ab0801b8d"
 
 [[files]]
 file = "config/submarine_hull.json"
-hash = "533edb3366ed36f40eee8bc0273faf0d515220ab6f8f0856f28707edbf56efa7"
+hash = "fe56be61819e8d4adacef34edff84abc37c91f4cb3c05a7459ada249a75711b9"
 
 [[files]]
 file = "config/submarine_hull.json.bak.1790972099"
@@ -2874,7 +2882,7 @@ hash = "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
 
 [[files]]
 file = "config/voicechat/voicechat-client.properties"
-hash = "a275712db70c61ec3635c62e42c87c4da2234e4ff57d065892d38687b2be91bc"
+hash = "c402bfac8b1c17ea9cf087814ad4ee500aa544209d209260b3c91b7f311e9bd9"
 
 [[files]]
 file = "config/voicechat/voicechat-server.properties"
@@ -2962,7 +2970,7 @@ hash = "d985bfc68899c91aa642736400472f6ab876dedaaef4b8c31f38b52d48de633d"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "e5003bdd16d4e30bb007a46dc04489ec6ebb22785b1f5d72365fcfaa117984e1"
+hash = "d256434a5549e79a7f9ceb3e60b12daf7615e336f4d0e9b068ab6aa474610b0b"
 
 [[files]]
 file = "createsurvival/mmc-pack.json"
@@ -7444,8 +7452,8 @@ hash = "dcbb37e828a2f915e64a2ef839a742761a553a2e3b923b000ffba95db7503ac3"
 metafile = true
 
 [[files]]
-file = "mods/createsurvival_core-1.110.4.jar"
-hash = "870d7a770a31cfeeeb34180ddc09bb394d8b79fdbfe70816bba231fb7cd31dbc"
+file = "mods/createsurvival_core-1.110.5.jar"
+hash = "508f4869b90b8725e8a0baa875ec469a0d9485b748612cfc1db5e7a207e88f1b"
 
 [[files]]
 file = "mods/createsurvival_mechanics-0.28.0.jar"

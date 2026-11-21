@@ -11,3 +11,9 @@
 	# Default: 256
 	# Range: 1 ~ 1048576
 	backupMaxSizeMB = 256
+	#Limit how many placed blocks a reusable or single-use vehicle container can pack. Applies to all players, including creative mode. Does not restrict releasing vehicles already stored.
+	limitCaptureBlocks = false
+	#Maximum blocks per packed vehicle when limitCaptureBlocks is true. Includes connected sublevels and supported moving contraptions; excludes inventory contents. A vehicle exactly at the limit is allowed.
+	# Default: 4096
+	# Range: > 1
+	maxCaptureBlocks = 4096
